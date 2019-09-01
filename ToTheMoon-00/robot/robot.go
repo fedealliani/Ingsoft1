@@ -41,28 +41,45 @@ func (robot *Robot) DeterminarTipoDesuelo(dureza int64, porosidad int64) suelo.S
 
 //Excavar Excava un tipo de suelo dado
 func (robot *Robot) Excavar(su suelo.Suelo) {
-	var sentido types.Sentido
-	var velocidad types.Velocidad
-	var duration time.Duration
+	var sentidoInicial types.Sentido
+	var sentidoFinal types.Sentido
+	var velocidadInicial types.Velocidad
+	var velocidadFinal types.Velocidad
+	var duracionInicial time.Duration
+	var duracionFinal time.Duration
 
 	switch su {
 	case suelo.SueloPiedra:
-		sentido = types.SENTIDO_HORARIO
-		velocidad = 150
-		duration = time.Minute * 10
+		sentidoInicial = types.SENTIDO_HORARIO
+		sentidoFinal = types.SENTIDO_ANTI_HORARIO
+		velocidadInicial = 150
+		velocidadFinal = 150
+		duracionInicial = time.Minute * 10
+		duracionFinal = time.Minute * 10
 		break
 	case suelo.SueloPolvo:
-		sentido = types.SENTIDO_ANTI_HORARIO
-		velocidad = 100
-		duration = time.Minute * 5
+		sentidoInicial = types.SENTIDO_ANTI_HORARIO
+		sentidoFinal = types.SENTIDO_HORARIO
+		velocidadInicial = 100
+		velocidadFinal = 100
+		duracionInicial = time.Minute * 5
+		duracionFinal = time.Minute * 5
+		break
+	case suelo.SueloIntermedio:
+		sentidoInicial = types.SENTIDO_HORARIO
+		sentidoFinal = types.SENTIDO_ANTI_HORARIO
+		velocidadInicial = 150
+		velocidadFinal = 100
+		duracionInicial = time.Minute * 5
+		duracionFinal = time.Minute * 10
 		break
 	}
 
 	fmt.Printf("Obteniendo una muestra del %s...\n", su.Nombre)
 	robot.abrirPinza()
-	robot.girarMecha(sentido, velocidad, duration)
+	robot.girarMecha(sentidoInicial, velocidadInicial, duracionInicial)
 	robot.cerrarPinza()
-	robot.girarMecha(!sentido, velocidad, duration)
+	robot.girarMecha(sentidoFinal, velocidadFinal, duracionFinal)
 	robot.abrirPinza()
 	fmt.Printf("Muestra obtenida del %s\n", su.Nombre)
 }

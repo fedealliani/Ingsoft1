@@ -20,8 +20,15 @@ var (
 		Porosidad: 100,
 	}
 
+	SueloIntermedio = Suelo{
+		Nombre:    "Suelo intermedio",
+		Dureza:    50,
+		Porosidad: 50,
+	}
+
 	Suelos = []Suelo{
 		SueloPiedra,
 		SueloPolvo,
+		SueloIntermedio,
 	}
 )
