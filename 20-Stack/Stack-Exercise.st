@@ -145,12 +145,58 @@ TestCase subclass: #SentenceFinderByPrefixTest
 	category: 'Stack-Exercise'!
 
 
-!classDefinition: #OOStack category: #'Stack-Exercise'!
-Object subclass: #OOStack
-	instanceVariableNames: ''
+!classDefinition: #NameOfSubclass category: #'Stack-Exercise'!
+Object subclass: #NameOfSubclass
+	instanceVariableNames: 'array'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
+
+
+!classDefinition: #OOStack category: #'Stack-Exercise'!
+Object subclass: #OOStack
+	instanceVariableNames: 'collection'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!OOStack methodsFor: 'testing' stamp: 'LR 9/16/2019 19:48:59'!
+isEmpty
+
+	^ collection isEmpty.! !
+
+
+!OOStack methodsFor: 'initialization' stamp: 'LR 9/16/2019 19:46:48'!
+initialize
+
+	collection := OrderedCollection new.! !
+
+
+!OOStack methodsFor: 'adding' stamp: 'LR 9/16/2019 19:47:30'!
+push: anObject
+
+	collection addFirst: anObject.! !
+
+
+!OOStack methodsFor: 'removing' stamp: 'LR 9/16/2019 20:23:22'!
+pop
+
+	(collection isEmpty) ifTrue: [ self error: self class stackEmptyErrorDescription ].
+	^ collection removeFirst.! !
+
+
+!OOStack methodsFor: 'accessing' stamp: 'LR 9/16/2019 19:54:15'!
+size
+
+	^ collection size.! !
+
+!OOStack methodsFor: 'accessing' stamp: 'LR 9/16/2019 20:23:39'!
+top
+
+	(collection isEmpty) ifTrue: [ self error: self class stackEmptyErrorDescription ].
+	^ collection first.
+
+	! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
