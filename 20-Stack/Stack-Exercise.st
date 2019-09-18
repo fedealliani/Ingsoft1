@@ -160,41 +160,40 @@ Object subclass: #OOStack
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!OOStack methodsFor: 'testing' stamp: 'LR 9/16/2019 19:48:59'!
+!OOStack methodsFor: 'testing' stamp: 'FA 9/18/2019 19:50:17'!
 isEmpty
 
-	^ collection isEmpty.! !
+	^ self size = 0.! !
 
 
-!OOStack methodsFor: 'initialization' stamp: 'LR 9/16/2019 19:46:48'!
+!OOStack methodsFor: 'initialization' stamp: 'FA 9/18/2019 19:58:56'!
 initialize
 
-	collection := OrderedCollection new.! !
+	collection := OrderedCollection with:(EmptyStackSlot  new) .
+! !
 
 
-!OOStack methodsFor: 'adding' stamp: 'LR 9/16/2019 19:47:30'!
+!OOStack methodsFor: 'adding' stamp: 'FA 9/18/2019 19:52:32'!
 push: anObject
 
-	collection addFirst: anObject.! !
+	collection addFirst: (FilledStackSlot with: anObject) .! !
 
 
-!OOStack methodsFor: 'removing' stamp: 'LR 9/16/2019 20:23:22'!
+!OOStack methodsFor: 'removing' stamp: 'FA 9/18/2019 19:56:11'!
 pop
+      self top.
+	^ collection removeFirst content.! !
 
-	(collection isEmpty) ifTrue: [ self error: self class stackEmptyErrorDescription ].
-	^ collection removeFirst.! !
 
-
-!OOStack methodsFor: 'accessing' stamp: 'LR 9/16/2019 19:54:15'!
+!OOStack methodsFor: 'accessing' stamp: 'FA 9/18/2019 19:53:06'!
 size
 
-	^ collection size.! !
+	^ collection size - 1.! !
 
-!OOStack methodsFor: 'accessing' stamp: 'LR 9/16/2019 20:23:39'!
+!OOStack methodsFor: 'accessing' stamp: 'FA 9/18/2019 19:53:24'!
 top
 
-	(collection isEmpty) ifTrue: [ self error: self class stackEmptyErrorDescription ].
-	^ collection first.
+	^ collection first content.
 
 	! !
 
@@ -216,3 +215,49 @@ Object subclass: #SentenceFinderByPrefix
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
+
+
+!classDefinition: #StackSlot category: #'Stack-Exercise'!
+Object subclass: #StackSlot
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+
+!classDefinition: #EmptyStackSlot category: #'Stack-Exercise'!
+StackSlot subclass: #EmptyStackSlot
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!EmptyStackSlot methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 19:46:39'!
+content
+	self error: OOStack stackEmptyErrorDescription .! !
+
+
+!classDefinition: #FilledStackSlot category: #'Stack-Exercise'!
+StackSlot subclass: #FilledStackSlot
+	instanceVariableNames: 'content'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!FilledStackSlot methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 19:47:10'!
+content
+	^content.! !
+
+!FilledStackSlot methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 19:47:36'!
+initializeWith: aValue
+	content := aValue .! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'FilledStackSlot class' category: #'Stack-Exercise'!
+FilledStackSlot class
+	instanceVariableNames: ''!
+
+!FilledStackSlot class methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 19:52:03'!
+with: aValue
+	^ self new initializeWith:aValue.! !
