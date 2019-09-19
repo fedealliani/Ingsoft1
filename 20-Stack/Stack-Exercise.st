@@ -139,10 +139,96 @@ test10CanNotTopWhenThereAreNoObjectsInTheStack
 
 !classDefinition: #SentenceFinderByPrefixTest category: #'Stack-Exercise'!
 TestCase subclass: #SentenceFinderByPrefixTest
-	instanceVariableNames: ''
+	instanceVariableNames: 'stack finder'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
+
+!SentenceFinderByPrefixTest methodsFor: 'setup' stamp: 'FA 9/18/2019 21:01:45'!
+setUp
+
+	finder := SentenceFinderByPrefix new.
+	stack := OOStack new.
+	! !
+
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 22:44:53'!
+areEqual:aStack with:otherStack
+	(stack size = aStack size) ifFalse: [^false].
+	1 to: aStack size do: [:index | 
+		(aStack pop = otherStack  pop) ifFalse: [^false].
+		].
+	^true.! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 21:02:01'!
+test01OnFindEmptyPrefixRaiseError
+
+	self
+		should: [ finder find: '' in:stack  ]
+		raise: Error
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = (SentenceFinderByPrefix  prefixEmptyErrorDescription) ]
+		! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 21:02:05'!
+test02OnFindPrefixWithSpacesRaiseError
+
+	self
+		should: [ finder find: 'hola don pepito' in:stack  ]
+		raise: Error
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = (SentenceFinderByPrefix  prefixContainsSpaceErrorDescription ) ]
+	! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 21:04:06'!
+test03OnFindValidPrefixInEmptyStackReturnEmptyCollection
+
+	self assert:( (finder find: 'pepito' in: stack) size = 0)
+	! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 22:32:07'!
+test04OnFindValidPrefixAndStackContainsStringWithThisPrefixReturnNonEmptyCollection
+	| result frase1 frase2 |
+	frase1 := 'pepito es una gran persona'.
+	frase2 := 'pepito tiene 20 años'.
+	stack push:frase1.
+	stack push: 'carlitos es una mala persona'.
+	stack push: 'hola don pepito'.
+	stack push: frase2.
+	result := finder find: 'pepito' in: stack.
+	self assert: result size = 2.
+	self assert: (result at:1) = frase2.
+	self assert: (result at:2) = frase1.! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 22:44:23'!
+test05OnFindStackNotChange
+	| stackCopy frase1 frase2 |
+	frase1 := 'pepito es una gran persona'.
+	frase2 := 'pepito tiene 20 años'.
+	stack push:frase1.
+	stack push: frase2.
+	stackCopy := stack veryDeepCopy .
+	finder find: 'pepito' in: stack.
+	self assert: (self areEqual:stack  with:stackCopy ).
+	! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 22:47:51'!
+test06OnFindValidPrefixAndStackNotContainsStringWithThisPrefixReturnEmptyCollection
+	| result |
+	stack push:'pepito es una gran persona'.
+	stack push: 'carlitos es una mala persona'.
+	stack push: 'hola don pepito'.
+	stack push: 'pepito tiene 20 años'.
+	result := finder find: 'jorgito' in: stack.
+	self assert: result size = 0.! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 22:59:32'!
+test07OnFindFilterNonStringObjectsInStack
+	| result |
+	stack push:'pepito es una gran persona'.
+	stack push: stack.
+	result := finder find: 'jorgito' in: stack.
+	self assert: result size = 0.! !
 
 
 !classDefinition: #NameOfSubclass category: #'Stack-Exercise'!
@@ -215,6 +301,36 @@ Object subclass: #SentenceFinderByPrefix
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
+
+!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 23:00:38'!
+find: aPrefix in: aStack
+	| stackTemporal resultado |
+	"Asumimos que aPrefix es un string y aStack es un stack. "
+	aPrefix ifEmpty: [self error: self class prefixEmptyErrorDescription ].
+	((aPrefix  findString:' ') > 0) ifTrue: [self error: self class prefixContainsSpaceErrorDescription].
+	resultado := OrderedCollection new.
+	stackTemporal := aStack veryDeepCopy.
+	1 to: aStack size do: [:index | 
+		| tope |
+		tope:= stackTemporal pop.
+		((tope isKindOf:String) and: [tope beginsWith: aPrefix]) ifTrue: [ resultado add: tope.]
+		].
+	^resultado.
+! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'SentenceFinderByPrefix class' category: #'Stack-Exercise'!
+SentenceFinderByPrefix class
+	instanceVariableNames: ''!
+
+!SentenceFinderByPrefix class methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 20:35:14'!
+prefixContainsSpaceErrorDescription
+	^ 'El prefijo no puede contener espacios vacios'.! !
+
+!SentenceFinderByPrefix class methodsFor: 'as yet unclassified' stamp: 'FA 9/18/2019 20:25:40'!
+prefixEmptyErrorDescription
+	^ 'El prefijo no puede ser vacio'.! !
 
 
 !classDefinition: #StackSlot category: #'Stack-Exercise'!
