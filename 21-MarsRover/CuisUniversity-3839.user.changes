@@ -1,0 +1,5041 @@
+
+
+----QUIT----(11 August 2019 20:30:30) CuisUniversity-3839.image priorSource: 9989307!
+
+----STARTUP---- (11 August 2019 20:30:31) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-3839.image!
+
+
+!classDefinition: #BecomeTestExperiment category: #'BaseImageTests-Kernel'!
+Object subclass: #BecomeTestExperiment
+	instanceVariableNames: 'a b'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'BaseImageTests-Kernel'!
+
+!classDefinition: #BecomeTestExperiment category: #'BaseImageTests-Kernel'!
+Object subclass: #BecomeTestExperiment
+	instanceVariableNames: 'a b'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'BaseImageTests-Kernel'!
+!ArrayLiteralTest methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:30:50'!
+array ^ #(nil true false)! !
+
+ArrayLiteralTest removeSelector: #array!
+!ArrayLiteralTest methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:30:50'!
+array ^ #(#nil #true #false #'nil' #'true' #'false')! !
+
+ArrayLiteralTest removeSelector: #array!
+
+!classDefinition: #ClassToAddInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddInstVar
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToAddInstVar!
+
+!classDefinition: #SuperclassWithInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #SuperclassWithInstVar
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToAddInstVar category: #'__Refactoring-TestData__'!
+SuperclassWithInstVar subclass: #ClassToAddInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToAddInstVar!
+
+Smalltalk removeClassNamed: #SuperclassWithInstVar!
+
+!classDefinition: #ClassToAddInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #SubclassWithInstVar category: #'__Refactoring-TestData__'!
+ClassToAddInstVar subclass: #SubclassWithInstVar
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #SubclassWithInstVar!
+
+Smalltalk removeClassNamed: #ClassToAddInstVar!
+
+!classDefinition: #ClassToAddInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToAddInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddInstVar
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToAddInstVar!
+
+!classDefinition: #ClassToAddInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:31'!
+m1 | a | a := 10.! !
+
+Smalltalk removeClassNamed: #ClassToAddInstVar!
+
+!classDefinition: #ClassToAddInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:31'!
+m1:a! !
+
+Smalltalk removeClassNamed: #ClassToAddInstVar!
+
+!classDefinition: #ClassToAddInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:32'!
+m1 [ :a | ] value: 1! !
+
+Smalltalk removeClassNamed: #ClassToAddInstVar!
+
+!classDefinition: #ClassToAddInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:32'!
+m1 [ | a | ] value! !
+
+Smalltalk removeClassNamed: #ClassToAddInstVar!
+
+!classDefinition: #ClassToAddInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #SubclassOfClassToRefactor category: #'__Refactoring-TestData__'!
+ClassToAddInstVar subclass: #SubclassOfClassToRefactor
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!SubclassOfClassToRefactor methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:33'!
+m1 | a | ! !
+
+Smalltalk removeClassNamed: #SubclassOfClassToRefactor!
+
+Smalltalk removeClassNamed: #ClassToAddInstVar!
+
+!classDefinition: #ClassToAddInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToAddInstVar!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:34'!
+m1! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:34'!
+sender_m1 self m1! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:34'!
+m1: newParam! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:34' prior: 50722580!
+sender_m1 self m1: 1! !
+
+ClassToAddParameter removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:35'!
+m1: oldParam! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:35'!
+sender_m1 self m1: 1! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:35'!
+m1: oldParam m2: newParam ! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:35' prior: 50722606!
+sender_m1 self m1: 1 m2: 2! !
+
+ClassToAddParameter removeSelector: #m1:!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:35'!
+m1: oldParam! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:35'!
+sender_m1 self m1: 1. self m1: 1.! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:35'!
+m1: oldParam m2: newParam ! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:35' prior: 50722633!
+sender_m1 self m1: 1 m2: 2. self m1: 1 m2: 2.! !
+
+ClassToAddParameter removeSelector: #m1:!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:36'!
+m1: oldParam! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:36'!
+sender_m1 self m1: self size.! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:36'!
+m1: oldParam m2: newParam ! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:36' prior: 50722661!
+sender_m1 self m1: self size m2: 2.! !
+
+ClassToAddParameter removeSelector: #m1:!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:36'!
+m1: oldParam! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:36'!
+sender_m1 self m1: self size + 4.! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:36'!
+m1: oldParam m2: newParam ! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:36' prior: 50722689!
+sender_m1 self m1: self size + 4 m2: 2.! !
+
+ClassToAddParameter removeSelector: #m1:!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:37'!
+m1: oldParam! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:37'!
+sender_m1 self m1: (self at: 1 put: 2).! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:37'!
+m1: oldParam m2: newParam ! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:37' prior: 50722717!
+sender_m1 self m1: (self at: 1 put: 2) m2: 2.! !
+
+ClassToAddParameter removeSelector: #m1:!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:38'!
+m1! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:38'!
+sender_m1 #m1 size! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:38'!
+m1: newParam! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:38' prior: 50722745!
+sender_m1 #m1: size! !
+
+ClassToAddParameter removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:38'!
+m1: oldParam! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:38'!
+sender_m1 #m1: size.! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:38'!
+m1: oldParam m2: newParam ! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:38' prior: 50722771!
+sender_m1 #m1:m2: size.! !
+
+ClassToAddParameter removeSelector: #m1:!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: 'newParam'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:40'!
+m1! !
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:41'!
+m1:newParam! !
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:43'!
+m1! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:43'!
+sender_m1 self m1
+	! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:43'!
+m1: newParam! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:43' prior: 50722821!
+sender_m1 self m1: 1
+	! !
+
+ClassToAddParameter removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:44'!
+m1! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:44'!
+sender_m1 self m1! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:44'!
+m1: newParam! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:44' prior: 50722846!
+sender_m1 self m1: (self at: 1)! !
+
+ClassToAddParameter removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:45'!
+m1: oldParam! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:45'!
+sender_m1 self m1: 1! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:45'!
+m1: oldParam m2: newParam ! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:45' prior: 50722872!
+sender_m1 self m1: 1 m2: (self at: 1)! !
+
+ClassToAddParameter removeSelector: #m1:!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:45'!
+m1: oldParam! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:45'!
+sender_m1 self m1:[ 1 factorial ]! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:45'!
+m1: oldParam m2: newParam ! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:45' prior: 50722900!
+sender_m1 self m1:[ 1 factorial ] m2: 1! !
+
+ClassToAddParameter removeSelector: #m1:!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:46'!
+m1: p1! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:46'!
+sender self m1: 1! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:46'!
+m2: newParam m1: p1! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:46' prior: 50722928!
+sender self m2: 2 m1: 1! !
+
+ClassToAddParameter removeSelector: #m1:!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:46'!
+m1: p1 m3: p3! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:46'!
+sender self m1: 1 m3: 3! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:46'!
+m1: p1 m2: newParam m3: p3! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:46' prior: 50722954!
+sender self m1: 1 m2: 2 m3: 3! !
+
+ClassToAddParameter removeSelector: #m1:m3:!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:47'!
+m1: p1 m3: p3! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:47'!
+sender
+	self m1: 1 m3: 3.
+	self
+		m1: 4
+		m3: 6! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:47'!
+m1: p1 m2: newParam m3: p3! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:47' prior: 50722981!
+sender
+	self m1: 1 m2: 2 m3: 3.
+	self
+		m1: 4
+		m2: 2 m3: 6! !
+
+ClassToAddParameter removeSelector: #m1:m3:!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:48'!
+m1
+
+! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:48'!
+sender_m1 self m1! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:48'!
+m1: newParam
+
+! !
+!ClassToAddParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:48' prior: 50723009!
+sender_m1 self m1: 1! !
+
+ClassToAddParameter removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToAddParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToAddParameter!
+
+!classDefinition: #ClassToChangeSelectorOrder category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeSelectorOrder
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeSelectorOrder methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:50'!
+m1: p1 m2: p2! !
+!ClassToChangeSelectorOrder methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:50'!
+m2: p2 m1: p1! !
+
+ClassToChangeSelectorOrder removeSelector: #m1:m2:!
+
+Smalltalk removeClassNamed: #ClassToChangeSelectorOrder!
+
+!classDefinition: #ClassToChangeSelectorOrder category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeSelectorOrder
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeSelectorOrder methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:51'!
+m1: p1 m2: p2! !
+!ClassToChangeSelectorOrder methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:51'!
+m2: p2 m1: p1! !
+
+ClassToChangeSelectorOrder removeSelector: #m1:m2:!
+
+Smalltalk removeClassNamed: #ClassToChangeSelectorOrder!
+
+!classDefinition: #ClassToChangeSelectorOrder category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeSelectorOrder
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeSelectorOrder methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:51'!
+m1: p1 m2: p2 m3: p3! !
+!ClassToChangeSelectorOrder methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:31:51'!
+m2: p2 m3: p3 m1: p1! !
+
+ClassToChangeSelectorOrder removeSelector: #m1:m2:m3:!
+
+Smalltalk removeClassNamed: #ClassToChangeSelectorOrder!
+
+!classDefinition: #ClassToExtractTemp category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToExtractTemp
+	instanceVariableNames: 'new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToExtractTemp!
+
+!classDefinition: #ClassToRefactorSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRefactorSuperclass
+	instanceVariableNames: 'new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToExtractTemp category: #'__Refactoring-TestData__'!
+ClassToRefactorSuperclass subclass: #ClassToExtractTemp
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToExtractTemp!
+
+Smalltalk removeClassNamed: #ClassToRefactorSuperclass!
+
+!classDefinition: #ClassToAddSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #AddedSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #AddedSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToAddSuperclass category: #'__Refactoring-TestData__'!
+AddedSuperclass subclass: #ClassToAddSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToAddSuperclass!
+
+Smalltalk removeClassNamed: #AddedSuperclass!
+
+!classDefinition: #ClassToAddSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddSuperclass
+	instanceVariableNames: 'instVar1 instVar2'
+	classVariableNames: 'ClassVar1 ClassVar2'
+	poolDictionaries: 'SharedAAA'
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #AddedSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #AddedSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToAddSuperclass category: #'__Refactoring-TestData__'!
+AddedSuperclass subclass: #ClassToAddSuperclass
+	instanceVariableNames: 'instVar1 instVar2'
+	classVariableNames: 'ClassVar1 ClassVar2'
+	poolDictionaries: 'SharedAAA'
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToAddSuperclass!
+
+Smalltalk removeClassNamed: #AddedSuperclass!
+
+!classDefinition: #ClassToAddSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #AddedSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #AddedSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToAddSuperclass category: #'__Refactoring-TestData__'!
+AddedSuperclass subclass: #ClassToAddSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToAddSuperclass!
+
+Smalltalk removeClassNamed: #AddedSuperclass!
+
+!classDefinition: #ClassToAddSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #AddedSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #AddedSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToAddSuperclass category: #'__Refactoring-TestData__'!
+AddedSuperclass subclass: #ClassToAddSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToAddSuperclass!
+
+Smalltalk removeClassNamed: #AddedSuperclass!
+
+!classDefinition: #ClassToAddSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #AlreadyExistingClass category: #'__Refactoring-TestData__'!
+Object subclass: #AlreadyExistingClass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToAddSuperclass!
+
+Smalltalk removeClassNamed: #AlreadyExistingClass!
+
+!classDefinition: #ClassToAddSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAddSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #AddedSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #AddedSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToAddSuperclass category: #'__Refactoring-TestData__'!
+AddedSuperclass subclass: #ClassToAddSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToAddSuperclass!
+
+Smalltalk removeClassNamed: #AddedSuperclass!
+
+!classDefinition: #ClassWithoutInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassWithoutInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassWithoutInstVar!
+
+!classDefinition: #ClassWithInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassWithInstVar
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassWithInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassWithInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassWithInstVar!
+
+!classDefinition: #ClassWithInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassWithInstVar
+	instanceVariableNames: 'a b'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassWithInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:05'!
+m1 ^a! !
+
+!classDefinition: #ClassWithInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassWithInstVar
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassWithInstVar!
+
+!classDefinition: #ClassWithInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassWithInstVar
+	instanceVariableNames: 'a b'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassWithReferenceInstVar category: #'__Refactoring-TestData__'!
+ClassWithInstVar subclass: #ClassWithReferenceInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassWithReferenceInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:06'!
+m1 ^a! !
+
+!classDefinition: #ClassWithInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassWithInstVar
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassWithReferenceInstVar!
+
+Smalltalk removeClassNamed: #ClassWithInstVar!
+
+!classDefinition: #ClassWithoutInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassWithoutInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassWithoutInstVar!
+
+!classDefinition: #ClassWithInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassWithInstVar
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassWithInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:07'!
+m1 ^a! !
+
+Smalltalk removeClassNamed: #ClassWithInstVar!
+
+!classDefinition: #ClassWithInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassWithInstVar
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassWithInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassWithInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassWithInstVar!
+
+!classDefinition: #ClassToRemoveParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemoveParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:09'!
+m1: parameter! !
+
+Smalltalk removeClassNamed: #ClassToRemoveParameter!
+
+!classDefinition: #ClassToRemoveParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemoveParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:09'!
+m1: parameter! !
+
+Smalltalk removeClassNamed: #ClassToRemoveParameter!
+
+!classDefinition: #ClassToRemoveParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemoveParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:10'!
+m1: parameter! !
+
+Smalltalk removeClassNamed: #ClassToRemoveParameter!
+
+!classDefinition: #ClassToRemoveParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemoveParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:10'!
+m1: parameter ^parameter! !
+
+Smalltalk removeClassNamed: #ClassToRemoveParameter!
+
+!classDefinition: #ClassToRemoveParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemoveParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:11'!
+m1:parameter1 
+	m2:parameter2! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:11'!
+m2:parameter2! !
+
+ClassToRemoveParameter removeSelector: #m1:m2:!
+
+Smalltalk removeClassNamed: #ClassToRemoveParameter!
+
+!classDefinition: #ClassToRemoveParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemoveParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:11'!
+m1:parameter1 m2:parameter2
+	| t1 |! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:11'!
+m1:parameter1 
+	| t1 |! !
+
+ClassToRemoveParameter removeSelector: #m1:m2:!
+
+Smalltalk removeClassNamed: #ClassToRemoveParameter!
+
+!classDefinition: #ClassToRemoveParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemoveParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:12'!
+m0: parameter0 
+	m1:parameter1 
+	m2:parameter2! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:12'!
+m0: parameter0 
+	m2:parameter2! !
+
+ClassToRemoveParameter removeSelector: #m0:m1:m2:!
+
+Smalltalk removeClassNamed: #ClassToRemoveParameter!
+
+!classDefinition: #ClassToRemoveParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemoveParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:13'!
+m1:parameter1! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:13'!
+m1! !
+
+ClassToRemoveParameter removeSelector: #m1:!
+
+Smalltalk removeClassNamed: #ClassToRemoveParameter!
+
+!classDefinition: #ClassToRemoveParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemoveParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:13'!
+m1:parameter1 m2:parameter2! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:13'!
+sender
+		self 
+			m1: 1 
+			m2: 2 ! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:13'!
+m2:parameter2! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:13' prior: 50723512!
+sender
+		self 
+			m2: 2 ! !
+
+ClassToRemoveParameter removeSelector: #m1:m2:!
+
+Smalltalk removeClassNamed: #ClassToRemoveParameter!
+
+!classDefinition: #ClassToRemoveParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemoveParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:14'!
+m1:parameter1! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:14'!
+sender
+		self 
+			m1:
+			 (1+2).! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:14'!
+m1! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:14' prior: 50723540!
+sender
+		self 
+			m1.! !
+
+ClassToRemoveParameter removeSelector: #m1:!
+
+Smalltalk removeClassNamed: #ClassToRemoveParameter!
+
+!classDefinition: #ClassToRemoveParameter category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemoveParameter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:14'!
+m1:parameter1 m2:parameter2! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:14'!
+sender
+		self m1: (1+1) m2: 2.
+		self m1: 3 m2: 4.! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:14'!
+m2:parameter2! !
+!ClassToRemoveParameter methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:14' prior: 50723567!
+sender
+		self m2: 2.
+		self m2: 4.! !
+
+ClassToRemoveParameter removeSelector: #m1:m2:!
+
+Smalltalk removeClassNamed: #ClassToRemoveParameter!
+
+!classDefinition: #OldClassTest07 category: #'__Refactoring-TestData__'!
+Object subclass: #OldClassTest07
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #NewClassTest07!
+
+!classDefinition: #OldClassTest07 category: #'__Refactoring-TestData__'!
+Object subclass: #OldClassTest07
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!OldClassTest07 methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:17'!
+m1 OldClassTest07 new! !
+!NewClassTest07 methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:17' prior: 50723599!
+m1 NewClassTest07 new! !
+
+Smalltalk removeClassNamed: #NewClassTest07!
+
+!classDefinition: #OldClassTest08 category: #'__Refactoring-TestData__'!
+Object subclass: #OldClassTest08
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!OldClassTest08 methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:18'!
+m1 #OldClassTest08 size! !
+!NewClassTest8 methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:18' prior: 50723615!
+m1 #NewClassTest8 size! !
+
+Smalltalk removeClassNamed: #NewClassTest8!
+
+!classDefinition: #OldClassTest09 category: #'__Refactoring-TestData__'!
+Object subclass: #OldClassTest09
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!OldClassTest09 methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:18'!
+m1 OldClassTest09 new. Object new! !
+!NewClassTest09 methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:18' prior: 50723631!
+m1 NewClassTest09 new. Object new! !
+
+Smalltalk removeClassNamed: #NewClassTest09!
+
+!classDefinition: #OldClassTest10 category: #'__Refactoring-TestData__'!
+Object subclass: #OldClassTest10
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!OldClassTest10 methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:19'!
+m1 #OldClassTest10 size. #Object size! !
+!NewClassTest10 methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:19' prior: 50723649!
+m1 #NewClassTest10 size. #Object size! !
+
+Smalltalk removeClassNamed: #NewClassTest10!
+
+!classDefinition: #OldClassTest11 category: #'__Refactoring-TestData__'!
+Object subclass: #OldClassTest11
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!OldClassTest11 methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:20'!
+m1 OldClassTest11 new. #OldClassTest11 size! !
+!NewClassTest11 methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:20' prior: 50723667!
+m1 NewClassTest11 new. #NewClassTest11 size! !
+
+Smalltalk removeClassNamed: #NewClassTest11!
+
+!classDefinition: #OldClassTest14 category: #'__Refactoring-TestData__'!
+Object subclass: #OldClassTest14
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #OldClassTest14!
+
+!classDefinition: #ClassReferencingClassVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassReferencingClassVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassReferencingClassVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:21'!
+m1 ^OldClassTest15! !
+
+!classDefinition: #OldClassTest15 category: #'__Refactoring-TestData__'!
+Object subclass: #OldClassTest15
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #NewClassTest15!
+
+Smalltalk removeClassNamed: #ClassReferencingClassVar!
+
+!classDefinition: #ClassReferencingClassVarSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #ClassReferencingClassVarSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassReferencingClassVar category: #'__Refactoring-TestData__'!
+ClassReferencingClassVarSuperclass subclass: #ClassReferencingClassVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassReferencingClassVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:22'!
+m1 ^OldClassTest16! !
+
+!classDefinition: #OldClassTest16 category: #'__Refactoring-TestData__'!
+Object subclass: #OldClassTest16
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #NewClassTest16!
+
+Smalltalk removeClassNamed: #ClassReferencingClassVar!
+
+Smalltalk removeClassNamed: #ClassReferencingClassVarSuperclass!
+
+!classDefinition: #ClassReferencingClassVarSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #ClassReferencingClassVarSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassReferencingClassVar category: #'__Refactoring-TestData__'!
+ClassReferencingClassVarSuperclass subclass: #ClassReferencingClassVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassReferencingClassVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:23'!
+m1 ^NewClassTest17! !
+
+!classDefinition: #OldClassTest17 category: #'__Refactoring-TestData__'!
+Object subclass: #OldClassTest17
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #NewClassTest17!
+
+Smalltalk removeClassNamed: #ClassReferencingClassVar!
+
+Smalltalk removeClassNamed: #ClassReferencingClassVarSuperclass!
+
+!classDefinition: #OldClassTest18 category: #'__Refactoring-TestData__'!
+Object subclass: #OldClassTest18
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!OldClassTest18 methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:24'!
+m1 ^OldClassTest18! !
+!NewClassTest18 methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:25' prior: 50723781!
+m1 ^NewClassTest18! !
+
+Smalltalk removeClassNamed: #NewClassTest18!
+
+!classDefinition: #OldClassTest18 category: #'__Refactoring-TestData__'!
+Object subclass: #OldClassTest18
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #OldClassTest18!
+
+!classDefinition: #AClassToRefactor category: #'__Refactoring-TestData__'!
+Object subclass: #AClassToRefactor
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!AClassToRefactor methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:28'!
+m1 ^OldNameToRename__! !
+!AClassToRefactor methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:28' prior: 50723809!
+m1 ^NewNameToRename__! !
+
+Smalltalk removeClassNamed: #AClassToRefactor!
+
+!classDefinition: #AClassToRefactor category: #'__Refactoring-TestData__'!
+Object subclass: #AClassToRefactor
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!AClassToRefactor methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:28'!
+m1 ^#OldNameToRename__! !
+!AClassToRefactor methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:28' prior: 50723825!
+m1 ^#NewNameToRename__! !
+
+Smalltalk removeClassNamed: #AClassToRefactor!
+
+!classDefinition: #ClassReferencingClassVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassReferencingClassVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassReferencingClassVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:29'!
+m1 ^OldNameToRename__! !
+
+Smalltalk removeClassNamed: #ClassReferencingClassVar!
+
+!classDefinition: #ClassReferencingClassVarSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #ClassReferencingClassVarSuperclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassReferencingClassVar category: #'__Refactoring-TestData__'!
+ClassReferencingClassVarSuperclass subclass: #ClassReferencingClassVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassReferencingClassVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:30'!
+m1 ^OldNameRenamed__! !
+
+Smalltalk removeClassNamed: #ClassReferencingClassVar!
+
+Smalltalk removeClassNamed: #ClassReferencingClassVarSuperclass!
+
+!classDefinition: #ClassReferencingClassVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassReferencingClassVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassReferencingClassVar class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:31'!
+m1 ^OldNameToRename__! !
+
+Smalltalk removeClassNamed: #ClassReferencingClassVar!
+
+!classDefinition: #ClassWithoutInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassWithoutInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassWithoutInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #SuperclassWithInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #SuperclassWithInstVar
+	instanceVariableNames: 'new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+SuperclassWithInstVar subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+Smalltalk removeClassNamed: #SuperclassWithInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #SubclassWithInstVar category: #'__Refactoring-TestData__'!
+ClassToRenameInstVar subclass: #SubclassWithInstVar
+	instanceVariableNames: 'new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #SubclassWithInstVar!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:37'!
+m1 ^old! !
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:37' prior: 50724007!
+m1 ^new! !
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:37'!
+m1 old := 10! !
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:37' prior: 50724039!
+m1 new := 10! !
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #SubclassWithInstVar category: #'__Refactoring-TestData__'!
+ClassToRenameInstVar subclass: #SubclassWithInstVar
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!SubclassWithInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:38'!
+m1 old := 10. ^old! !
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!SubclassWithInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:38' prior: 50724079!
+m1 new := 10. ^new! !
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #SubclassWithInstVar!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old keep'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:39'!
+m1 keep := old. ^keep! !
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old keep new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:39' prior: 50724113!
+m1 keep := new. ^keep! !
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'keep new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:40'!
+m1 | new | new := 10.! !
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:40'!
+m1:new! !
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:41'!
+m1 [ :new | ] value: 1! !
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameInstVar methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:41'!
+m1 [ | new | ] value! !
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameInstVar category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameInstVar
+	instanceVariableNames: 'old'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #SubclassOfClassToRefactor category: #'__Refactoring-TestData__'!
+ClassToRenameInstVar subclass: #SubclassOfClassToRefactor
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!SubclassOfClassToRefactor methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:42'!
+m1 | new | ! !
+
+Smalltalk removeClassNamed: #SubclassOfClassToRefactor!
+
+Smalltalk removeClassNamed: #ClassToRenameInstVar!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:43'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:43'!
+newXyz__! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:43'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:43'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:43'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:43' prior: 50724265!
+m1__ self newXyz__! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:44'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:44'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:44' prior: 50724291!
+m1__ self oldXyz__. self toKeep! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:44'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:44' prior: 50724295!
+m1__ self newXyz__. self toKeep! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:46'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:46'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'oldSelectorCategory' stamp: 'HAW 8/11/2019 20:32:46'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:46' prior: 50724322!
+m1__ self newXyz__! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:47'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:47'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:47' prior: 50724344!
+oldXyz__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:47'!
+newXyz__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:47' prior: 50724356!
+newXyz__ self newXyz__! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:48'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:48'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:48' prior: 50724376!
+oldXyz__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:48'!
+newXyz__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:48' prior: 50724384!
+oldXyz__ self newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:48' prior: 50724388!
+newXyz__ self newXyz__! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:48'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:48'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:48' prior: 50724413!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:48'!
+m1 #oldXyz__ size! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:48'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:48' prior: 50724425!
+m1 #newXyz__ size! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49'!
+oldXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49'!
+m1__ self oldXyz__! !
+
+!classDefinition: #ClassToAvoidRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAvoidRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAvoidRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49'!
+newXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49' prior: 50724451!
+m1__ self newXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49' prior: 50724459!
+m1__ self newXyz__! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+ClassToRenameSelector class removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #ClassToAvoidRenameSelector!
+
+!classDefinition: #SuperclassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #SuperclassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!SuperclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49'!
+oldXyz__! !
+!SuperclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49'!
+m1__ self oldXyz__! !
+!SuperclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49'!
+oldXyz__! !
+!SuperclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:49'!
+m1__ self oldXyz__! !
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+SuperclassToRenameSelector subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+oldXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+m1__ self oldXyz__! !
+
+!classDefinition: #SubclassToRenameSelector category: #'__Refactoring-TestData__'!
+ClassToRenameSelector subclass: #SubclassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!SubclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+oldXyz__! !
+!SubclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+m1__ self oldXyz__! !
+!SubclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+oldXyz__! !
+!SubclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+m1__ self oldXyz__! !
+
+!classDefinition: #ClassToAvoidRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToAvoidRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToAvoidRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+m1__ self oldXyz__! !
+!SuperclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+newXyz__! !
+!SuperclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+newXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+newXyz__! !
+!SubclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+newXyz__! !
+!SubclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50'!
+newXyz__! !
+!SuperclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50' prior: 50724511!
+m1__ self newXyz__! !
+!SuperclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50' prior: 50724519!
+m1__ self newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50' prior: 50724535!
+m1__ self newXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50' prior: 50724543!
+m1__ self newXyz__! !
+!SubclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50' prior: 50724559!
+m1__ self newXyz__! !
+!SubclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:50' prior: 50724567!
+m1__ self newXyz__! !
+
+SuperclassToRenameSelector removeSelector: #oldXyz__!
+
+SuperclassToRenameSelector class removeSelector: #oldXyz__!
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+ClassToRenameSelector class removeSelector: #oldXyz__!
+
+SubclassToRenameSelector removeSelector: #oldXyz__!
+
+SubclassToRenameSelector class removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #SubclassToRenameSelector!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #SuperclassToRenameSelector!
+
+Smalltalk removeClassNamed: #ClassToAvoidRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+oldXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+m1__ self oldXyz__! !
+
+!classDefinition: #AnotherclassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #AnotherclassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!AnotherclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+oldXyz__! !
+!AnotherclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+m1__ self oldXyz__! !
+!AnotherclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+oldXyz__! !
+!AnotherclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+m1__ self oldXyz__! !
+
+!classDefinition: #ClassToAvoidRenameSelector category: #'__Refactoring-TestData__-toAvoid'!
+Object subclass: #ClassToAvoidRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__-toAvoid'!
+!ClassToAvoidRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+m1__ self oldXyz__! !
+!AnotherclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+newXyz__! !
+!AnotherclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+newXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51'!
+newXyz__! !
+!AnotherclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51' prior: 50724688!
+m1__ self newXyz__! !
+!AnotherclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51' prior: 50724696!
+m1__ self newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51' prior: 50724664!
+m1__ self newXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:51' prior: 50724672!
+m1__ self newXyz__! !
+
+AnotherclassToRenameSelector removeSelector: #oldXyz__!
+
+AnotherclassToRenameSelector class removeSelector: #oldXyz__!
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+ClassToRenameSelector class removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToAvoidRenameSelector!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #AnotherclassToRenameSelector!
+
+!classDefinition: #SuperclassToRenameSelector category: #'__Refactoring-TestData__-Another'!
+Object subclass: #SuperclassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__-Another'!
+!SuperclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+oldXyz__! !
+!SuperclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+m1__ self oldXyz__! !
+!SuperclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+oldXyz__! !
+!SuperclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+m1__ self oldXyz__! !
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+SuperclassToRenameSelector subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+oldXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+m1__ self oldXyz__! !
+
+!classDefinition: #SubclassToRenameSelector category: #'__Refactoring-TestData__'!
+ClassToRenameSelector subclass: #SubclassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!SubclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+oldXyz__! !
+!SubclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+m1__ self oldXyz__! !
+!SubclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+oldXyz__! !
+!SubclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+m1__ self oldXyz__! !
+
+!classDefinition: #AnotheclassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #AnotheclassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!AnotheclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+oldXyz__! !
+!AnotheclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+m1__ self oldXyz__! !
+!AnotheclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+oldXyz__! !
+!AnotheclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+m1__ self oldXyz__! !
+
+!classDefinition: #OtherCatClassToRenameSelector category: #'__Refactoring-TestData__-Another'!
+Object subclass: #OtherCatClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__-Another'!
+!OtherCatClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+oldXyz__! !
+!OtherCatClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+m1__ self oldXyz__! !
+!OtherCatClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+oldXyz__! !
+!OtherCatClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+m1__ self oldXyz__! !
+
+!classDefinition: #ClassToAvoidRenameSelector category: #'__Refactoring-TestData__-toAvoid'!
+Object subclass: #ClassToAvoidRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__-toAvoid'!
+!ClassToAvoidRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+m1__ self oldXyz__! !
+!AnotheclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+newXyz__! !
+!SubclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+newXyz__! !
+!SuperclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+newXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+newXyz__! !
+!SubclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+newXyz__! !
+!SuperclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+newXyz__! !
+!OtherCatClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+newXyz__! !
+!OtherCatClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+newXyz__! !
+!AnotheclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52'!
+newXyz__! !
+!SubclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52' prior: 50724827!
+m1__ self newXyz__! !
+!OtherCatClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52' prior: 50724876!
+m1__ self newXyz__! !
+!AnotheclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52' prior: 50724843!
+m1__ self newXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52' prior: 50724803!
+m1__ self newXyz__! !
+!SuperclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52' prior: 50724771!
+m1__ self newXyz__! !
+!OtherCatClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52' prior: 50724868!
+m1__ self newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52' prior: 50724795!
+m1__ self newXyz__! !
+!AnotheclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52' prior: 50724851!
+m1__ self newXyz__! !
+!SubclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52' prior: 50724819!
+m1__ self newXyz__! !
+!SuperclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:52' prior: 50724779!
+m1__ self newXyz__! !
+
+AnotheclassToRenameSelector class removeSelector: #oldXyz__!
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+SubclassToRenameSelector class removeSelector: #oldXyz__!
+
+SuperclassToRenameSelector removeSelector: #oldXyz__!
+
+ClassToRenameSelector class removeSelector: #oldXyz__!
+
+SubclassToRenameSelector removeSelector: #oldXyz__!
+
+SuperclassToRenameSelector class removeSelector: #oldXyz__!
+
+OtherCatClassToRenameSelector class removeSelector: #oldXyz__!
+
+OtherCatClassToRenameSelector removeSelector: #oldXyz__!
+
+AnotheclassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToAvoidRenameSelector!
+
+Smalltalk removeClassNamed: #AnotheclassToRenameSelector!
+
+Smalltalk removeClassNamed: #SubclassToRenameSelector!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #SuperclassToRenameSelector!
+
+Smalltalk removeClassNamed: #OtherCatClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54'!
+oldXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54'!
+m1__ self oldXyz__! !
+
+!classDefinition: #AnotherclassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #AnotherclassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!AnotherclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54'!
+oldXyz__! !
+!AnotherclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54'!
+m1__ self oldXyz__! !
+!AnotherclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54'!
+oldXyz__! !
+!AnotherclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54'!
+newXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54'!
+newXyz__! !
+!AnotherclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54'!
+newXyz__! !
+!AnotherclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54' prior: 50725020!
+m1__ self newXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54' prior: 50725028!
+m1__ self newXyz__! !
+!AnotherclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54' prior: 50725044!
+m1__ self newXyz__! !
+!AnotherclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:54' prior: 50725052!
+m1__ self newXyz__! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+ClassToRenameSelector class removeSelector: #oldXyz__!
+
+AnotherclassToRenameSelector removeSelector: #oldXyz__!
+
+AnotherclassToRenameSelector class removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #AnotherclassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:56'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:56'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:56' prior: 50725109!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:56'!
+m1 ^#(#oldXyz__)! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:56'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:56' prior: 50725121!
+m1 ^#(#newXyz__)! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:56'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:56'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:56' prior: 50725143!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:56'!
+m1 ^#(#oldXyz__ #oldXyz__)! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:56'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:56' prior: 50725155!
+m1 ^#(#newXyz__ #newXyz__)! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:57'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:57'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:57' prior: 50725178!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:57'!
+m1 ^#(#oldXyz__ #oldXyz__), #(#oldXyz__ #oldXyz__)! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:57'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:57' prior: 50725190!
+m1 ^#(#newXyz__ #newXyz__), #(#newXyz__ #newXyz__)! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:58'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:58'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:58' prior: 50725214!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:58'!
+m1 ^#(#oldXyz__ #oldXyz__1)! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:58'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:58' prior: 50725226!
+m1 ^#(#newXyz__ #oldXyz__1)! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:58'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:58'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:58' prior: 50725249!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:58'!
+m1 ^#(#oldXyz__ #oldXyz__:)! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:58'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:58' prior: 50725261!
+m1 ^#(#newXyz__ #oldXyz__:)! !
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:59'!
+&& aParameter! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:59'!
+m1 ^self && 1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:59'!
+abc: aParameter! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:59' prior: 50725288!
+m1 ^self abc: 1! !
+
+ClassToRenameSelector removeSelector: #&&!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:59'!
+abc: aParameter! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:59'!
+m1 ^self abc: 1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:59'!
+&& aParameter! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:32:59' prior: 50725314!
+m1 ^self && 1! !
+
+ClassToRenameSelector removeSelector: #abc:!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:00'!
+&& aParameter! !
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:00'!
+abc: p1 def: p2! !
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #SuperclassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #SuperclassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!SuperclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+oldXyz__! !
+!SuperclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+m1__ self oldXyz__! !
+!SuperclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+oldXyz__! !
+!SuperclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+m1__ self oldXyz__! !
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+SuperclassToRenameSelector subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+oldXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+m1__ self oldXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+oldXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+m1__ self oldXyz__! !
+
+!classDefinition: #SubclassToRenameSelector category: #'__Refactoring-TestData__'!
+SuperclassToRenameSelector subclass: #SubclassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!SubclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+oldXyz__! !
+!SubclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+m1__ self oldXyz__! !
+!SubclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+oldXyz__! !
+!SubclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+m1__ self oldXyz__! !
+!SuperclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+newXyz__! !
+!SuperclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+newXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+newXyz__! !
+!SubclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+newXyz__! !
+!SubclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01'!
+newXyz__! !
+!SuperclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01' prior: 50725366!
+m1__ self newXyz__! !
+!SuperclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01' prior: 50725374!
+m1__ self newXyz__! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01' prior: 50725390!
+m1__ self newXyz__! !
+!ClassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01' prior: 50725398!
+m1__ self newXyz__! !
+!SubclassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01' prior: 50725414!
+m1__ self newXyz__! !
+!SubclassToRenameSelector class methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:01' prior: 50725422!
+m1__ self newXyz__! !
+
+SuperclassToRenameSelector removeSelector: #oldXyz__!
+
+SuperclassToRenameSelector class removeSelector: #oldXyz__!
+
+ClassToRenameSelector removeSelector: #oldXyz__!
+
+ClassToRenameSelector class removeSelector: #oldXyz__!
+
+SubclassToRenameSelector removeSelector: #oldXyz__!
+
+SubclassToRenameSelector class removeSelector: #oldXyz__!
+
+Smalltalk removeClassNamed: #SubclassToRenameSelector!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #SuperclassToRenameSelector!
+
+!classDefinition: #ClassToRenameTemp category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameTemp
+	instanceVariableNames: 'new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameTemp!
+
+!classDefinition: #ClassToRefactorSuperclass category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRefactorSuperclass
+	instanceVariableNames: 'new'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToRenameTemp category: #'__Refactoring-TestData__'!
+ClassToRefactorSuperclass subclass: #ClassToRenameTemp
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRenameTemp!
+
+Smalltalk removeClassNamed: #ClassToRefactorSuperclass!
+
+!classDefinition: #ClassToRemove category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemove
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRemove!
+
+!classDefinition: #ClassToRemove category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemove
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRemove!
+
+!classDefinition: #ClassToRemove category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemove
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassReferencingClassToRemove category: #'__Refactoring-TestData__'!
+Object subclass: #ClassReferencingClassToRemove
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassReferencingClassToRemove methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:07'!
+m1 ^ClassToRemove! !
+
+Smalltalk removeClassNamed: #ClassToRemove!
+
+Smalltalk removeClassNamed: #ClassReferencingClassToRemove!
+
+!classDefinition: #ClassToRemove category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemove
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemove methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:08'!
+m1 ^ClassToRemove! !
+
+Smalltalk removeClassNamed: #ClassToRemove!
+
+!classDefinition: #ClassToRemove category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemove
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToRemoveSubclass category: #'__Refactoring-TestData__'!
+ClassToRemove subclass: #ClassToRemoveSubclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRemoveSubclass!
+
+Smalltalk removeClassNamed: #ClassToRemove!
+
+!classDefinition: #ClassToRemove category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemove
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToRemoveSubclass category: #'__Refactoring-TestData__'!
+ClassToRemove subclass: #ClassToRemoveSubclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassReferencingClassToRemoveSubclass category: #'__Refactoring-TestData__'!
+Object subclass: #ClassReferencingClassToRemoveSubclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassReferencingClassToRemoveSubclass methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:10'!
+m1 ^ClassToRemoveSubclass! !
+
+Smalltalk removeClassNamed: #ClassToRemoveSubclass!
+
+Smalltalk removeClassNamed: #ClassToRemove!
+
+Smalltalk removeClassNamed: #ClassReferencingClassToRemoveSubclass!
+
+!classDefinition: #ClassToRemove category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemove
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToRemoveSubclass category: #'__Refactoring-TestData__'!
+ClassToRemove subclass: #ClassToRemoveSubclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToRemoveSubclass!
+
+Smalltalk removeClassNamed: #ClassToRemove!
+
+!classDefinition: #ClassToRemove category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRemove
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassToRemoveSubclass category: #'__Refactoring-TestData__'!
+ClassToRemove subclass: #ClassToRemoveSubclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRemove methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:12'!
+m1 ^ClassToRemoveSubclass! !
+!ClassToRemoveSubclass methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:12'!
+m2 ^ClassToRemove! !
+
+Smalltalk removeClassNamed: #ClassToRemoveSubclass!
+
+Smalltalk removeClassNamed: #ClassToRemove!
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:13'!
+m1| a |! !
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:13' prior: 50725671!
+m1 ! !
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToChangeVariable!
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:13'!
+m1| a |a := 2.
+	^a! !
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:13' prior: 50725695!
+m1 a := 2.
+	^a! !
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToChangeVariable!
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:14'!
+m1! !
+
+Smalltalk removeClassNamed: #ClassToChangeVariable!
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:14'!
+m1| a |! !
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:14'!
+m2| a |! !
+
+Smalltalk removeClassNamed: #ClassToChangeVariable!
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #SubclassToRefactor category: #'__Refactoring-TestData__'!
+ClassToChangeVariable subclass: #SubclassToRefactor
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:15'!
+m1| a |! !
+
+Smalltalk removeClassNamed: #SubclassToRefactor!
+
+Smalltalk removeClassNamed: #ClassToChangeVariable!
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #SubclassToRefactor category: #'__Refactoring-TestData__'!
+ClassToChangeVariable subclass: #SubclassToRefactor
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:16'!
+m1| a |! !
+!SubclassToRefactor methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:16'!
+m2| a |! !
+
+Smalltalk removeClassNamed: #SubclassToRefactor!
+
+Smalltalk removeClassNamed: #ClassToChangeVariable!
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:16'!
+m1| a |! !
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:16' prior: 50725795!
+m1 ! !
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToChangeVariable!
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:17'!
+m1| a b |! !
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:17' prior: 50725819!
+m1|  b |! !
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToChangeVariable!
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:18'!
+m1
+	[ | a | ].
+	[ | a | ].! !
+
+Smalltalk removeClassNamed: #ClassToChangeVariable!
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:18'!
+m1
+	[ | a | ].! !
+!ClassToChangeVariable methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:18' prior: 50725856!
+m1
+	[   ].! !
+
+!classDefinition: #ClassToChangeVariable category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToChangeVariable
+	instanceVariableNames: 'a'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+Smalltalk removeClassNamed: #ClassToChangeVariable!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:19'!
+m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:19'!
+m3 | x | self m1. false ifTrue: [ x m1 ]! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:19'!
+m2! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:19' prior: 50725883!
+m3 | x | self m2. false ifTrue: [ x m1 ]! !
+
+ClassToRenameSelector removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassOfSender category: #'__Refactoring-TestData__'!
+Object subclass: #ClassOfSender
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:20'!
+m1! !
+!ClassOfSender methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:20'!
+m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:20'!
+m3 | x | x := self. x := ClassOfSender new. x m1! !
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #ClassOfSender!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassOfSender category: #'__Refactoring-TestData__'!
+ClassToRenameSelector subclass: #ClassOfSender
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:20'!
+m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:20'!
+m3 | x | x := ClassOfSender new. x m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:20'!
+m2! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:20' prior: 50725946!
+m3 | x | x := ClassOfSender new. x m2! !
+
+ClassToRenameSelector removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassOfSender!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassOfSender category: #'__Refactoring-TestData__'!
+Object subclass: #ClassOfSender
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:21'!
+m1! !
+!ClassOfSender methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:21'!
+m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:21'!
+m3 | x | x := self. x := ClassOfSender new. x m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:21'!
+m2! !
+!ClassOfSender methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:21'!
+m2! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:21' prior: 50725984!
+m3 | x | x := self. x := ClassOfSender new. x m2! !
+
+ClassToRenameSelector removeSelector: #m1!
+
+ClassOfSender removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #ClassOfSender!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassOfSender category: #'__Refactoring-TestData__'!
+Object subclass: #ClassOfSender
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:22'!
+m1! !
+!ClassOfSender methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:22'!
+m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:22'!
+m3 | x y | x := self. y := ClassOfSender new. x m1. y m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:22'!
+m2! !
+!ClassOfSender methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:22'!
+m2! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:22' prior: 50726027!
+m3 | x y | x := self. y := ClassOfSender new. x m2. y m2! !
+
+ClassToRenameSelector removeSelector: #m1!
+
+ClassOfSender removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #ClassOfSender!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassOfSender category: #'__Refactoring-TestData__'!
+Object subclass: #ClassOfSender
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:23'!
+m1! !
+!ClassOfSender methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:23'!
+m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:23'!
+m3 | x y | x := y:= self. x := y := ClassOfSender new. x m1. y m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:23'!
+m2! !
+!ClassOfSender methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:23'!
+m2! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:23' prior: 50726070!
+m3 | x y | x := y:= self. x := y := ClassOfSender new. x m2. y m2! !
+
+ClassToRenameSelector removeSelector: #m1!
+
+ClassOfSender removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #ClassOfSender!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:24'!
+m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:24'!
+m3 | x | self m1. false ifTrue: [ x m1 ]! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:24'!
+m2! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:24' prior: 50726103!
+m3 | x | self m2. false ifTrue: [ x m2 ]! !
+
+ClassToRenameSelector removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassOfSender category: #'__Refactoring-TestData__'!
+Object subclass: #ClassOfSender
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassOfSender methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:24'!
+m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:24'!
+m3 | x | x := self. x := ClassOfSender new. x m1! !
+!ClassOfSender methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:24'!
+m2! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:24' prior: 50726137!
+m3 | x | x := self. x := ClassOfSender new. x m2! !
+
+ClassOfSender removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #ClassOfSender!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassOfSender category: #'__Refactoring-TestData__'!
+Object subclass: #ClassOfSender
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:25'!
+m1! !
+!ClassOfSender methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:25'!
+m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:25'!
+m3 self m1. ClassOfSender new m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:25'!
+m2! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:25' prior: 50726175!
+m3 self m2. ClassOfSender new m1! !
+
+ClassToRenameSelector removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #ClassOfSender!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:26'!
+m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:26'!
+m3 |x| self m1. x m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:26'!
+m2! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:26' prior: 50726202!
+m3 |x| self m2. x m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:26' prior: 50726210!
+m3 |x| self m2. x m1! !
+
+ClassToRenameSelector removeSelector: #m1!
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+!classDefinition: #ClassToRenameSelector category: #'__Refactoring-TestData__'!
+Object subclass: #ClassToRenameSelector
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+
+!classDefinition: #ClassOfSender category: #'__Refactoring-TestData__'!
+Object subclass: #ClassOfSender
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__Refactoring-TestData__'!
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:26'!
+m1! !
+!ClassOfSender methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:26'!
+m1! !
+!ClassToRenameSelector methodsFor: 'as yet unclassified' stamp: 'HAW 8/11/2019 20:33:26'!
+m3 | x | x := self. x := ClassOfSender new. x m1; printString! !
+
+Smalltalk removeClassNamed: #ClassToRenameSelector!
+
+Smalltalk removeClassNamed: #ClassOfSender!
+
+!classDefinition: #LiveTypingClassToBeRemoved category: #'__LiveTyping-TestData__'!
+Object subclass: #LiveTypingClassToBeRemoved
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__LiveTyping-TestData__'!
+
+Smalltalk removeClassNamed: #LiveTypingClassToBeRemoved!
+
+!classDefinition: #LiveTypingClassToBeRemoved category: #'__LiveTyping-TestData__'!
+Object subclass: #LiveTypingClassToBeRemoved
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__LiveTyping-TestData__'!
+
+Smalltalk removeClassNamed: #LiveTypingClassToBeRemoved!
+
+!classDefinition: #LiveTypingClassToBeRemoved category: #'__LiveTyping-TestData__'!
+Object subclass: #LiveTypingClassToBeRemoved
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__LiveTyping-TestData__'!
+
+Smalltalk removeClassNamed: #LiveTypingClassToBeRemoved!
+
+!classDefinition: #LiveTypingClassToBeRemoved category: #'__LiveTyping-TestData__'!
+Object subclass: #LiveTypingClassToBeRemoved
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__LiveTyping-TestData__'!
+
+Smalltalk removeClassNamed: #LiveTypingClassToBeRemoved!
+
+!classDefinition: #LiveTypingClassToBeRemoved category: #'__LiveTyping-TestData__'!
+Object subclass: #LiveTypingClassToBeRemoved
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__LiveTyping-TestData__'!
+
+Smalltalk removeClassNamed: #LiveTypingClassToBeRemoved!
+
+!classDefinition: #LiveTypingClassToBeRemoved category: #'__LiveTyping-TestData__'!
+Object subclass: #LiveTypingClassToBeRemoved
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '__LiveTyping-TestData__'!
+
+Smalltalk removeClassNamed: #LiveTypingClassToBeRemoved!
+
+----QUIT----(11 August 2019 20:33:45) CuisUniversity-3839.image priorSource: 12503879!
+
+----STARTUP---- (23 September 2019 21:19:56) as /Users/personal/Desktop/cuis limpio/CuisUniversity-3839.image!
+
+
+----End fileIn of /Users/personal/Desktop/cuis/IngSof1-2019-2C-1Parcial.st----!
+
+----STARTUP---- (23 September 2019 21:22:39) as /Users/personal/Desktop/cuis limpio/CuisUniversity-3839.image!
+
+
+----End fileIn of /Users/personal/Desktop/cuis/IngSof1-2019-2C-1Parcial.st----!
+
+----STARTUP---- (3 October 2019 20:10:21) as /Users/personal/Desktop/cuis limpio/CuisUniversity-3839.image!
+
+
+Object subclass: #MarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #MarsRover category: #MarsRover!
+Object subclass: #MarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+TestCase subclass: #TestMarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #TestMarsRover category: #MarsRover!
+TestCase subclass: #TestMarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #TestMarsRover category: #MarsRover!
+TestCase subclass: #TestMarsRover
+	instanceVariableNames: 'marsRover'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+!TestMarsRover methodsFor: 'no messages' stamp: 'FA 10/3/2019 20:18:13'!
+testInvalidCommandRaisesException
+	marsRover := MarsRover new.
+	self should:[marsRover executeOneInstruction: 'a']  raise:(Error - MessageNotUnderstood) description: 'Comando invalido' .! !
+
+TestCase subclass: #TestMarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #TestMarsRover category: #MarsRover!
+TestCase subclass: #TestMarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/3/2019 20:18:43' prior: 50726338!
+testInvalidCommandRaisesException
+	|marsRover|
+	marsRover := MarsRover new.
+	self should:[marsRover executeOneInstruction: $a]  raise:(Error - MessageNotUnderstood) description: 'Comando invalido' .! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/3/2019 20:19:11' prior: 50726357!
+testInvalidCommandRaisesException
+	|marsRover|
+	marsRover := MarsRover new.
+	self should:[marsRover executeOneInstruction: $a]  raise:Error description: 'Comando invalido' .! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/3/2019 20:18:43' prior: 50726367!
+testInvalidCommandRaisesException
+	|marsRover|
+	marsRover := MarsRover new.
+	self should:[marsRover executeOneInstruction: $a]  raise:(Error - MessageNotUnderstood) description: 'Comando invalido' .! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/3/2019 20:19:47' prior: 50726376!
+testInvalidCommandRaisesException
+	|marsRover|
+	marsRover := MarsRover new.
+	self should:[marsRover executeOneInstruction: $a]  raise:(Error - MessageNotUnderstood) withMessageText: 'Comando invalido' .! !
+!MarsRover methodsFor: 'Execution' stamp: 'FA 10/3/2019 20:20:12'!
+executeOneInstruction: aCharacter 
+	self shouldBeImplemented.! !
+!MarsRover methodsFor: 'Execution' stamp: 'FA 10/3/2019 20:20:52' prior: 50726395!
+executeOneInstruction: aCharacter 
+	self error:'Comando invalido' .! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/3/2019 20:21:19' prior: 50726386!
+testInvalidCommandRaisesException
+	|marsRover|
+	marsRover := MarsRover new.
+	self should:[marsRover executeOneInstruction: $a]  raise:(Error - MessageNotUnderstood) withMessageText: 'dsadasd invalido' .! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/3/2019 20:21:32' prior: 50726406!
+testInvalidCommandRaisesException
+	|marsRover|
+	marsRover := MarsRover new.
+	self should:[marsRover executeOneInstruction: $a]  raise:(Error - MessageNotUnderstood) withMessageText: 'Comando invalido' .! !
+
+Object subclass: #MarsRover
+	instanceVariableNames: 'position'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #MarsRover category: #MarsRover!
+Object subclass: #MarsRover
+	instanceVariableNames: 'position'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+2@3!
+
+ 2@3 !
+
+'a'@'b'!
+
+2.1@3.2 !
+!MarsRover methodsFor: 'Execution' stamp: 'FA 10/3/2019 20:25:01'!
+initializeWithX: x andY: y 
+	position := x@y.! !
+
+MarsRover removeSelector: #initializeWithX:andY:!
+
+MarsRover removeSelector: #executeOneInstruction:!
+
+Object subclass: #MarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #MarsRover category: #MarsRover!
+Object subclass: #MarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+TestMarsRover removeSelector: #testInvalidCommandRaisesException!
+
+----STARTUP---- (8 October 2019 19:29:13) as /Users/personal/Desktop/cuis limpio/CuisUniversity-3839.image!
+
+
+Object subclass: #MarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #MarsRover category: #'21-MarsRover'!
+Object subclass: #MarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+TestCase subclass: #TestMarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #TestMarsRover category: #'21-MarsRover'!
+TestCase subclass: #TestMarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+----SNAPSHOT----(8 October 2019 19:37:22) CuisUniversity-3839.image priorSource: 12628964!
+!TestMarsRover methodsFor: 'nil' stamp: 'FA 10/8/2019 19:49:16'!
+test01NewMarsRoverDoesNotChangeInitialPosition
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	self assert: 10@10 equals: marsRover position.! !
+
+----SNAPSHOT----(8 October 2019 19:49:29) CuisUniversity-3839.image priorSource: 12629806!
+!MarsRover class methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 19:50:56'!
+withPosition: aPoint andOrientation: aCharacter 
+	self shouldBeImplemented.! !
+!MarsRover class methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 19:53:36' prior: 50726347!
+withPosition: aPoint andOrientation: aCharacter 
+	^self new initializeWithPosition:aPoint andOrientation:aCharacter.! !
+!MarsRover methodsFor: 'initialization' stamp: 'FA 10/8/2019 19:54:10'!
+initializeWithPosition: aPoint andOrientation: aCharacter 
+	self shouldBeImplemented.! !
+
+!classDefinition: #MarsRover category: #'21-MarsRover'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'position'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #MarsRover category: #'21-MarsRover'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'position orientation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+!MarsRover methodsFor: 'initialization' stamp: 'FA 10/8/2019 19:54:40' prior: 50726359!
+initializeWithPosition: aPoint andOrientation: aCharacter 
+	position:= aPoint.
+	orientation:=aCharacter.! !
+!MarsRover methodsFor: 'accessing' stamp: 'FA 10/8/2019 19:55:12'!
+position
+	self shouldBeImplemented.
+	^position! !
+!MarsRover methodsFor: 'accessing' stamp: 'FA 10/8/2019 19:55:22' prior: 50726383!
+position
+	^position.! !
+
+----SNAPSHOT----(8 October 2019 19:55:40) CuisUniversity-3839.image priorSource: 12630162!
+!MarsRover methodsFor: 'initialization' stamp: 'FA 10/8/2019 19:56:33' prior: 50726377!
+initializeWithPosition: aPosition andOrientation: aOrientation 
+	position:= aPosition.
+	orientation:=aOrientation.! !
+!MarsRover methodsFor: 'initialization' stamp: 'FA 10/8/2019 19:56:43' prior: 50726395!
+initializeWithPosition: aPosition andOrientation: anOrientation 
+	position:= aPosition.
+	orientation:=anOrientation.! !
+!MarsRover class methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 19:57:02' prior: 50726353!
+withPosition: aPosition andOrientation: aCharacter 
+	^self new initializeWithPosition:aPosition andOrientation:aCharacter.! !
+!MarsRover class methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 19:57:05' prior: 50726409!
+withPosition: aPosition andOrientation: aCharacter 
+	^self new initializeWithPosition:aPosition andOrientation:aCharacter.! !
+!MarsRover class methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 19:57:11' prior: 50726417!
+withPosition: aPosition andOrientation: anOrientation 
+	^self new initializeWithPosition:aPosition andOrientation:anOrientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 19:58:22'!
+test02NewMarsRoverDoesNotChangeOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	self assert: $N equals: marsRover orientation.! !
+!MarsRover methodsFor: 'accessing' stamp: 'FA 10/8/2019 19:58:40'!
+orientation
+	self shouldBeImplemented.
+	^orientation! !
+!MarsRover methodsFor: 'accessing' stamp: 'FA 10/8/2019 19:58:43' prior: 50726440!
+orientation
+	^orientation! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:06:58'!
+test03WhenReceivingAnForwardCommandMarsRoverMovesForwardOnePoint
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do:'f'.
+	
+	self assert: 10@11 equals: marsRover position.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:08:40'!
+do: aString 
+	self shouldBeImplemented.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:09:06' prior: 50726458!
+do: aString 
+	position:=10@11.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:10:33'!
+test03WhenReceivingABackwardCommandMarsRoverMovesBackwardsOnePoint
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do:'b'.
+	
+	self assert: 10@9 equals: marsRover position.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:10:39'!
+test04WhenReceivingABackwardCommandMarsRoverMovesBackwardsOnePoint
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do:'b'.
+	
+	self assert: 10@9 equals: marsRover position.! !
+
+TestMarsRover removeSelector: #test03WhenReceivingABackwardCommandMarsRoverMovesBackwardsOnePoint!
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:12:54' prior: 50726462!
+do: aString 
+	'f'=aString ifTrue: [position:=10@11].
+	'b'=aString ifTrue: [position:=10@9].! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:16:42'!
+test04WhenReceivingALeftCommandMarsRoverRotateOrientation90DegreesToLeft
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do:'l'.
+	
+	self assert: $W equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:16:55'!
+test05WhenReceivingALeftCommandMarsRoverRotateOrientation90DegreesToLeft
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do:'l'.
+	
+	self assert: $O equals: marsRover orientation.! !
+
+TestMarsRover removeSelector: #test04WhenReceivingALeftCommandMarsRoverRotateOrientation90DegreesToLeft!
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:20:49' prior: 50726489!
+do: aString 
+	'f'=aString ifTrue: [position:=10@11].
+	'b'=aString ifTrue: [position:=10@9].
+	'l'=aString ifTrue: [orientation=$O].! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:21:29' prior: 50726518!
+do: aString 
+	'f'=aString ifTrue: [position:=10@11].
+	'b'=aString ifTrue: [position:=10@9].
+	'l'=aString ifTrue: [orientation:=$O].! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:22:46'!
+test06WhenReceivingARightCommandMarsRoverRotateOrientation90DegreesToRight
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do:'r'.
+	
+	self assert: $E equals: marsRover orientation.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:23:24' prior: 50726525!
+do: aString 
+	'f'=aString ifTrue: [position:=10@11].
+	'b'=aString ifTrue: [position:=10@9].
+	'l'=aString ifTrue: [orientation:=$O].
+	'r'=aString ifTrue: [orientation:=$E].! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:25:05' prior: 50726542!
+do: aCommandSequence
+	'f'=aCommandSequence ifTrue: [position:=10@11].
+	'b'=aCommandSequence ifTrue: [position:=10@9].
+	'l'=aCommandSequence ifTrue: [orientation:=$O].
+	'r'=aCommandSequence ifTrue: [orientation:=$E].! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:26:25'!
+test07WhenReceivingAnForwardCommandMarsRoverDoesNotChangeOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do:'f'.
+	
+	self assert: $N equals: marsRover orientation.! !
+
+TestMarsRover removeSelector: #test07WhenReceivingAnForwardCommandMarsRoverDoesNotChangeOrientation!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:30:18'!
+test07WhenReceivingAInvalidCommandMarsRoverStopExecution
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	self should: [marsRover do:'p'.] raise:Error - MessageNotUnderstood  withMessageText: 'Invalid command'.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:31:32' prior: 50726550!
+do: aCommandSequence
+	'f'=aCommandSequence ifTrue: [position:=10@11].
+	'b'=aCommandSequence ifTrue: [position:=10@9].
+	'l'=aCommandSequence ifTrue: [orientation:=$O].
+	'r'=aCommandSequence ifTrue: [orientation:=$E].
+	'p'=aCommandSequence ifTrue:[self error: 'Invalid command'.].! !
+
+----SNAPSHOT----(8 October 2019 20:31:49) CuisUniversity-3839.image priorSource: 12631703!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:40:40'!
+test03WhenReceivingAnFCommandMarsRoverMovesForwardOnePoint
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do:'f'.
+	
+	self assert: 10@11 equals: marsRover position.! !
+
+TestMarsRover removeSelector: #test03WhenReceivingAnForwardCommandMarsRoverMovesForwardOnePoint!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:40:55'!
+test04WhenReceivingABCommandMarsRoverMovesBackwardsOnePoint
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do:'b'.
+	
+	self assert: 10@9 equals: marsRover position.! !
+
+TestMarsRover removeSelector: #test04WhenReceivingABackwardCommandMarsRoverMovesBackwardsOnePoint!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:41:03'!
+test05WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToLeft
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do:'l'.
+	
+	self assert: $O equals: marsRover orientation.! !
+
+TestMarsRover removeSelector: #test05WhenReceivingALeftCommandMarsRoverRotateOrientation90DegreesToLeft!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:41:23'!
+test06WhenReceivingARCommandMarsRoverRotateOrientation90DegreesToRight
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do:'r'.
+	
+	self assert: $E equals: marsRover orientation.! !
+
+TestMarsRover removeSelector: #test06WhenReceivingARightCommandMarsRoverRotateOrientation90DegreesToRight!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:42:15'!
+test07WhenReceivingAPCommandMarsRoverStopExecution
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	self should: [marsRover do:'p'.] raise:Error - MessageNotUnderstood  withMessageText: 'Invalid command'.! !
+
+TestMarsRover removeSelector: #test07WhenReceivingAInvalidCommandMarsRoverStopExecution!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:42:35'!
+test08WhenReceivingAQCommandMarsRoverStopExecution
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	self should: [marsRover do:'q'.] raise:Error - MessageNotUnderstood  withMessageText: 'Invalid command'.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:43:06' prior: 50726584!
+do: aCommandSequence
+	'f'=aCommandSequence ifTrue: [position:=10@11].
+	'b'=aCommandSequence ifTrue: [position:=10@9].
+	'l'=aCommandSequence ifTrue: [orientation:=$O].
+	'r'=aCommandSequence ifTrue: [orientation:=$E].
+	'p'=aCommandSequence ifTrue:[self error: 'Invalid command'.].
+	'q'=aCommandSequence ifTrue:[self error: 'Invalid command'.].! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:45:00' prior: 50726675!
+do: aCommandSequence
+	'f'=aCommandSequence ifTrue: [position:=10@11.].
+	'b'=aCommandSequence ifTrue: [position:=10@9].
+	'l'=aCommandSequence ifTrue: [orientation:=$O].
+	'r'=aCommandSequence ifTrue: [orientation:=$E].
+	('p'=aCommandSequence or:['q'=aCommandSequence ]) ifTrue:[self error: 'Invalid command'.].! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:45:18'!
+test09WhenReceivingACCommandMarsRoverStopExecution
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	self should: [marsRover do:'c'.] raise:Error - MessageNotUnderstood  withMessageText: 'Invalid command'.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:46:30' prior: 50726689!
+do: aCommandSequence
+	'f'=aCommandSequence ifTrue: [position:=10@11.^self.].
+	'b'=aCommandSequence ifTrue: [position:=10@9.^self.].
+	'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+	'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	self error: 'Invalid command'.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:50:19'!
+test10WhenReceivingABAndFCommandMarsRoverMaintainSamePosition
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do: 'bf'.
+	
+	self assert: 10@10 equals: marsRover position.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:51:27' prior: 50726713!
+do: aCommandSequence
+	'f'=aCommandSequence ifTrue: [position:=10@11.^self.].
+	'b'=aCommandSequence ifTrue: [position:=10@9.^self.].
+	'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+	'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	'fb'=aCommandSequence ifFalse:[self error: 'Invalid command'.].! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:51:49' prior: 50726735!
+do: aCommandSequence
+	'f'=aCommandSequence ifTrue: [position:=10@11.^self.].
+	'b'=aCommandSequence ifTrue: [position:=10@9.^self.].
+	'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+	'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	'bf'=aCommandSequence ifFalse:[self error: 'Invalid command'.].! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:52:11'!
+test11WhenReceivingAFAndBCommandMarsRoverMaintainSamePosition
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do: 'fb'.
+	
+	self assert: 10@10 equals: marsRover position.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:52:44' prior: 50726748!
+do: aCommandSequence
+	'f'=aCommandSequence ifTrue: [position:=10@11.^self.].
+	'b'=aCommandSequence ifTrue: [position:=10@9.^self.].
+	'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+	'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	('bf'=aCommandSequence or:['fb'=aCommandSequence ])ifFalse:[self error: 'Invalid command'.].! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 20:54:21'!
+test12WhenReceivingAFAndFCommandMarsRoverMovesForwardTwoPoints
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$N.
+	
+	marsRover do: 'ff'.
+	
+	self assert: 10@12 equals: marsRover position.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 20:54:55' prior: 50726771!
+do: aCommandSequence
+	'f'=aCommandSequence ifTrue: [position:=10@11.^self.].
+	'ff'=aCommandSequence ifTrue: [position:=10@12.^self.].
+	'b'=aCommandSequence ifTrue: [position:=10@9.^self.].
+	'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+	'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	('bf'=aCommandSequence or:['fb'=aCommandSequence ])ifFalse:[self error: 'Invalid command'.].! !
+
+('fblr' includes:$p) not ifTrue: [self error: 'Invalid command'.].!
+
+('fblr' includes:$f) not ifTrue: [self error: 'Invalid command'.].!
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 21:18:42' prior: 50726795!
+do: aCommandSequence
+	|x  y|
+	x:=10.
+	y:=10.
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[y:=y+1].
+		($b=aCommand) ifTrue:[y:=y-1].
+		'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+		'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	].
+	position:= x@y.
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 21:21:30'!
+test13WhenReceivingABAndBCommandMarsRoverMovesBackwardsTwoPoints
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:0@0 andOrientation:$N.
+	
+	marsRover do: 'bb'.
+	
+	self assert: 0@-2 equals: marsRover position.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 21:22:20' prior: 50726815!
+do: aCommandSequence
+	|x  y|
+	x:= position x .
+	y:=position y.
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[y:=y+1].
+		($b=aCommand) ifTrue:[y:=y-1].
+		'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+		'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	].
+	position:= x@y.
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 21:24:39'!
+test14WhenReceivingABAndBCommandMarsRoverMovesBackwardsTwoPointsWithAnotherOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:0@0 andOrientation:$E.
+	
+	marsRover do: 'bb'.
+	
+	self assert: -2@0 equals: marsRover position.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 21:27:45' prior: 50726839!
+do: aCommandSequence
+	|x  y|
+	x:= position x .
+	y:=position y.
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[
+			orientation=$N ifTrue:[y:=y+1].
+			orientation=$E ifTrue:[x:=x+1].
+			].
+		($b=aCommand) ifTrue:[
+			orientation=$N ifTrue:[y:=y-1].
+			orientation=$E ifTrue:[x:=x-1].
+			].
+		'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+		'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	].
+	position:= x@y.
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 21:29:01'!
+test14WhenReceivingABAndBCommandMarsRoverMovesBackwardsTwoPointsWithEastOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:0@0 andOrientation:$E.
+	
+	marsRover do: 'bb'.
+	
+	self assert: -2@0 equals: marsRover position.! !
+
+TestMarsRover removeSelector: #test14WhenReceivingABAndBCommandMarsRoverMovesBackwardsTwoPointsWithAnotherOrientation!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/8/2019 21:29:29'!
+test15WhenReceivingABAndBCommandMarsRoverMovesBackwardsTwoPointsWithWestOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:0@0 andOrientation:$O.
+	
+	marsRover do: 'bb'.
+	
+	self assert: 2@0 equals: marsRover position.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 21:30:22' prior: 50726864!
+do: aCommandSequence
+	|x  y|
+	x:= position x .
+	y:=position y.
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[
+			orientation=$N ifTrue:[y:=y+1].
+			orientation=$E ifTrue:[x:=x+1].
+			orientation=$W ifTrue:[x:=x-1].
+			].
+		($b=aCommand) ifTrue:[
+			orientation=$N ifTrue:[y:=y-1].
+			orientation=$E ifTrue:[x:=x-1].
+			orientation=$W ifTrue:[x:=x+1].
+			].
+		'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+		'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	].
+	position:= x@y.
+	! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/8/2019 21:31:21' prior: 50726907!
+do: aCommandSequence
+	|x  y|
+	x:= position x .
+	y:=position y.
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[
+			orientation=$N ifTrue:[y:=y+1].
+			orientation=$E ifTrue:[x:=x+1].
+			orientation=$O ifTrue:[x:=x-1].
+			].
+		($b=aCommand) ifTrue:[
+			orientation=$N ifTrue:[y:=y-1].
+			orientation=$E ifTrue:[x:=x-1].
+			orientation=$O ifTrue:[x:=x+1].
+			].
+		'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+		'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	].
+	position:= x@y.
+	! !
+
+----SNAPSHOT----(8 October 2019 21:31:31) CuisUniversity-3839.image priorSource: 12638233!
+
+----QUIT----(8 October 2019 21:33:16) CuisUniversity-3839.image priorSource: 12649539!
+
+----STARTUP---- (9 October 2019 19:47:45) as /Users/personal/Desktop/cuis limpio/CuisUniversity-3839.image!
+
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 19:49:38'!
+test16WhenReceivingABAndBCommandMarsRoverMovesBackwardsTwoPointsWithSouthOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:0@0 andOrientation:$S.
+	
+	marsRover do: 'bb'.
+	
+	self assert: 0@2 equals: marsRover position.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 19:50:40' prior: 50726928!
+do: aCommandSequence
+	|x  y|
+	x:= position x .
+	y:=position y.
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[
+			orientation=$N ifTrue:[y:=y+1].
+			orientation=$E ifTrue:[x:=x+1].
+			orientation=$O ifTrue:[x:=x-1].
+			orientation=$S ifTrue:[y:=y-1].
+			].
+		($b=aCommand) ifTrue:[
+			orientation=$N ifTrue:[y:=y-1].
+			orientation=$E ifTrue:[x:=x-1].
+			orientation=$O ifTrue:[x:=x+1].
+			orientation=$S ifTrue:[y:=y+1].
+			].
+		'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+		'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	].
+	position:= x@y.
+	! !
+
+Object subclass: #Orientation
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #Orientation category: #'21-MarsRover'!
+Object subclass: #Orientation
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+Orientation subclass: #North
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #North category: #'21-MarsRover'!
+Orientation subclass: #North
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:03:17'!
+moveForward
+	|x y|
+	x:= position x.
+	y:= position y.
+	orientation=$N ifTrue:[y:=y+1].
+	orientation=$E ifTrue:[x:=x+1].
+	orientation=$O ifTrue:[x:=x-1].
+	orientation=$S ifTrue:[y:=y-1].
+	position := x@y.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:03:44' prior: 50726968!
+do: aCommandSequence
+	|x  y|
+	x:= position x .
+	y:=position y.
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[self moveForward].
+		($b=aCommand) ifTrue:[
+			orientation=$N ifTrue:[y:=y-1].
+			orientation=$E ifTrue:[x:=x-1].
+			orientation=$O ifTrue:[x:=x+1].
+			orientation=$S ifTrue:[y:=y+1].
+			].
+		'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+		'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	].
+	position:= x@y.
+	! !
+
+orientation!
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:06:41' prior: 50727020!
+do: aCommandSequence
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[self moveForward].
+		($b=aCommand) ifTrue:[self moveBackwards].
+		'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+		'r'=aCommandSequence ifTrue: [orientation:=$E.^self.].
+	].
+	! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:07:07'!
+moveBackwards
+	|x y|
+	x:= position x.
+	y:= position y.
+	orientation=$N ifTrue:[y:=y-1].
+	orientation=$E ifTrue:[x:=x-1].
+	orientation=$O ifTrue:[x:=x+1].
+	orientation=$S ifTrue:[y:=y+1].
+	position := x@y.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:09:04'!
+test17WhenReceivingARCommandMarsRoverRotateOrientation90DegreesToRightWithSouthOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$S.
+	
+	marsRover do:'r'.
+	
+	self assert: $O equals: marsRover orientation.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:10:45' prior: 50727040!
+do: aCommandSequence
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[self moveForward].
+		($b=aCommand) ifTrue:[self moveBackwards].
+		'l'=aCommandSequence ifTrue: [orientation:=$O.^self.].
+		'r'=aCommandSequence ifTrue: [
+			orientation=$N ifTrue:[orientation:=$E.^self.].
+			orientation=$S ifTrue:[orientation:=$O.^self.].
+			].
+	].
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:11:20'!
+test18WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToLeftWithSouthOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$S.
+	
+	marsRover do:'l'.
+	
+	self assert: $E equals: marsRover orientation.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:12:09' prior: 50727074!
+do: aCommandSequence
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[self moveForward].
+		($b=aCommand) ifTrue:[self moveBackwards].
+		'l'=aCommandSequence ifTrue: [
+			orientation=$N ifTrue:[orientation:=$O.^self.].
+			orientation=$S ifTrue:[orientation:=$E.^self.].
+			].
+		'r'=aCommandSequence ifTrue: [
+			orientation=$N ifTrue:[orientation:=$E.^self.].
+			orientation=$S ifTrue:[orientation:=$O.^self.].
+			].
+	].
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:13:15'!
+test19WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToLeftWithWestOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$O.
+	
+	marsRover do:'l'.
+	
+	self assert: $S equals: marsRover orientation.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:13:30' prior: 50727101!
+do: aCommandSequence
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[self moveForward].
+		($b=aCommand) ifTrue:[self moveBackwards].
+		'l'=aCommandSequence ifTrue: [
+			orientation=$N ifTrue:[orientation:=$O.^self.].
+			orientation=$S ifTrue:[orientation:=$E.^self.].
+			orientation=$O ifTrue:[orientation:=$S.^self.].
+			].
+		'r'=aCommandSequence ifTrue: [
+			orientation=$N ifTrue:[orientation:=$E.^self.].
+			orientation=$S ifTrue:[orientation:=$O.^self.].
+			].
+	].
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:13:55'!
+test19WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToRigthWithWestOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$O.
+	
+	marsRover do:'r'.
+	
+	self assert: $N equals: marsRover orientation.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:14:12' prior: 50727131!
+do: aCommandSequence
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[self moveForward].
+		($b=aCommand) ifTrue:[self moveBackwards].
+		'l'=aCommandSequence ifTrue: [
+			orientation=$N ifTrue:[orientation:=$O.^self.].
+			orientation=$S ifTrue:[orientation:=$E.^self.].
+			orientation=$O ifTrue:[orientation:=$S.^self.].
+			].
+		'r'=aCommandSequence ifTrue: [
+			orientation=$N ifTrue:[orientation:=$E.^self.].
+			orientation=$S ifTrue:[orientation:=$O.^self.].
+			orientation=$O ifTrue:[orientation:=$N.^self.].
+			].
+	].
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:14:24'!
+test20WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToRigthWithWestOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$O.
+	
+	marsRover do:'r'.
+	
+	self assert: $N equals: marsRover orientation.! !
+
+TestMarsRover removeSelector: #test19WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToRigthWithWestOrientation!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:15:06'!
+test21WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToRigthWithEastOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$E.
+	
+	marsRover do:'r'.
+	
+	self assert: $S equals: marsRover orientation.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:15:20' prior: 50727162!
+do: aCommandSequence
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[self moveForward].
+		($b=aCommand) ifTrue:[self moveBackwards].
+		'l'=aCommandSequence ifTrue: [
+			orientation=$N ifTrue:[orientation:=$O.^self.].
+			orientation=$S ifTrue:[orientation:=$E.^self.].
+			orientation=$O ifTrue:[orientation:=$S.^self.].
+			].
+		'r'=aCommandSequence ifTrue: [
+			orientation=$N ifTrue:[orientation:=$E.^self.].
+			orientation=$S ifTrue:[orientation:=$O.^self.].
+			orientation=$O ifTrue:[orientation:=$N.^self.].
+			orientation=$E ifTrue:[orientation:=$S.^self.].
+			].
+	].
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:15:39'!
+test22WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToLeftWithEastOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:$E.
+	
+	marsRover do:'l'.
+	
+	self assert: $N equals: marsRover orientation.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:15:53' prior: 50727209!
+do: aCommandSequence
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[self moveForward].
+		($b=aCommand) ifTrue:[self moveBackwards].
+		'l'=aCommandSequence ifTrue: [
+			orientation=$N ifTrue:[orientation:=$O.^self.].
+			orientation=$S ifTrue:[orientation:=$E.^self.].
+			orientation=$O ifTrue:[orientation:=$S.^self.].
+			orientation=$E ifTrue:[orientation:=$N.^self.].
+			].
+		'r'=aCommandSequence ifTrue: [
+			orientation=$N ifTrue:[orientation:=$E.^self.].
+			orientation=$S ifTrue:[orientation:=$O.^self.].
+			orientation=$O ifTrue:[orientation:=$N.^self.].
+			orientation=$E ifTrue:[orientation:=$S.^self.].
+			].
+	].
+	! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:16:55'!
+rotateLeft
+	orientation=$N ifTrue:[orientation:=$O.^self.].
+	orientation=$S ifTrue:[orientation:=$E.^self.].
+	orientation=$O ifTrue:[orientation:=$S.^self.].
+	orientation=$E ifTrue:[orientation:=$N.^self.].! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:17:08' prior: 50727244!
+do: aCommandSequence
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[self moveForward].
+		($b=aCommand) ifTrue:[self moveBackwards].
+		'l'=aCommandSequence ifTrue: [ self rotateLeft .].
+		'r'=aCommandSequence ifTrue: [
+			orientation=$N ifTrue:[orientation:=$E.^self.].
+			orientation=$S ifTrue:[orientation:=$O.^self.].
+			orientation=$O ifTrue:[orientation:=$N.^self.].
+			orientation=$E ifTrue:[orientation:=$S.^self.].
+			].
+	].
+	! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:17:20' prior: 50727279!
+do: aCommandSequence
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		($f=aCommand) ifTrue:[self moveForward].
+		($b=aCommand) ifTrue:[self moveBackwards].
+		'l'=aCommandSequence ifTrue: [ self rotateLeft .].
+		'r'=aCommandSequence ifTrue: [self rotateRight.].
+	].
+	! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:17:33'!
+rotateRight
+	orientation=$N ifTrue:[orientation:=$E.^self.].
+	orientation=$S ifTrue:[orientation:=$O.^self.].
+	orientation=$O ifTrue:[orientation:=$N.^self.].
+	orientation=$E ifTrue:[orientation:=$S.^self.].! !
+
+Orientation subclass: #South
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #South category: #'21-MarsRover'!
+Orientation subclass: #South
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+Orientation subclass: #West
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #West category: #'21-MarsRover'!
+Orientation subclass: #West
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+Orientation subclass: #East
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #East category: #'21-MarsRover'!
+Orientation subclass: #East
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:26:54' prior: 50726335!
+test01NewMarsRoverDoesNotChangeInitialPosition
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation: North new.
+	
+	self assert: 10@10 equals: marsRover position.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:26:59' prior: 50726432!
+test02NewMarsRoverDoesNotChangeOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	self assert: $N equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:27:02' prior: 50726599!
+test03WhenReceivingAnFCommandMarsRoverMovesForwardOnePoint
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	marsRover do:'f'.
+	
+	self assert: 10@11 equals: marsRover position.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:27:05' prior: 50726612!
+test04WhenReceivingABCommandMarsRoverMovesBackwardsOnePoint
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	marsRover do:'b'.
+	
+	self assert: 10@9 equals: marsRover position.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:27:08' prior: 50726625!
+test05WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToLeft
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	marsRover do:'l'.
+	
+	self assert: $O equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:27:12' prior: 50726638!
+test06WhenReceivingARCommandMarsRoverRotateOrientation90DegreesToRight
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	marsRover do:'r'.
+	
+	self assert: $E equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:27:16' prior: 50726651!
+test07WhenReceivingAPCommandMarsRoverStopExecution
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	self should: [marsRover do:'p'.] raise:Error - MessageNotUnderstood  withMessageText: 'Invalid command'.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:27:23' prior: 50726664!
+test08WhenReceivingAQCommandMarsRoverStopExecution
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	self should: [marsRover do:'q'.] raise:Error - MessageNotUnderstood  withMessageText: 'Invalid command'.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:27:26' prior: 50726702!
+test09WhenReceivingACCommandMarsRoverStopExecution
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	self should: [marsRover do:'c'.] raise:Error - MessageNotUnderstood  withMessageText: 'Invalid command'.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:27:31' prior: 50726725!
+test10WhenReceivingABAndFCommandMarsRoverMaintainSamePosition
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	marsRover do: 'bf'.
+	
+	self assert: 10@10 equals: marsRover position.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:27:35' prior: 50726761!
+test11WhenReceivingAFAndBCommandMarsRoverMaintainSamePosition
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	marsRover do: 'fb'.
+	
+	self assert: 10@10 equals: marsRover position.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:27:38' prior: 50726785!
+test12WhenReceivingAFAndFCommandMarsRoverMovesForwardTwoPoints
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	marsRover do: 'ff'.
+	
+	self assert: 10@12 equals: marsRover position.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:27:41' prior: 50726829!
+test13WhenReceivingABAndBCommandMarsRoverMovesBackwardsTwoPoints
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:0@0 andOrientation:North new.
+	
+	marsRover do: 'bb'.
+	
+	self assert: 0@-2 equals: marsRover position.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:27:57' prior: 50726883!
+test14WhenReceivingABAndBCommandMarsRoverMovesBackwardsTwoPointsWithEastOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:0@0 andOrientation:East new.
+	
+	marsRover do: 'bb'.
+	
+	self assert: -2@0 equals: marsRover position.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:28:05' prior: 50726897!
+test15WhenReceivingABAndBCommandMarsRoverMovesBackwardsTwoPointsWithWestOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:0@0 andOrientation:West new.
+	
+	marsRover do: 'bb'.
+	
+	self assert: 2@0 equals: marsRover position.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:28:10' prior: 50726958!
+test16WhenReceivingABAndBCommandMarsRoverMovesBackwardsTwoPointsWithSouthOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:0@0 andOrientation:South new.
+	
+	marsRover do: 'bb'.
+	
+	self assert: 0@2 equals: marsRover position.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:28:17' prior: 50727063!
+test17WhenReceivingARCommandMarsRoverRotateOrientation90DegreesToRightWithSouthOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:South new.
+	
+	marsRover do:'r'.
+	
+	self assert: $O equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:28:24' prior: 50727090!
+test18WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToLeftWithSouthOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:South new.
+	
+	marsRover do:'l'.
+	
+	self assert: $E equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:28:30' prior: 50727120!
+test19WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToLeftWithWestOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:West new.
+	
+	marsRover do:'l'.
+	
+	self assert: $S equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:28:36' prior: 50727184!
+test20WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToRigthWithWestOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:West new.
+	
+	marsRover do:'r'.
+	
+	self assert: $N equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:28:41' prior: 50727198!
+test21WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToRigthWithEastOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:East new.
+	
+	marsRover do:'r'.
+	
+	self assert: $S equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:28:50' prior: 50727233!
+test22WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToLeftWithEastOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:East new.
+	
+	marsRover do:'l'.
+	
+	self assert: $N equals: marsRover orientation.! !
+!East methodsFor: 'nil' stamp: 'FA 10/9/2019 20:30:36'!
+rotateLeft
+	^South new.! !
+!North methodsFor: 'action' stamp: 'FA 10/9/2019 20:31:22'!
+rotateLeft
+	^East new.! !
+!South methodsFor: 'action' stamp: 'FA 10/9/2019 20:31:48'!
+rotateLeft
+	^West new.! !
+!North methodsFor: 'action' stamp: 'FA 10/9/2019 20:32:15' prior: 50727588!
+rotateLeft
+	^West new.! !
+!South methodsFor: 'action' stamp: 'FA 10/9/2019 20:32:24' prior: 50727591!
+rotateLeft
+	^East new.! !
+!East methodsFor: 'action' stamp: 'FA 10/9/2019 20:32:42' prior: 50727585!
+rotateLeft
+	^North new.! !
+!West methodsFor: 'action' stamp: 'FA 10/9/2019 20:33:21'!
+rotateLeft
+	^South new.! !
+!East methodsFor: 'action' stamp: 'FA 10/9/2019 20:33:37'!
+rotateRight
+	^South new.! !
+!North methodsFor: 'action' stamp: 'FA 10/9/2019 20:33:52'!
+rotateRight
+	^East new.! !
+!South methodsFor: 'action' stamp: 'FA 10/9/2019 20:34:04'!
+rotateRight
+	^West new.! !
+!West methodsFor: 'action' stamp: 'FA 10/9/2019 20:34:15'!
+rotateRight
+	^North new.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:35:03' prior: 50727269!
+rotateLeft
+	orientation:=orientation rotateLeft.
+	! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:35:34' prior: 50727311!
+rotateRight
+	orientation:=orientation rotateRight .! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:38:22' prior: 50727053!
+moveBackwards
+	|x y|
+	x:= position x.
+	y:= position y.
+	orientation class = North ifTrue:[y:=y-1].
+	orientation class = East ifTrue:[x:=x-1].
+	orientation class = West ifTrue:[x:=x+1].
+	orientation class = South ifTrue:[y:=y+1].
+	position := x@y.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:39:14' prior: 50727011!
+moveForward
+	|x y|
+	x:= position x.
+	y:= position y.
+	orientation class = North ifTrue:[y:=y+1].
+	orientation class = East ifTrue:[x:=x+1].
+	orientation class = West ifTrue:[x:=x-1].
+	orientation class = South ifTrue:[y:=y-1].
+	position := x@y.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:40:10' prior: 50727359!
+test02NewMarsRoverDoesNotChangeOrientation
+	| marsRover |
+	
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	self assert: North new equals: marsRover orientation.! !
+!Orientation methodsFor: 'no messages' stamp: 'FA 10/9/2019 20:41:32'!
+= anOrientation
+	^ self class = anOrientation class.! !
+
+pepe := North new.!
+
+carlos = North new.!
+
+carlos := North new.
+!
+
+pepe = carlos.!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:43:58' prior: 50727388!
+test05WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToLeft
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	marsRover do:'l'.
+	
+	self assert: West new equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:44:08' prior: 50727399!
+test06WhenReceivingARCommandMarsRoverRotateOrientation90DegreesToRight
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	marsRover do:'r'.
+	
+	self assert: East new equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:44:13' prior: 50727520!
+test17WhenReceivingARCommandMarsRoverRotateOrientation90DegreesToRightWithSouthOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:South new.
+	
+	marsRover do:'r'.
+	
+	self assert: West new equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:44:17' prior: 50727531!
+test18WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToLeftWithSouthOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:South new.
+	
+	marsRover do:'l'.
+	
+	self assert: East new equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:44:21' prior: 50727542!
+test19WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToLeftWithWestOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:West new.
+	
+	marsRover do:'l'.
+	
+	self assert: South new equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:44:26' prior: 50727553!
+test20WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToRigthWithWestOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:West new.
+	
+	marsRover do:'r'.
+	
+	self assert: North new equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:44:33' prior: 50727564!
+test21WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToRigthWithEastOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:East new.
+	
+	marsRover do:'r'.
+	
+	self assert: South new equals: marsRover orientation.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 20:44:38' prior: 50727575!
+test22WhenReceivingALCommandMarsRoverRotateOrientation90DegreesToLeftWithEastOrientation
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:East new.
+	
+	marsRover do:'l'.
+	
+	self assert: North new equals: marsRover orientation.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:46:15' prior: 50727298!
+do: aCommandSequence
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		$f=aCommand ifTrue:[self moveForward].
+		$b=aCommand ifTrue:[self moveBackwards].
+		$l=aCommand ifTrue: [ self rotateLeft .].
+		$r=aCommand ifTrue: [self rotateRight.].
+	].
+	! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 20:58:41' prior: 50727632!
+moveBackwards
+	|x y|
+	x:= position x.
+	y:= position y.
+	x := x + orientation xCoordinateVariationOnBackwards.
+	y := y + orientation yCoordinateVariationOnBackwards.
+	position := x@y.! !
+!North methodsFor: 'accessing' stamp: 'FA 10/9/2019 20:59:35'!
+xCoordinateVariationOnBackwards
+	self shouldBeImplemented.! !
+!North methodsFor: 'accessing' stamp: 'FA 10/9/2019 20:59:54' prior: 50727784!
+xCoordinateVariationOnBackwards
+	^0.! !
+!North methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:00:06'!
+yCoordinateVariationOnBackwards
+	self shouldBeImplemented.! !
+!North methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:00:18' prior: 50727793!
+yCoordinateVariationOnBackwards
+	^-1.! !
+!East methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:00:36'!
+xCoordinateVariationOnBackwards
+	self shouldBeImplemented.! !
+!East methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:00:48' prior: 50727802!
+xCoordinateVariationOnBackwards
+	^-1.! !
+!East methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:01:41'!
+yCoordinateVariationOnBackwards
+	^0.! !
+!South methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:02:14'!
+xCoordinateVariationOnBackwards
+	^0.! !
+!South methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:02:31'!
+yCoordinateVariationOnBackwards
+	^1.! !
+!West methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:02:55'!
+xCoordinateVariationOnBackwards
+	^1.! !
+!West methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:03:02'!
+yCoordinateVariationOnBackwards
+	^0.! !
+
+----SNAPSHOT----(9 October 2019 21:03:08) CuisUniversity-3839.image priorSource: 12649631!
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 21:03:48' prior: 50727643!
+moveForward
+	|x y|
+	x:= position x.
+	y:= position y.
+	x := x + orientation xCoordinateVariationOnForward.
+	y := y + orientation yCoordinateVariationOnForward.
+	position := x@y.! !
+!East methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:04:09'!
+xCoordinateVariationOnForward
+	^1.! !
+!East methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:04:16'!
+yCoordinateVariationOnForward
+	^0.! !
+!North methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:04:28'!
+xCoordinateVariationOnForward
+	^0.! !
+!North methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:04:32'!
+yCoordinateVariationOnForward
+	^1.! !
+!South methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:04:43'!
+xCoordinateVariationOnForward
+	^0.! !
+!South methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:04:48'!
+yCoordinateVariationOnForward
+	^-1.! !
+!West methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:05:06'!
+xCoordinateVariationOnForward
+	^-1.! !
+!West methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:05:11'!
+yCoordinateVariationOnForward
+	^0.! !
+
+Object subclass: #Direction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #Direction category: #'21-MarsRover'!
+Object subclass: #Direction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+Direction subclass: #Forward
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #Forward category: #'21-MarsRover'!
+Direction subclass: #Forward
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+Direction subclass: #Backwards
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #Backwards category: #'21-MarsRover'!
+Direction subclass: #Backwards
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+!Backwards methodsFor: 'no messages' stamp: 'FA 10/9/2019 21:19:46'!
+xCoordinateVariationOn: aCardinalDirection
+	^ aCardinalDirection xCoordinateVariationOnBackwards.! !
+!Backwards methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:20:11'!
+yCoordinateVariationOn: aCardinalDirection
+	^ aCardinalDirection yCoordinateVariationOnBackwards.! !
+!Forward methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:20:43'!
+xCoordinateVariationOn: aCardinalDirection
+	^ aCardinalDirection xCoordinateVariationOnForward.! !
+!Forward methodsFor: 'accessing' stamp: 'FA 10/9/2019 21:20:48'!
+yCoordinateVariationOn: aCardinalDirection
+	^ aCardinalDirection yCoordinateVariationOnForward.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 21:21:55'!
+move: aDirection
+	|x y|
+	x:= position x.
+	y:= position y.
+	x := x + aDirection xCoordinateVariationOn: orientation.
+	y := y + aDirection yCoordinateVariationOn: orientation.
+	position := x@y.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 21:22:26' prior: 50727776!
+moveBackwards
+	self move: Backwards new.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 21:22:35' prior: 50727834!
+moveForward
+	self move: Forward new.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 21:23:27' prior: 50727927!
+move: aDirection
+	|x y|
+	x:= position x.
+	y:= position y.
+	x := x + (aDirection xCoordinateVariationOn: orientation).
+	y := y + (aDirection yCoordinateVariationOn: orientation).
+	position := x@y.! !
+
+----SNAPSHOT----(9 October 2019 21:23:50) CuisUniversity-3839.image priorSource: 12677767!
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:13:33'!
+test23MarsRoversChangesPositionUntilAnInvalidCommandIsReceive
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	[marsRover do:'lfrbxfx'.] ensure: [self assert: 9@9 new equals: marsRover position.]
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:17:37' prior: 50727956!
+test23MarsRoversChangesPositionUntilAnInvalidCommandIsReceive
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	[marsRover do:'lfrbxfx'.] ensure: [self assert: 9@9 equals: marsRover position.]
+	! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 23:18:23' prior: 50727763!
+do: aCommandSequence
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[^self error: 'Invalid command'.].
+		$f=aCommand ifTrue:[self moveForward].
+		$b=aCommand ifTrue:[self moveBackwards].
+		$l=aCommand ifTrue: [ self rotateLeft .].
+		$r=aCommand ifTrue: [self rotateRight.].
+	].
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:21:26' prior: 50727967!
+test23MarsRoversChangesPositionUntilAnInvalidCommandIsReceive
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	self should: [marsRover do:'lfrbxfx'] raise:Error - MessageNotUnderstood   withExceptionDo: [:exception | self assert: 9@9 equals: marsRover position.].
+	! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/9/2019 23:21:56' prior: 50727977!
+do: aCommandSequence
+	aCommandSequence do:[:aCommand|
+		('fblr' includes:aCommand)  ifFalse:[self error: 'Invalid command'.].
+		$f=aCommand ifTrue:[self moveForward].
+		$b=aCommand ifTrue:[self moveBackwards].
+		$l=aCommand ifTrue: [ self rotateLeft .].
+		$r=aCommand ifTrue: [self rotateRight.].
+	].
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:23:13'!
+test24MarsRoversChangesOrientationUntilAnInvalidCommandIsReceive
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	self should: [marsRover do:'lllfrfbxrx'] raise:Error - MessageNotUnderstood   withExceptionDo: [:exception | self assert: South new equals: marsRover orientation .].
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:24:12'!
+test25MarsRoversNotChangesOrientationOnEmptySequenceCommands
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:South new.
+	self assert: South new equals: marsRover orientation.
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:24:30' prior: 50728029!
+test25MarsRoversNotChangesOrientationOnEmptySequenceCommands
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:South new.
+	marsRover  do: ''.
+	self assert: South new equals: marsRover orientation.
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:24:59'!
+test26MarsRoversNotChangesPositionOnEmptySequenceCommands
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:South new.
+	marsRover  do: ''.
+	self assert: 10@10 equals: marsRover position.
+	! !
+!CardinalDirection methodsFor: 'action' stamp: 'FA 10/9/2019 23:27:20'!
+rotateLeft
+	^North new.! !
+
+East removeSelector: #rotateLeft!
+!East methodsFor: 'action' stamp: 'FA 10/9/2019 23:27:49'!
+rotateLeft
+	^North new.! !
+!CardinalDirection methodsFor: 'action' stamp: 'FA 10/9/2019 23:28:37' prior: 50728059!
+rotateLeft
+	self subclassResponsibility.! !
+!CardinalDirection methodsFor: 'action' stamp: 'FA 10/9/2019 23:28:49'!
+rotateRight
+	self subclassResponsibility.! !
+!CardinalDirection methodsFor: 'nil' stamp: 'FA 10/9/2019 23:29:09'!
+xCoordinateVariationOnBackwards
+	self subclassResponsibility .! !
+!CardinalDirection methodsFor: 'accesing' stamp: 'FA 10/9/2019 23:29:29'!
+xCoordinateVariationOnForward
+	self subclassResponsibility .! !
+!CardinalDirection methodsFor: 'accesing' stamp: 'FA 10/9/2019 23:29:38'!
+yCoordinateVariationOnBackwards
+	self subclassResponsibility .! !
+!CardinalDirection methodsFor: 'accesing' stamp: 'FA 10/9/2019 23:29:46'!
+yCoordinateVariationOnForward
+	self subclassResponsibility .! !
+
+!classDefinition: 'North class' category: #'21-MarsRover'!
+North class
+	instanceVariableNames: 'uniqueInstance'!
+!North class methodsFor: 'nil' stamp: 'FA 10/9/2019 23:31:33'!
+new
+	^uniqueInstance.! !
+!North class methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:33:22'!
+initialize
+	uniqueInstance := self basicNew.! !
+
+North initialize.!
+
+----SNAPSHOT----(9 October 2019 23:35:12) CuisUniversity-3839.image priorSource: 12681670!
+
+----QUIT----(9 October 2019 23:35:26) CuisUniversity-3839.image priorSource: 12686595!
+
+----STARTUP---- (9 October 2019 23:37:36) as /Users/personal/Desktop/cuis limpio/CuisUniversity-3839.image!
+
+
+!classDefinition: 'East class' category: #'21-MarsRover'!
+East class
+	instanceVariableNames: 'uniqueInstance'!
+!East class methodsFor: 'no messages' stamp: 'FA 10/9/2019 23:37:55'!
+initialize
+	uniqueInstance := self basicNew.! !
+!East class methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:38:06'!
+new
+	^uniqueInstance.! !
+
+!classDefinition: 'South class' category: #'21-MarsRover'!
+South class
+	instanceVariableNames: 'uniqueInstance'!
+!South class methodsFor: 'no messages' stamp: 'FA 10/9/2019 23:38:19'!
+initialize
+	uniqueInstance := self basicNew.! !
+!South class methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:38:26'!
+new
+	^uniqueInstance.! !
+
+!classDefinition: 'West class' category: #'21-MarsRover'!
+West class
+	instanceVariableNames: 'uniqueInstance'!
+!West class methodsFor: 'nil' stamp: 'FA 10/9/2019 23:38:41'!
+initialize
+	uniqueInstance := self basicNew.! !
+!West class methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:38:47'!
+new
+	^uniqueInstance.! !
+
+South initialize.!
+
+West initialize.!
+
+East initialize.!
+
+CardinalDirection removeSelector: #=!
+!Direction methodsFor: 'no messages' stamp: 'FA 10/9/2019 23:40:20'!
+xCoordinateVariationOn: aCardinalDirection
+	self subclassResponsibility.! !
+!Direction methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:40:37'!
+yCoordinateVariationOn: aCardinalDirection
+	self subclassResponsibility.! !
+
+!classDefinition: 'Backwards class' category: #'21-MarsRover'!
+Backwards class
+	instanceVariableNames: 'uniqueInstance'!
+!Backwards class methodsFor: 'no messages' stamp: 'FA 10/9/2019 23:41:21'!
+initialize
+	uniqueInstance := self basicNew.! !
+!Backwards class methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:41:29'!
+new
+	^uniqueInstance.! !
+
+!classDefinition: 'Forward class' category: #'21-MarsRover'!
+Forward class
+	instanceVariableNames: 'uniqueInstance'!
+!Forward class methodsFor: 'no messages' stamp: 'FA 10/9/2019 23:41:43'!
+initialize
+	uniqueInstance := self basicNew.! !
+!Forward class methodsFor: 'as yet unclassified' stamp: 'FA 10/9/2019 23:41:50'!
+new
+	^uniqueInstance.! !
+
+Backwards initialize.!
+
+Forward initialize.!
+
+MarsRover class
+	instanceVariableNames: 'commandsFromCharacters'!
+
+!classDefinition: 'MarsRover class' category: #'21-MarsRover'!
+MarsRover class
+	instanceVariableNames: 'commandsFromCharacters'!
+
+!classDefinition: #ForwardCommand category: #'21-MarsRover'!
+Object subclass: #ForwardCommand
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #BackwardsCommand category: #'21-MarsRover'!
+Object subclass: #BackwardsCommand
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #RotateLeftCommand category: #'21-MarsRover'!
+Object subclass: #RotateLeftCommand
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #RotateRightCommand category: #'21-MarsRover'!
+Object subclass: #RotateRightCommand
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+!MarsRover class methodsFor: 'class initialization' stamp: 'FA 10/9/2019 23:59:44'!
+initialize
+	commandsFromCharacters := Dictionary newFromPairs: {
+	 	$f.ForwardCommand new.$b.BackwardsCommand.$l.RotateLeftCommand.$r.RotateRightCommand 
+	}.! !
+
+Object subclass: #Command
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #Command category: #'21-MarsRover'!
+Object subclass: #Command
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+Command subclass: #RotateLeftCommand
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #RotateLeftCommand category: #'21-MarsRover'!
+Command subclass: #RotateLeftCommand
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+Command subclass: #RotateRightCommand
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #RotateRightCommand category: #'21-MarsRover'!
+Command subclass: #RotateRightCommand
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+Command subclass: #ForwardCommand
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #ForwardCommand category: #'21-MarsRover'!
+Command subclass: #ForwardCommand
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+Command subclass: #BackwardsCommand
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+
+!classDefinition: #BackwardsCommand category: #'21-MarsRover'!
+Command subclass: #BackwardsCommand
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '21-MarsRover'!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/10/2019 00:01:57' prior: 50727936!
+moveBackwards
+	self move: BackwardsDirection new.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/10/2019 00:02:12' prior: 50727940!
+moveForward
+	self move: ForwardDirection new.! !
+
+!classDefinition: 'BackwardsCommand class' category: #'21-MarsRover'!
+BackwardsCommand class
+	instanceVariableNames: 'uniqueInstance'!
+!BackwardsCommand class methodsFor: 'no messages' stamp: 'FA 10/10/2019 00:02:48'!
+initialize
+	uniqueInstance := self basicNew.! !
+!MarsRover class methodsFor: 'nil' stamp: 'FA 10/10/2019 00:08:32'!
+commandsFromCharacters
+	^commandsFromCharacters .! !
+
+(Dictionary newFrom: {}) at:'pepe'!
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/10/2019 00:16:15' prior: 50728003!
+do: aCharacterSequence
+	(aCharacterSequence collect:[ 
+		:aCharacter | self class commandsFromCharacters at:aCharacter  ifAbsent:[self error: 'Invalid command'.] 
+		]
+	) do:[:aCommand|
+		aCommand executeOn:self.
+	].
+	! !
+!BackwardsCommand methodsFor: 'nil' stamp: 'FA 10/10/2019 00:16:53'!
+executeOn:aMarsRover
+	aMarsRover moveBackwards.! !
+!ForwardCommand methodsFor: 'no messages' stamp: 'FA 10/10/2019 00:17:10'!
+executeOn:aMarsRover
+	aMarsRover moveBackwards.! !
+!ForwardCommand methodsFor: 'as yet unclassified' stamp: 'FA 10/10/2019 00:17:18' prior: 50728316!
+executeOn:aMarsRover
+	aMarsRover moveForward.! !
+!RotateLeftCommand methodsFor: 'nil' stamp: 'FA 10/10/2019 00:17:38'!
+executeOn:aMarsRover
+	aMarsRover rotateLeft .! !
+!RotateRightCommand methodsFor: 'no messages' stamp: 'FA 10/10/2019 00:17:58'!
+executeOn:aMarsRover
+	aMarsRover rotateRight.! !
+!Command methodsFor: 'nil' stamp: 'FA 10/10/2019 00:18:43'!
+executeOn:aMarsRover
+	self subclassResponsibility .! !
+
+MarsRover initialize.!
+!MarsRover class methodsFor: 'class initialization' stamp: 'FA 10/10/2019 00:21:38' prior: 50728218!
+initialize
+	commandsFromCharacters := Dictionary newFromPairs: {
+	 	$f.ForwardCommand new.$b.BackwardsCommand new .$l.RotateLeftCommand new .$r.RotateRightCommand new
+	}.! !
+
+MarsRover initialize.!
+
+----SNAPSHOT----(10 October 2019 00:24:26) CuisUniversity-3839.image priorSource: 12686687!
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/10/2019 00:28:57' prior: 50728302!
+do: aCharacterSequence
+	aCharacterSequence do:[ 
+		:aCharacter | (self class commandsFromCharacters at:aCharacter  ifAbsent:[self error: 'Invalid command'.] ) executeOn:self.
+		].
+	! !
+!MarsRover class methodsFor: 'accessing' stamp: 'FA 10/10/2019 00:29:42'!
+invalidCommandErrorMessage
+	^'Invalid command'.! !
+!MarsRover methodsFor: 'actions' stamp: 'FA 10/10/2019 00:31:57' prior: 50728351!
+do: aCharacterSequence
+	aCharacterSequence do:[ :aCharacter | 
+		(self class commandsFromCharacters at:aCharacter  ifAbsent:[self error: self class invalidCommandErrorMessage.] ) executeOn:self.
+		].
+	! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/10/2019 00:32:19' prior: 50727410!
+test07WhenReceivingAPCommandMarsRoverStopExecution
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	self should: [marsRover do:'p'.] raise:Error - MessageNotUnderstood  withMessageText: MarsRover class invalidCommandErrorMessage.! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/10/2019 00:32:40' prior: 50728375!
+test07WhenReceivingAPCommandMarsRoverStopExecution
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	self should: [marsRover do:'p'.] raise:Error - MessageNotUnderstood  withMessageText: (MarsRover invalidCommandErrorMessage).! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/10/2019 00:32:52' prior: 50727421!
+test08WhenReceivingAQCommandMarsRoverStopExecution
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	self should: [marsRover do:'q'.] raise:Error - MessageNotUnderstood  withMessageText: (MarsRover invalidCommandErrorMessage).! !
+!TestMarsRover methodsFor: 'as yet unclassified' stamp: 'FA 10/10/2019 00:32:57' prior: 50727432!
+test09WhenReceivingACCommandMarsRoverStopExecution
+	| marsRover |
+	
+	marsRover := MarsRover withPosition:10@10 andOrientation:North new.
+	
+	self should: [marsRover do:'c'.] raise:Error - MessageNotUnderstood  withMessageText: (MarsRover invalidCommandErrorMessage).! !
+!BackwardsCommand class methodsFor: 'as yet unclassified' stamp: 'FA 10/10/2019 00:37:29'!
+new
+	^uniqueInstance.! !
+
+!classDefinition: 'ForwardCommand class' category: #'21-MarsRover'!
+ForwardCommand class
+	instanceVariableNames: 'uniqueInstance'!
+!ForwardCommand class methodsFor: 'nil' stamp: 'FA 10/10/2019 00:37:44'!
+initialize
+	uniqueInstance := self basicNew.! !
+!ForwardCommand class methodsFor: 'as yet unclassified' stamp: 'FA 10/10/2019 00:37:53'!
+new
+	^uniqueInstance.! !
+
+!classDefinition: 'RotateLeftCommand class' category: #'21-MarsRover'!
+RotateLeftCommand class
+	instanceVariableNames: 'uniqueInstance'!
+!RotateLeftCommand class methodsFor: 'no messages' stamp: 'FA 10/10/2019 00:38:12'!
+initialize
+	uniqueInstance := self basicNew.! !
+!RotateLeftCommand class methodsFor: 'as yet unclassified' stamp: 'FA 10/10/2019 00:38:20'!
+new
+	^uniqueInstance.! !
+
+!classDefinition: 'RotateRightCommand class' category: #'21-MarsRover'!
+RotateRightCommand class
+	instanceVariableNames: 'uniqueInstance'!
+!RotateRightCommand class methodsFor: 'no messages' stamp: 'FA 10/10/2019 00:38:34'!
+initialize
+	uniqueInstance := self basicNew.! !
+!RotateRightCommand class methodsFor: 'as yet unclassified' stamp: 'FA 10/10/2019 00:38:41'!
+new
+	^uniqueInstance.! !
+
+BackwardsCommand initialize.!
+
+ForwardCommand initialize.!
+
+RotateLeftCommand initialize.!
+
+RotateRightCommand initialize.!
+
+----SNAPSHOT----(10 October 2019 00:41:30) CuisUniversity-3839.image priorSource: 12694309!
+
+----SNAPSHOT----(10 October 2019 00:43:31) CuisUniversity-3839.image priorSource: 12698197!
