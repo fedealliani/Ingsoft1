@@ -305,6 +305,292 @@ test07AccountKnowsItsTransactions
 ! !
 
 
+!classDefinition: #SummaryReportTest category: #'24-PortfolioTreePrinter'!
+TestCase subclass: #SummaryReportTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '24-PortfolioTreePrinter'!
+
+!SummaryReportTest methodsFor: 'tests' stamp: 'LR 10/28/2019 14:29:50'!
+test01SummaryReportOfEmptyAccountIsJustTheAccountBalance
+
+	| account report |
+	
+	account := ReceptiveAccount new.
+	report := SummaryReport for: account.
+	
+	
+	self assert: ('Balance = 0', Character cr asString) equals: report print.! !
+
+!SummaryReportTest methodsFor: 'tests' stamp: 'LR 10/28/2019 14:54:41'!
+test02SummaryReportOfAccountWithADepositHasThatDeposit
+
+	| account report |
+	
+	account := ReceptiveAccount new.
+	report := SummaryReport for: account.
+	
+	Deposit register: 500 on: account.
+	
+	self assert: (
+		'Depósito por 500.',
+		Character cr asString,
+		'Balance = 500',
+		Character cr asString
+	) equals: report print.! !
+
+!SummaryReportTest methodsFor: 'tests' stamp: 'LR 10/28/2019 14:55:22'!
+test03SummaryReportOfAccountWithAWithdrawHasThatWithdraw
+
+	| account report |
+	
+	account := ReceptiveAccount new.
+	report := SummaryReport for: account.
+	
+	Withdraw register: 500 on: account.
+	
+	self assert: (
+		'Extracción por 500.',
+		Character cr asString,
+		'Balance = -500',
+		Character cr asString
+	) equals: report print.! !
+
+!SummaryReportTest methodsFor: 'tests' stamp: 'LR 10/28/2019 14:57:02'!
+test04SummaryReportOfAccountWithAnIncomingTransferHasThatIncomingTransfer
+
+	| account1 account2 report |
+	
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	report := SummaryReport for: account2.
+	
+	Transfer newFrom: account1 to: account2 forValue: 500.
+	
+	self assert: (
+		'Entrada por transferencia de 500.',
+		Character cr asString,
+		'Balance = 500',
+		Character cr asString
+	) equals: report print.! !
+
+!SummaryReportTest methodsFor: 'tests' stamp: 'LR 10/28/2019 14:57:25'!
+test05SummaryReportOfAccountWithAnOutgoingTransferHasThatOutgoingTransfer
+
+	| account1 account2 report |
+	
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	report := SummaryReport for: account1.
+	
+	Transfer newFrom: account1 to: account2 forValue: 500.
+	
+	self assert: (
+		'Salida por transferencia de 500.',
+		Character cr asString,
+		'Balance = -500',
+		Character cr asString
+	) equals: report print.! !
+
+!SummaryReportTest methodsFor: 'tests' stamp: 'LR 10/28/2019 15:00:01'!
+test06SummaryReportOfAccountWithMultipleTransactionsHasAllThoseTransactionsInOrder
+
+	| account1 account2 report |
+	
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	report := SummaryReport for: account1.
+	
+	Transfer newFrom: account1 to: account2 forValue: 500.
+	Transfer newFrom: account2 to: account1 forValue: 250.
+	Withdraw register: 100 on: account1.
+	Deposit register: 1000 on: account1.
+	
+	self assert: (
+		'Salida por transferencia de 500.',
+		Character cr asString,
+		'Entrada por transferencia de 250.',
+		Character cr asString,
+		'Extracción por 100.',
+		Character cr asString,
+		'Depósito por 1000.',
+		Character cr asString,
+		'Balance = 650',
+		Character cr asString
+	) equals: report print.! !
+
+
+
+!classDefinition: #TransferNetReportTest category: #'24-PortfolioTreePrinter'!
+TestCase subclass: #TransferNetReportTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '24-PortfolioTreePrinter'!
+
+!TransferNetReportTest methodsFor: 'tests' stamp: 'LR 10/28/2019 16:16:51'!
+test01TransferNetReportOfAccountWithoutTransfersIsZero
+
+	| account report |
+	
+	account := ReceptiveAccount new.
+	report := TransferNetReport for: account.
+	
+	self assert: ('Neto de transferencias = 0', Character cr asString) equals: report print.! !
+
+!TransferNetReportTest methodsFor: 'tests' stamp: 'LR 10/28/2019 16:19:36'!
+test02TransferNetReportOfAccountWithAnIncomingTransferIsTheValueOfThatIncomingTransfer
+
+	| account1 account2 report |
+	
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	report := TransferNetReport for: account2.
+	
+	Transfer newFrom: account1 to: account2 forValue: 500.
+	
+	self assert: ('Neto de transferencias = 500', Character cr asString) equals: report print.! !
+
+!TransferNetReportTest methodsFor: 'tests' stamp: 'LR 10/28/2019 16:42:21'!
+test03TransferNetReportOfAccountWithAnOutgoingTransferIsTheNegatedValueOfThatOutgoingTransfer
+
+	| account1 account2 report |
+	
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	report := TransferNetReport for: account1.
+	
+	Transfer newFrom: account1 to: account2 forValue: 500.
+	
+	self assert: ('Neto de transferencias = -500', Character cr asString) equals: report print.! !
+
+
+!classDefinition: #TransferTest category: #'24-PortfolioTreePrinter'!
+TestCase subclass: #TransferTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '24-PortfolioTreePrinter'!
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'LR 10/28/2019 13:18:07'!
+test01ValidTransferMakesSenderAccountToDecreaseBalanceAndReceiverAccountIncreasesSameBalance
+
+	| account1 account2 |
+	
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	Deposit register: 1000 on: account1.
+	
+	Transfer newFrom: account1 to: account2 forValue: 200.
+	
+	self assert: 200 equals: account2 balance.
+	self assert: 800 equals: account1 balance.! !
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'LR 10/28/2019 13:45:05'!
+test02CannotTransferAZeroValue
+
+	| account1 account2 |
+	
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	self
+		should: [ Transfer newFrom: account1 to: account2 forValue: 0 ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :error |
+			self assert: Transfer cannotTransferAZeroValueErrorDescription equals: error messageText.
+			self assert: 0 equals: account1 balance.
+			self assert: 0 equals: account2 balance.
+			self assert: 0 equals: account1 transactionsCount.
+			self assert: 0 equals: account2 transactionsCount.
+		].! !
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'LR 10/28/2019 13:45:14'!
+test03CannotTransferANegativeValue
+
+	| account1 account2 |
+	
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	self
+		should: [ Transfer newFrom: account1 to: account2 forValue: -100 ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :error |
+			self assert: Transfer cannotTransferANegativeValueErrorDescription equals: error messageText.
+			self assert: 0 equals: account1 balance.
+			self assert: 0 equals: account2 balance.
+			self assert: 0 equals: account1 transactionsCount.
+			self assert: 0 equals: account2 transactionsCount.
+		].! !
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'LR 10/28/2019 13:45:26'!
+test04CannotTransferBetweenSameAccount
+
+	| account |
+	
+	account := ReceptiveAccount new.
+	
+	self
+		should: [ Transfer newFrom: account to: account forValue: 100 ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :error |
+			self assert: Transfer cannotTransferBetweenSameAccountErrorDescription equals: error messageText.
+			self assert: 0 equals: account balance.
+			self assert: 0 equals: account transactionsCount.
+		].! !
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'LR 10/28/2019 13:50:24'!
+test05GettingOutgoingTransferOfTheIncomingTransferEqualsOutgoingTransferOfTheWholeTransfer
+
+	| account1 account2 transfer |
+	
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	transfer := Transfer newFrom: account1 to: account2 forValue: 100.
+	
+	self assert: transfer outgoingTransfer equals: transfer incomingTransfer outgoingTransfer.! !
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'LR 10/28/2019 13:50:09'!
+test06GettingIncomingTransferOfTheOutgoingTransferEqualsOutgoingTransferOfTheWholeTransfer
+
+	| account1 account2 transfer |
+	
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	transfer := Transfer newFrom: account1 to: account2 forValue: 100.
+	
+	self assert: transfer incomingTransfer equals: transfer outgoingTransfer incomingTransfer.! !
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'LR 10/28/2019 13:51:56'!
+test07OutgoingTransferGetsRegisteredInSenderAccount
+
+	| account1 account2 transfer |
+	
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	transfer := Transfer newFrom: account1 to: account2 forValue: 100.
+	
+	self assert: (account1 hasRegistered: transfer outgoingTransfer).! !
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'LR 10/28/2019 13:52:15'!
+test08IncomingTransferGetsRegisteredInReceiverAccount
+
+	| account1 account2 transfer |
+	
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	transfer := Transfer newFrom: account1 to: account2 forValue: 100.
+	
+	self assert: (account2 hasRegistered: transfer incomingTransfer).! !
+
+
 !classDefinition: #Account category: #'24-PortfolioTreePrinter'!
 Object subclass: #Account
 	instanceVariableNames: ''
@@ -329,6 +615,12 @@ balance
 	self subclassResponsibility ! !
 
 
+!Account methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:27:55'!
+write: anAccountReport on: aWriteStream 
+	
+	self transactions do: [ :aTransaction | aTransaction write: anAccountReport on: aWriteStream ].! !
+
+
 !Account methodsFor: 'transactions' stamp: 'HAW 5/25/2019 12:23:27'!
 addTransactionsTo: aCollectionOfTransactions
 
@@ -338,6 +630,11 @@ addTransactionsTo: aCollectionOfTransactions
 transactions
 
 	self subclassResponsibility ! !
+
+!Account methodsFor: 'transactions' stamp: 'LR 10/28/2019 13:42:17'!
+transactionsCount
+
+	^self transactions size! !
 
 
 !Account methodsFor: 'composition' stamp: 'HAW 5/25/2019 12:24:04'!
@@ -540,6 +837,139 @@ addedTo: aPortfolio
 	
 	! !
 
+
+
+!classDefinition: #AccountReport category: #'24-PortfolioTreePrinter'!
+Object subclass: #AccountReport
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '24-PortfolioTreePrinter'!
+
+!AccountReport methodsFor: 'initialization' stamp: 'LR 10/28/2019 13:54:26'!
+initializeFor: anAccount
+
+	account := anAccount! !
+
+
+!AccountReport methodsFor: 'printing' stamp: 'LR 10/28/2019 15:59:11'!
+print
+
+	self subclassResponsibility ! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'AccountReport class' category: #'24-PortfolioTreePrinter'!
+AccountReport class
+	instanceVariableNames: ''!
+
+!AccountReport class methodsFor: 'instance creation' stamp: 'LR 10/28/2019 13:55:13'!
+for: anAccount
+
+	^ self new initializeFor: anAccount! !
+
+
+!classDefinition: #SummaryReport category: #'24-PortfolioTreePrinter'!
+AccountReport subclass: #SummaryReport
+	instanceVariableNames: 'buffer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '24-PortfolioTreePrinter'!
+
+!SummaryReport methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:50:04'!
+evaluateDeposit: aDeposit on: aBuffer
+	
+	aBuffer add: ('Depósito por ', aDeposit value asString, '.').! !
+
+!SummaryReport methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:49:34'!
+evaluateIncomingTransfer: anIncomingTransfer on: aBuffer
+	
+	aBuffer add: ('Entrada por transferencia de ', anIncomingTransfer value asString, '.').! !
+
+!SummaryReport methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:49:43'!
+evaluateOutgoingTransfer: anOutgoingTransfer on: aBuffer	
+	
+	aBuffer add: ('Salida por transferencia de ', anOutgoingTransfer value asString, '.').! !
+
+!SummaryReport methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:49:17'!
+evaluateWithdraw: aWithdraw on: aBuffer
+	
+	aBuffer add: ('Extracción por ', aWithdraw value asString, '.').! !
+
+!SummaryReport methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:53:04'!
+print
+	
+	^ String streamContents: [ :stream |
+		account write: self on: buffer.
+		
+		buffer do: [ :aLine |
+			stream
+				nextPutAll: aLine;
+				cr.
+		].
+	
+		stream
+			nextPutAll: ('Balance = ', account balance asString);
+			cr.
+	]
+	! !
+
+
+!SummaryReport methodsFor: 'initialization' stamp: 'LR 10/28/2019 16:45:13'!
+initialize
+
+	buffer := OrderedCollection new.! !
+
+
+!classDefinition: #TransferNetReport category: #'24-PortfolioTreePrinter'!
+AccountReport subclass: #TransferNetReport
+	instanceVariableNames: 'buffer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '24-PortfolioTreePrinter'!
+
+!TransferNetReport methodsFor: 'printing' stamp: 'LR 10/28/2019 16:43:15'!
+print
+	
+	^ String streamContents: [ :stream |
+		| transferNetBalance |
+		
+		account write: self on: buffer.
+		transferNetBalance := buffer sum: [ :aValue | aValue ] ifEmpty: [ 0 ].
+		
+		stream
+			nextPutAll: ('Neto de transferencias = ', transferNetBalance asString);
+			cr.
+	]
+	! !
+
+
+!TransferNetReport methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:33:15'!
+evaluateDeposit: aDeposit on: aBuffer
+
+	! !
+
+!TransferNetReport methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:32:13'!
+evaluateIncomingTransfer: anIncomingTransfer on: aBuffer
+	
+	aBuffer add: anIncomingTransfer value.! !
+
+!TransferNetReport methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:33:38'!
+evaluateOutgoingTransfer: anOutgoingTransfer on: aBuffer
+	
+	aBuffer add: anOutgoingTransfer value negated.! !
+
+!TransferNetReport methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:33:22'!
+evaluateWithdraw: aWithdraw on: aBuffer
+
+	! !
+
+
+!TransferNetReport methodsFor: 'initialization' stamp: 'LR 10/28/2019 16:34:19'!
+initialize
+
+	buffer := OrderedCollection new.! !
+
 
 !classDefinition: #AccountTransaction category: #'24-PortfolioTreePrinter'!
 Object subclass: #AccountTransaction
@@ -554,6 +984,12 @@ value
 	self subclassResponsibility ! !
 
 
+!AccountTransaction methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:23:27'!
+write: anAccountReport on: aWriteStream
+
+	self subclassResponsibility ! !
+
+
 !AccountTransaction methodsFor: 'balance' stamp: 'HAW 5/25/2019 11:25:39'!
 affectBalance: aBalance
 
@@ -564,6 +1000,11 @@ affectBalance: aBalance
 !classDefinition: 'AccountTransaction class' category: #'24-PortfolioTreePrinter'!
 AccountTransaction class
 	instanceVariableNames: ''!
+
+!AccountTransaction class methodsFor: 'instance creation' stamp: 'LR 10/27/2019 20:56:54'!
+for: aValue
+
+	^ self new initializeFor: aValue! !
 
 !AccountTransaction class methodsFor: 'instance creation' stamp: 'NR 10/21/2019 18:54:27'!
 register: aValue on: account
@@ -595,6 +1036,12 @@ value
 	^ value! !
 
 
+!Deposit methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:41:41'!
+write: anAccountReport on: aBuffer
+
+	^ anAccountReport evaluateDeposit: self on: aBuffer.! !
+
+
 !Deposit methodsFor: 'balance' stamp: 'HAW 5/25/2019 11:25:02'!
 affectBalance: aBalance
 
@@ -612,6 +1059,102 @@ for: aValue
 	^ self new initializeFor: aValue ! !
 
 
+!classDefinition: #IncomingTransfer category: #'24-PortfolioTreePrinter'!
+AccountTransaction subclass: #IncomingTransfer
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '24-PortfolioTreePrinter'!
+
+!IncomingTransfer methodsFor: 'balance' stamp: 'LR 10/27/2019 19:44:11'!
+affectBalance: aBalance
+
+	^ aBalance + transfer value! !
+
+
+!IncomingTransfer methodsFor: 'value' stamp: 'LR 10/21/2019 21:00:14'!
+value
+
+	^ transfer value! !
+
+
+!IncomingTransfer methodsFor: 'accesing' stamp: 'LR 10/27/2019 20:28:06'!
+outgoingTransfer
+
+	^ transfer outgoingTransfer! !
+
+
+!IncomingTransfer methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:41:35'!
+write: anAccountReport on: aBuffer
+
+	^ anAccountReport evaluateIncomingTransfer: self on: aBuffer.! !
+
+
+!IncomingTransfer methodsFor: 'initialization' stamp: 'LR 10/27/2019 20:26:05'!
+initializeFor: aTransfer
+
+	transfer := aTransfer! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'IncomingTransfer class' category: #'24-PortfolioTreePrinter'!
+IncomingTransfer class
+	instanceVariableNames: ''!
+
+!IncomingTransfer class methodsFor: 'instance creation' stamp: 'LR 10/21/2019 21:12:23'!
+for: aValue
+
+	^ self new initializeFor: aValue ! !
+
+
+!classDefinition: #OutgoingTransfer category: #'24-PortfolioTreePrinter'!
+AccountTransaction subclass: #OutgoingTransfer
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '24-PortfolioTreePrinter'!
+
+!OutgoingTransfer methodsFor: 'value' stamp: 'LR 10/27/2019 20:26:57'!
+value
+
+	^ transfer value! !
+
+
+!OutgoingTransfer methodsFor: 'balance' stamp: 'LR 10/27/2019 20:27:07'!
+affectBalance: aBalance
+
+	^ aBalance - transfer value! !
+
+
+!OutgoingTransfer methodsFor: 'accessing' stamp: 'LR 10/21/2019 21:23:42'!
+incomingTransfer
+
+	^ transfer incomingTransfer! !
+
+
+!OutgoingTransfer methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:41:29'!
+write: anAccountReport on: aBuffer
+
+	^ anAccountReport evaluateOutgoingTransfer: self on: aBuffer.! !
+
+
+!OutgoingTransfer methodsFor: 'initialization' stamp: 'LR 10/27/2019 20:28:38'!
+initializeFor: aTransfer
+
+	transfer := aTransfer! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'OutgoingTransfer class' category: #'24-PortfolioTreePrinter'!
+OutgoingTransfer class
+	instanceVariableNames: ''!
+
+!OutgoingTransfer class methodsFor: 'instance creation' stamp: 'LR 10/21/2019 21:12:26'!
+for: aValue
+
+	^ self new initializeFor: aValue ! !
+
+
 !classDefinition: #Withdraw category: #'24-PortfolioTreePrinter'!
 AccountTransaction subclass: #Withdraw
 	instanceVariableNames: 'value'
@@ -619,7 +1162,7 @@ AccountTransaction subclass: #Withdraw
 	poolDictionaries: ''
 	category: '24-PortfolioTreePrinter'!
 
-!Withdraw methodsFor: 'initialization' stamp: 'HernanWilkinson 7/13/2011 18:46'!
+!Withdraw methodsFor: 'initialization' stamp: 'LR 10/21/2019 21:14:42'!
 initializeFor: aValue
 
 	value := aValue ! !
@@ -629,6 +1172,12 @@ initializeFor: aValue
 value
 
 	^ value! !
+
+
+!Withdraw methodsFor: 'reporting' stamp: 'LR 10/28/2019 16:41:22'!
+write: anAccountReport on: aBuffer
+
+	^ anAccountReport evaluateWithdraw: self on: aBuffer.! !
 
 
 !Withdraw methodsFor: 'balance' stamp: 'HAW 5/25/2019 11:25:15'!
@@ -646,3 +1195,70 @@ Withdraw class
 for: aValue
 
 	^ self new initializeFor: aValue ! !
+
+
+!classDefinition: #Transfer category: #'24-PortfolioTreePrinter'!
+Object subclass: #Transfer
+	instanceVariableNames: 'value outgoingTransfer incomingTransfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: '24-PortfolioTreePrinter'!
+
+!Transfer methodsFor: 'initialization' stamp: 'LR 10/28/2019 13:25:06'!
+initializeFrom: aSenderAccount to: aReceiverAccount forValue: aValue 
+	
+	value := aValue.
+	
+	incomingTransfer := IncomingTransfer for: self.
+	outgoingTransfer := OutgoingTransfer for: self.
+	
+	aSenderAccount register: outgoingTransfer.
+	aReceiverAccount register: incomingTransfer.! !
+
+
+!Transfer methodsFor: 'accessing' stamp: 'LR 10/27/2019 22:28:45'!
+incomingTransfer
+
+	^ incomingTransfer! !
+
+!Transfer methodsFor: 'accessing' stamp: 'LR 10/27/2019 22:28:38'!
+outgoingTransfer
+
+	^ outgoingTransfer! !
+
+
+!Transfer methodsFor: 'value' stamp: 'LR 10/27/2019 22:27:07'!
+value
+
+	^ value! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'Transfer class' category: #'24-PortfolioTreePrinter'!
+Transfer class
+	instanceVariableNames: ''!
+
+!Transfer class methodsFor: 'instance creation' stamp: 'LR 10/28/2019 13:44:22'!
+newFrom: aSenderAccount to: aReceiverAccount forValue: aValue
+	
+	aValue isZero ifTrue: [ self error: self cannotTransferAZeroValueErrorDescription ].
+	aValue negative ifTrue: [ self error: self cannotTransferANegativeValueErrorDescription ].
+	(aSenderAccount = aReceiverAccount) ifTrue: [ self error: self cannotTransferBetweenSameAccountErrorDescription ].
+	
+	^ self new initializeFrom: aSenderAccount to: aReceiverAccount forValue: aValue! !
+
+
+!Transfer class methodsFor: 'error descriptions' stamp: 'LR 10/28/2019 13:36:12'!
+cannotTransferANegativeValueErrorDescription
+	
+	^ 'Cannot make a transference with a negative value'! !
+
+!Transfer class methodsFor: 'error descriptions' stamp: 'LR 10/28/2019 13:34:20'!
+cannotTransferAZeroValueErrorDescription
+	
+	^ 'Cannot make a transference with value 0'! !
+
+!Transfer class methodsFor: 'error descriptions' stamp: 'LR 10/28/2019 13:38:39'!
+cannotTransferBetweenSameAccountErrorDescription
+	
+	^ 'Cannot make a transference between the same account'! !
