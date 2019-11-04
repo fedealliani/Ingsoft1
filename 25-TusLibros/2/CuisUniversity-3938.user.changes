@@ -1,0 +1,478 @@
+
+
+----STARTUP---- (4 November 2019 18:53:44) as /Users/personal/Desktop/cuis tdd guru/macos64/CuisUniversity-3938.image!
+
+
+----End fileIn of /Users/personal/Desktop/cuis tdd guru/macos64/TusLibros.st----!
+
+TestCase subclass: #CashierTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CashierTest category: #TusLibros stamp: 'FA 11/4/2019 18:54:45'!
+TestCase subclass: #CashierTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 18:58:00'!
+test01CashierCannotCheckoutAnEmptyCart
+
+	
+
+
+
+	! !
+
+!classDefinition: #Cashier category: #TusLibros stamp: 'FA 11/4/2019 19:06:33'!
+Object subclass: #Cashier
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 19:07:20' prior: 50777554!
+test01CashierCannotCheckoutAnEmptyCart
+	|cashier cart aCreditCard| 
+	
+	cashier := Cashier new.
+	cart := Cart new.
+	self 
+		should: [ cashier checkout: cart withCreditCard:aCreditCard ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			 ]
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 19:11:21' prior: 50777565!
+test01CashierCannotCheckoutAnEmptyCart
+	|cashier cart aCreditCard| 
+	
+	cashier := Cashier new.
+	cart := Cart new.
+	self 
+		should: [ cashier checkout: cart ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			self assert:0   equals: cashier amountPurchases.
+			 ]
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 19:11:40' prior: 50777579!
+test01CashierCannotCheckoutAnEmptyCart
+	|cashier cart| 
+	
+	cashier := Cashier new.
+	cart := Cart new.
+	self 
+		should: [ cashier checkout: cart ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			self assert:0   equals: cashier amountPurchases.
+			 ]
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 19:21:05' prior: 50777594!
+test01CashierCannotCheckoutAnEmptyCart
+	|cashier cart salesBook| 
+	
+	cashier := Cashier new.
+	cart := Cart new.
+	salesBook := OrderedCollection  new.
+	self 
+		should: [ cashier checkout: cart registeringOn: salesBook ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/4/2019 19:21:22'!
+ERROR!
+!Cashier methodsFor: 'actions' stamp: 'FA 11/4/2019 19:21:39'!
+checkout: aCart registeringOn: anOrderedCollection 
+	self shouldBeImplemented.! !
+!Cashier methodsFor: 'actions' stamp: 'FA 11/4/2019 19:22:24' prior: 50777627!
+checkout: aCart registeringOn: anOrderedCollection 
+	self error: self class cannotCheckoutAnEmptyCartErrorMessage.! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/4/2019 19:22:28'!
+ERROR!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/4/2019 19:22:28'!
+ERROR!
+!Cashier class methodsFor: 'error descriptions' stamp: 'FA 11/4/2019 19:22:39'!
+cannotCheckoutAnEmptyCartErrorMessage
+	self shouldBeImplemented.! !
+!Cashier class methodsFor: 'error descriptions' stamp: 'FA 11/4/2019 19:23:06' prior: 50777646!
+cannotCheckoutAnEmptyCartErrorMessage
+	^ 'Cannot checkout an empty cart'! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/4/2019 19:23:09'!
+PASSED!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 19:29:15'!
+test02CashierCannotCheckoutWithAnExpiredCreditCard
+	|cashier cart salesBook catalog| 
+	
+	cashier := Cashier new.
+	catalog := Array with:'validBook'.
+	cart := Cart acceptingItemsOf:catalog.
+	salesBook := OrderedCollection  new.
+	self 
+		should: [ cashier checkout: cart registeringOn: salesBook ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 19:29:31' prior: 50777660!
+test02CashierCannotCheckoutWithAnExpiredCreditCard
+	|cashier cart salesBook catalog| 
+	
+	cashier := Cashier new.
+	catalog := Array with:'validBook'.
+	cart := Cart acceptingItemsOf:catalog.
+	cart add: 'validBook'.
+	salesBook := OrderedCollection  new.
+	self 
+		should: [ cashier checkout: cart registeringOn: salesBook ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+
+!classDefinition: #CreditCard category: #TusLibros stamp: 'FA 11/4/2019 19:37:46'!
+Object subclass: #CreditCard
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 19:37:40' prior: 50777679!
+test02CashierCannotCheckoutWithAnExpiredCreditCard
+	|cashier cart salesBook catalog expiringMonthOfYear creditCard| 
+	
+	cashier := Cashier new.
+	catalog := Array with:'validBook'.
+	cart := Cart acceptingItemsOf:catalog.
+	cart add: 'validBook'.
+	salesBook := OrderedCollection  new.
+	expiringMonthOfYear:= GregorianMonthOfYear yearNumber: 2010 monthNumber:12.
+	creditCard := CreditCard of:'Pepe Pepito' withNumber:'1234567812345678' expiring:expiringMonthOfYear.
+	self 
+		should: [ cashier checkout: cart registeringOn: salesBook withCreditCard:creditCard]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutWithAnExpiredCreditCardErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 19:38:05'!
+ERROR!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 19:38:05'!
+ERROR!
+!CreditCard class methodsFor: 'instance creation' stamp: 'FA 11/4/2019 19:38:16'!
+of: aString withNumber: aString2 expiring: aGregorianMonthOfYear 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeOf: aString withNumber: aString2 expiring: aGregorianMonthOfYear ! !
+!CreditCard class methodsFor: 'instance creation' stamp: 'FA 11/4/2019 19:39:49' prior: 50777739!
+of: anOwnerName withNumber: aCreditCardNumber expiring: aGregorianMonthOfYear 
+	
+	^self new initializeFor: anOwnerName withNumber: aCreditCardNumber expiring: aGregorianMonthOfYear ! !
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 19:39:53'!
+ERROR!
+
+!classDefinition: #CreditCard category: #TusLibros stamp: 'FA 11/4/2019 19:40:11'!
+Object subclass: #CreditCard
+	instanceVariableNames: 'ownerName'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CreditCard category: #TusLibros stamp: 'FA 11/4/2019 19:40:11'!
+Object subclass: #CreditCard
+	instanceVariableNames: 'ownerName creditCardNumber'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CreditCard category: #TusLibros stamp: 'FA 11/4/2019 19:40:11'!
+Object subclass: #CreditCard
+	instanceVariableNames: 'ownerName creditCardNumber gregorianMonthOfYear'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CreditCard methodsFor: 'initialization' stamp: 'FA 11/4/2019 19:40:11'!
+initializeFor: anOwnerName withNumber: aCreditCardNumber expiring: aGregorianMonthOfYear 
+	self shouldBeImplemented.
+	ownerName := anOwnerName.
+	creditCardNumber := aCreditCardNumber.
+	gregorianMonthOfYear := aGregorianMonthOfYear.! !
+!CreditCard methodsFor: 'initialization' stamp: 'FA 11/4/2019 19:40:17' prior: 50777784!
+initializeFor: anOwnerName withNumber: aCreditCardNumber expiring: aGregorianMonthOfYear 
+	ownerName := anOwnerName.
+	creditCardNumber := aCreditCardNumber.
+	gregorianMonthOfYear := aGregorianMonthOfYear.! !
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 19:40:19'!
+ERROR!
+!Cashier methodsFor: 'actions' stamp: 'FA 11/4/2019 19:42:57'!
+checkout: aCart registeringOn: anOrderedCollection withCreditCard: aCreditCard  
+	self error: self class cannotCheckoutAnEmptyCartErrorMessage.! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'FA 11/4/2019 19:42:57' prior: 50777608!
+test01CashierCannotCheckoutAnEmptyCart
+	|cashier cart salesBook| 
+	
+	cashier := Cashier new.
+	cart := Cart new.
+	salesBook := OrderedCollection  new.
+	self 
+		should: [ cashier checkout: cart registeringOn: salesBook withCreditCard: CreditCard new ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+
+!methodRemoval: Cashier #checkout:registeringOn: stamp: 'FA 11/4/2019 19:42:57'!
+checkout: aCart registeringOn: anOrderedCollection 
+	self error: self class cannotCheckoutAnEmptyCartErrorMessage.!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 19:43:13'!
+ERROR!
+!Cashier class methodsFor: 'error descriptions' stamp: 'FA 11/4/2019 19:43:38'!
+cannotCheckoutWithAnExpiredCreditCardErrorMessage
+	self shouldBeImplemented.! !
+!Cashier class methodsFor: 'error descriptions' stamp: 'FA 11/4/2019 19:44:06' prior: 50777843!
+cannotCheckoutWithAnExpiredCreditCardErrorMessage
+	^'Cannot checkout with an expired credit card'! !
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 19:44:08'!
+FAILURE!
+!Cashier methodsFor: 'actions' stamp: 'FA 11/4/2019 19:47:00' prior: 50777808!
+checkout: aCart registeringOn: anOrderedCollection withCreditCard: aCreditCard  
+	(aCreditCard isExpired) ifTrue:[self error: self class cannotCheckoutWithAnExpiredCreditCardErrorMessage .].
+	self error: self class cannotCheckoutAnEmptyCartErrorMessage.
+	
+	! !
+!Cashier methodsFor: 'actions' stamp: 'FA 11/4/2019 19:47:04' prior: 50777859!
+checkout: aCart registeringOn: anOrderedCollection withCreditCard: aCreditCard  
+	aCreditCard isExpired ifTrue:[self error: self class cannotCheckoutWithAnExpiredCreditCardErrorMessage .].
+	self error: self class cannotCheckoutAnEmptyCartErrorMessage.
+	
+	! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/4/2019 19:47:11'!
+ERROR!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 19:47:11'!
+ERROR!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 19:47:15'!
+PASSED!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/4/2019 19:47:20'!
+ERROR!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 19:47:20'!
+ERROR!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/4/2019 19:47:27'!
+ERROR!
+!CreditCard methodsFor: 'testing' stamp: 'FA 11/4/2019 19:48:16'!
+isExpired
+	self shouldBeImplemented.! !
+!CreditCard methodsFor: 'testing' stamp: 'FA 11/4/2019 19:52:04' prior: 50777901!
+isExpired
+	(GregorianMonthOfYear current distanceTo: gregorianMonthOfYear) negative.
+	! !
+!CreditCard methodsFor: 'testing' stamp: 'FA 11/4/2019 19:52:08' prior: 50777905!
+isExpired
+	^(GregorianMonthOfYear current distanceTo: gregorianMonthOfYear) negative.
+	! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/4/2019 19:52:10'!
+ERROR!
+
+gregorianMonthOfYear!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 19:53:13'!
+PASSED!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 19:53:45' prior: 50777816!
+test01CashierCannotCheckoutAnEmptyCart
+	|cashier cart salesBook expiringMonthOfYear creditCard | 
+	
+	cashier := Cashier new.
+	cart := Cart new.
+	salesBook := OrderedCollection  new.
+	expiringMonthOfYear:= GregorianMonthOfYear yearNumber: 2010 monthNumber:12.
+	creditCard := CreditCard of:'Pepe Pepito' withNumber:'1234567812345678' expiring:expiringMonthOfYear.
+	self 
+		should: [ cashier checkout: cart registeringOn: salesBook withCreditCard: CreditCard creditCard ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 19:54:32' prior: 50777924!
+test01CashierCannotCheckoutAnEmptyCart
+	|cashier cart salesBook expiringMonthOfYear creditCard | 
+	
+	cashier := Cashier new.
+	cart := Cart new.
+	salesBook := OrderedCollection  new.
+	expiringMonthOfYear:= GregorianMonthOfYear current.
+	creditCard := CreditCard of:'Pepe Pepito' withNumber:'1234567812345678' expiring:expiringMonthOfYear.
+	self 
+		should: [ cashier checkout: cart registeringOn: salesBook withCreditCard: creditCard ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/4/2019 19:54:34'!
+PASSED!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/4/2019 19:54:38'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 19:54:38'!
+PASSED!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 19:57:37'!
+defaultCatalog
+	
+	^ Array with: self itemSellByTheStore! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/4/2019 19:58:23'!
+itemSellByTheStore
+	
+	^ 'validBook'! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/4/2019 19:58:59'!
+createCart
+	
+	^ Cart acceptingItemsOf: self defaultCatalog.! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/4/2019 19:59:22'!
+createEmptyCart
+	
+	^ Cart acceptingItemsOf: self defaultCatalog.! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/4/2019 20:00:38' prior: 50777989!
+createCart
+	
+	^ self createEmptyCart add:(self itemSellByTheStore).! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/4/2019 20:01:01' prior: 50777999!
+createCart
+	
+	^ self createEmptyCart add:self itemSellByTheStore.! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 20:01:56' prior: 50777948!
+test01CashierCannotCheckoutAnEmptyCart
+	|cashier salesBook expiringMonthOfYear creditCard | 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	expiringMonthOfYear:= GregorianMonthOfYear current.
+	creditCard := CreditCard of:'Pepe Pepito' withNumber:'1234567812345678' expiring:expiringMonthOfYear.
+	self 
+		should: [ cashier checkout: (self createEmptyCart)  registeringOn: salesBook withCreditCard: creditCard ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/4/2019 20:01:59'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 20:01:59'!
+PASSED!
+!CashierTest methodsFor: 'support' stamp: 'FA 11/4/2019 20:02:58'!
+createValidCreditCard
+	
+	^ CreditCard of: 'Pepe' withNumber:'1234567812345678'  expiring:GregorianMonthOfYear current .! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/4/2019 20:03:52'!
+createExpriedCreditCard
+	
+	^ CreditCard of: 'Pepe' withNumber:'1234567812345678'  expiring:(GregorianMonthOfYear yearNumber: 1 monthNumber:1) .! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 20:04:38' prior: 50778009!
+test01CashierCannotCheckoutAnEmptyCart
+	|cashier salesBook| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	self 
+		should: [ cashier checkout: (self createEmptyCart)  registeringOn: salesBook withCreditCard: self createValidCreditCard ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/4/2019 20:04:49'!
+createExpiredCreditCard
+	
+	^ CreditCard of: 'Pepe' withNumber:'1234567812345678'  expiring:(GregorianMonthOfYear yearNumber: 1 monthNumber:1) .! !
+
+!methodRemoval: CashierTest #createExpriedCreditCard stamp: 'FA 11/4/2019 20:04:49'!
+createExpriedCreditCard
+	
+	^ CreditCard of: 'Pepe' withNumber:'1234567812345678'  expiring:(GregorianMonthOfYear yearNumber: 1 monthNumber:1) .!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/4/2019 20:06:10' prior: 50777705!
+test02CashierCannotCheckoutWithAnExpiredCreditCard
+	|cashier salesBook| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	
+	self 
+		should: [ cashier checkout: self createCart registeringOn: salesBook withCreditCard:(self createExpiredCreditCard)]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutWithAnExpiredCreditCardErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/4/2019 20:06:11'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/4/2019 20:06:11'!
+PASSED!
+
+----SNAPSHOT----(4 November 2019 20:07:16) CuisUniversity-3938.image priorSource: 14319118!
