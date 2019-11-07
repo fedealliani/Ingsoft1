@@ -476,3 +476,1909 @@ PASSED!
 PASSED!
 
 ----SNAPSHOT----(4 November 2019 20:07:16) CuisUniversity-3938.image priorSource: 14319118!
+
+----STARTUP---- (6 November 2019 20:15:05) as /Users/personal/Desktop/cuis tdd guru/macos64/CuisUniversity-3938.image!
+
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 20:15:26'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 20:15:27'!
+PASSED!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 20:19:04'!
+test03AfterCheckoutSalesBookContainsThisPurchase
+	|cashier salesBook purchase| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	purchase := cashier checkout: self createCart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	self assert: salesBook includes: purchase.
+
+
+	! !
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:19:09'!
+ERROR!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:19:09'!
+ERROR!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 20:19:59' prior: 50778122!
+test03AfterCheckoutSalesBookContainsThisPurchase
+	|cashier salesBook purchase| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	purchase := cashier checkout: self createCart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	self assert: salesBook includes: purchase.
+	self assert: 1 equals: salesBook size .
+
+
+	! !
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:20:33'!
+ERROR!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:20:33'!
+ERROR!
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 20:27:16' prior: 50777870!
+checkout: aCart registeringOn: aSalesBook withCreditCard: aCreditCard  
+	aCreditCard isExpired ifTrue:[self error: self class cannotCheckoutWithAnExpiredCreditCardErrorMessage .].
+	aCart isEmpty ifTrue:[ self error: self class cannotCheckoutAnEmptyCartErrorMessage.].
+	aSalesBook add:'venta'.
+	^'venta'.
+	
+	! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 20:27:18'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 20:27:18'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:27:18'!
+PASSED!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 20:30:03'!
+test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	self assert: salesBook includes: purchase.
+	self assert: 1 equals: salesBook size .
+
+
+	! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/6/2019 20:30:37'!
+anotherItemSellByTheStore
+	
+	^ 'validBook2'! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/6/2019 20:31:14' prior: 50777981!
+defaultCatalog
+	
+	^ Array with: self itemSellByTheStore with: self anotherItemSellByTheStore .! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 20:32:33' prior: 50778186!
+test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:2 of:self anotherItemSellByTheStore.
+	
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	self assert: salesBook includes: purchase.
+	self assert: 1 equals: salesBook size .
+
+
+	! !
+
+50 peso!
+
+50*peso!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 20:36:15' prior: 50778212!
+test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:2 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 20:36:18'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 20:36:18'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:36:18'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 20:36:18'!
+ERROR!
+
+!testRun: #CashierTest #test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 20:36:18'!
+ERROR!
+
+!classDefinition: #Ticket category: #TusLibros stamp: 'FA 11/6/2019 20:41:49'!
+Object subclass: #Ticket
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 20:41:41' prior: 50778163!
+checkout: aCart registeringOn: aSalesBook withCreditCard: aCreditCard  
+	| ticket |
+	aCreditCard isExpired ifTrue:[self error: self class cannotCheckoutWithAnExpiredCreditCardErrorMessage .].
+	aCart isEmpty ifTrue:[ self error: self class cannotCheckoutAnEmptyCartErrorMessage.].
+	ticket := Ticket for:60*peso withCart:aCart paidWith:aCreditCard.
+	aSalesBook add: ticket .
+	^ticket.
+	
+	! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 20:42:11'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 20:42:11'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:42:11'!
+ERROR!
+
+!testRun: #CashierTest #test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 20:42:11'!
+ERROR!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:42:44'!
+ERROR!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:42:44'!
+ERROR!
+!Ticket class methodsFor: 'instance creation' stamp: 'FA 11/6/2019 20:42:52'!
+for: aSimpleMeasure withCart: aCart paidWith: aCreditCard 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeFor: aSimpleMeasure withCart: aCart paidWith: aCreditCard ! !
+!Ticket class methodsFor: 'instance creation' stamp: 'FA 11/6/2019 20:43:35' prior: 50778309!
+for: aPrice withCart: aCart paidWith: aCreditCard 
+	
+	^self new initializeFor: aPrice withCart: aCart paidWith: aCreditCard ! !
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:43:38'!
+ERROR!
+
+!classDefinition: #Ticket category: #TusLibros stamp: 'FA 11/6/2019 20:44:00'!
+Object subclass: #Ticket
+	instanceVariableNames: 'price'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Ticket category: #TusLibros stamp: 'FA 11/6/2019 20:44:00'!
+Object subclass: #Ticket
+	instanceVariableNames: 'price cart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Ticket category: #TusLibros stamp: 'FA 11/6/2019 20:44:00'!
+Object subclass: #Ticket
+	instanceVariableNames: 'price cart creditCard'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Ticket methodsFor: 'initialization' stamp: 'FA 11/6/2019 20:44:00'!
+initializeFor: aPrice withCart: aCart paidWith: aCreditCard 
+	self shouldBeImplemented.
+	price := aPrice.
+	cart := aCart.
+	creditCard := aCreditCard.! !
+!Ticket methodsFor: 'initialization' stamp: 'FA 11/6/2019 20:44:11' prior: 50778350!
+initializeFor: aPrice withCart: aCart paidWith: aCreditCard 
+	price := aPrice.
+	cart := aCart.
+	creditCard := aCreditCard.! !
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:44:14'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:44:17'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 20:44:19'!
+ERROR!
+
+!testRun: #CashierTest #test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 20:44:19'!
+ERROR!
+!Ticket methodsFor: 'accessing' stamp: 'FA 11/6/2019 20:44:32'!
+amount
+	self shouldBeImplemented.! !
+!Ticket methodsFor: 'accessing' stamp: 'FA 11/6/2019 20:45:09' prior: 50778380!
+amount
+	^ price.! !
+
+!testRun: #CashierTest #test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 20:45:11'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 20:45:12'!
+PASSED!
+
+Object subclass: #Ticket
+	instanceVariableNames: 'amount cart creditCard'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Ticket category: #TusLibros stamp: 'FA 11/6/2019 20:45:34'!
+Object subclass: #Ticket
+	instanceVariableNames: 'amount cart creditCard'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Ticket methodsFor: 'initialization' stamp: 'FA 11/6/2019 20:45:51' prior: 50778358!
+initializeFor: anAmount withCart: aCart paidWith: aCreditCard 
+	amount := anAmount.
+	cart := aCart.
+	creditCard := aCreditCard.! !
+!Ticket class methodsFor: 'instance creation' stamp: 'FA 11/6/2019 20:46:03' prior: 50778320!
+for: anAmount withCart: aCart paidWith: aCreditCard 
+	
+	^self new initializeFor: anAmount withCart: aCart paidWith: aCreditCard ! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 20:46:08'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 20:46:08'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:46:08'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 20:46:08'!
+FAILURE!
+
+!testRun: #CashierTest #test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 20:46:08'!
+FAILURE!
+!Ticket methodsFor: 'accessing' stamp: 'FA 11/6/2019 20:46:32' prior: 50778384!
+amount
+	^ amount.! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 20:46:35'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 20:46:35'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:46:35'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 20:46:35'!
+PASSED!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 20:47:10'!
+test04AfterCheckoutTheTicketAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:2 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	! !
+
+!methodRemoval: CashierTest #test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 20:47:13'!
+test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:2 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 20:47:20'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 20:47:20'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 20:47:20'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutTheTicketAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 20:47:20'!
+PASSED!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 21:04:45'!
+test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	self assert: 20*peso equals:  cashier priceOf: cart.
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 21:05:02' prior: 50778509!
+test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	self assert: 20*peso equals:  (cashier priceOf: cart).
+
+
+	! !
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue stamp: 'FA 11/6/2019 21:05:04'!
+ERROR!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue stamp: 'FA 11/6/2019 21:05:04'!
+ERROR!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 21:06:28' prior: 50778520!
+test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	self assert: 25*peso equals:  (cashier priceOf: cart).
+
+
+	! !
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue stamp: 'FA 11/6/2019 21:06:31'!
+ERROR!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue stamp: 'FA 11/6/2019 21:06:31'!
+ERROR!
+!Cashier class methodsFor: 'instance creation' stamp: 'FA 11/6/2019 21:06:39'!
+createWithCatalog: anArray 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeCreateWithCatalog: anArray ! !
+!Cashier class methodsFor: 'instance creation' stamp: 'FA 11/6/2019 21:07:07' prior: 50778562!
+createWithCatalog: aCatalog 
+	^self new initializeCreateWithCatalog: aCatalog ! !
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue stamp: 'FA 11/6/2019 21:07:09'!
+ERROR!
+
+!classDefinition: #Cashier category: #TusLibros stamp: 'FA 11/6/2019 21:07:22'!
+Object subclass: #Cashier
+	instanceVariableNames: 'catalog'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Cashier methodsFor: 'initialization' stamp: 'FA 11/6/2019 21:07:22'!
+initializeCreateWithCatalog: aCatalog 
+	self shouldBeImplemented.
+	catalog := aCatalog.! !
+!Cashier methodsFor: 'initialization' stamp: 'FA 11/6/2019 21:07:27' prior: 50778588!
+initializeCreateWithCatalog: aCatalog 
+	catalog := aCatalog.! !
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue stamp: 'FA 11/6/2019 21:07:31'!
+ERROR!
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 21:07:56'!
+priceOf: aCart 
+	self shouldBeImplemented.! !
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 21:08:15' prior: 50778604!
+priceOf: aCart 
+	^25*peso.! !
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue stamp: 'FA 11/6/2019 21:08:17'!
+PASSED!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 21:08:18'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 21:08:18'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 21:08:18'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutTheTicketAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 21:08:18'!
+PASSED!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue stamp: 'FA 11/6/2019 21:08:18'!
+PASSED!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 21:10:08'!
+test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	self assert: 25*peso equals:  (cashier priceOf: cart).
+
+
+	! !
+
+!methodRemoval: CashierTest #test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue stamp: 'FA 11/6/2019 21:10:08'!
+test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	self assert: 25*peso equals:  (cashier priceOf: cart).
+
+
+	!
+
+112.5*peso!
+
+112,5*peso!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 21:14:10'!
+test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThatProductsAccordingToCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	self assert: 42.5*peso equals:  (cashier priceOf: cart).
+
+
+	! !
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThatProductsAccordingToCatalogue stamp: 'FA 11/6/2019 21:14:15'!
+FAILURE!
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThatProductsAccordingToCatalogue stamp: 'FA 11/6/2019 21:14:15'!
+FAILURE!
+!Cart methodsFor: 'nil' stamp: 'FA 11/6/2019 21:16:51'!
+items
+	^items.! !
+
+3*peso + 5*peso !
+
+(3*peso) + (5*peso) !
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 21:22:17' prior: 50778608!
+priceOf: aCart 
+	^(aCart items) inject:0*peso  into:[:totalPrice :item | totalPrice + catalog at:item].! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/6/2019 21:24:32' prior: 50778206!
+defaultCatalog
+	
+	^ Dictionary newFromPairs: {self itemSellByTheStore . 25*peso . self anotherItemSellByTheStore . 17.5*peso}.! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 21:24:39'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 21:24:39'!
+FAILURE!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 21:24:39'!
+ERROR!
+
+!testRun: #CashierTest #test04AfterCheckoutTheTicketAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 21:24:39'!
+ERROR!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 21:24:39'!
+ERROR!
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThatProductsAccordingToCatalogue stamp: 'FA 11/6/2019 21:24:39'!
+ERROR!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 21:24:49'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 21:24:51'!
+FAILURE!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 21:24:51'!
+FAILURE!
+
+anError messageText!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 21:26:56'!
+FAILURE!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 21:26:56'!
+FAILURE!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 22:15:45'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 22:15:45'!
+FAILURE!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 22:15:45'!
+ERROR!
+
+!testRun: #CashierTest #test04AfterCheckoutTheTicketAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 22:15:45'!
+ERROR!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 22:15:45'!
+ERROR!
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThatProductsAccordingToCatalogue stamp: 'FA 11/6/2019 22:15:45'!
+ERROR!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 22:15:53'!
+FAILURE!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 22:15:53'!
+FAILURE!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 22:19:28'!
+FAILURE!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 22:19:28'!
+FAILURE!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 22:21:06'!
+FAILURE!
+
+(catalog includes: anItem)!
+
+Dictionary newFromPairs: {self itemSellByTheStore . 25*peso . self anotherItemSellByTheStore . 17.5*peso}!
+
+Dictionary newFromPairs: {'d' . 25*peso . 'a' . 17.5*peso}!
+
+self includes: 'a'.!
+
+self includes: (25*peso).!
+!CartTest methodsFor: 'support' stamp: 'FA 11/6/2019 22:35:13' prior: 50777452!
+defaultCatalog
+	
+	^  Dictionary newFromPairs: {self itemSellByTheStore . 25*peso}.! !
+!Cart methodsFor: 'testing' stamp: 'FA 11/6/2019 22:36:21' prior: 50777509!
+includes: anItem
+
+	^items includes: anItem ! !
+!Cart methodsFor: 'assertions' stamp: 'FA 11/6/2019 22:38:12' prior: 50777486!
+assertIsValidItem: anItem
+
+	catalog at: anItem ifAbsent:[ self error: self invalidItemErrorMessage ].! !
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 22:38:18'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 22:38:21'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutTheTicketAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 22:38:23'!
+PASSED!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 22:38:25'!
+ERROR!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 22:38:25'!
+ERROR!
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 22:38:54' prior: 50778691!
+priceOf: aCart 
+	^(aCart items) inject:0*peso  into:[:totalPrice :item | totalPrice + (catalog at:item)].! !
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 22:38:58'!
+PASSED!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 22:39:00'!
+PASSED!
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThatProductsAccordingToCatalogue stamp: 'FA 11/6/2019 22:39:04'!
+PASSED!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 22:39:07'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 22:39:07'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 22:39:07'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutTheTicketAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 22:39:07'!
+PASSED!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 22:39:07'!
+PASSED!
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThatProductsAccordingToCatalogue stamp: 'FA 11/6/2019 22:39:07'!
+PASSED!
+
+!testRun: #CartTest #test01NewCartsAreCreatedEmpty stamp: 'FA 11/6/2019 22:39:10'!
+PASSED!
+
+!testRun: #CartTest #test02CanNotAddItemsThatDoNotBelongToStore stamp: 'FA 11/6/2019 22:39:10'!
+PASSED!
+
+!testRun: #CartTest #test03AfterAddingAnItemTheCartIsNotEmptyAnymore stamp: 'FA 11/6/2019 22:39:10'!
+PASSED!
+
+!testRun: #CartTest #test04CanNotAddNonPositiveNumberOfItems stamp: 'FA 11/6/2019 22:39:10'!
+PASSED!
+
+!testRun: #CartTest #test05CanNotAddMoreThanOneItemNotSellByTheStore stamp: 'FA 11/6/2019 22:39:10'!
+PASSED!
+
+!testRun: #CartTest #test06CartRemembersAddedItems stamp: 'FA 11/6/2019 22:39:10'!
+PASSED!
+
+!testRun: #CartTest #test07CartDoesNotHoldNotAddedItems stamp: 'FA 11/6/2019 22:39:10'!
+PASSED!
+
+!testRun: #CartTest #test08CartRemembersTheNumberOfAddedItems stamp: 'FA 11/6/2019 22:39:10'!
+PASSED!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:41:14'!
+test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:2 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	! !
+
+!methodRemoval: CashierTest #test04AfterCheckoutTheTicketAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 22:41:14'!
+test04AfterCheckoutTheTicketAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:2 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:42:01'!
+test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThatThatProductsAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:42:53'!
+test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	! !
+
+!methodRemoval: CashierTest #test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThatThatProductsAccordingToCatalogue stamp: 'FA 11/6/2019 22:42:53'!
+test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThatThatProductsAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:43:38' prior: 50778964!
+test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:42.5*peso equals: (purchase amount).
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:43:51'!
+test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	self assert: 42.5*peso equals:  (cashier priceOf: cart).
+
+
+	! !
+
+!methodRemoval: CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThatProductsAccordingToCatalogue stamp: 'FA 11/6/2019 22:43:51'!
+test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThatProductsAccordingToCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	self assert: 42.5*peso equals:  (cashier priceOf: cart).
+
+
+	!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:44:22' prior: 50778913!
+test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:25*peso equals: (purchase amount).
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:44:41' prior: 50779047!
+test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:25*peso equals: (purchase amount).
+
+
+	! !
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 22:44:46' prior: 50778272!
+checkout: aCart registeringOn: aSalesBook withCreditCard: aCreditCard  
+	| ticket |
+	aCreditCard isExpired ifTrue:[self error: self class cannotCheckoutWithAnExpiredCreditCardErrorMessage .].
+	aCart isEmpty ifTrue:[ self error: self class cannotCheckoutAnEmptyCartErrorMessage.].
+	ticket := Ticket for:25*peso withCart:aCart paidWith:aCreditCard.
+	aSalesBook add: ticket .
+	^ticket.
+	
+	! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 22:45:05'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 22:45:05'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 22:45:05'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 22:45:05'!
+PASSED!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 22:45:05'!
+PASSED!
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 22:45:05'!
+PASSED!
+
+!testRun: #CashierTest #test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 22:45:05'!
+FAILURE!
+
+!testRun: #CashierTest #test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 22:45:05'!
+FAILURE!
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 22:46:01' prior: 50779077!
+checkout: aCart registeringOn: aSalesBook withCreditCard: aCreditCard  
+	| ticket |
+	aCreditCard isExpired ifTrue:[self error: self class cannotCheckoutWithAnExpiredCreditCardErrorMessage .].
+	aCart isEmpty ifTrue:[ self error: self class cannotCheckoutAnEmptyCartErrorMessage.].
+	ticket := Ticket for:(self priceOf: aCart) withCart:aCart paidWith:aCreditCard.
+	aSalesBook add: ticket .
+	^ticket.
+	
+	! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 22:46:03'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 22:46:03'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 22:46:03'!
+ERROR!
+
+!testRun: #CashierTest #test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 22:46:03'!
+ERROR!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 22:46:03'!
+PASSED!
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 22:46:03'!
+PASSED!
+
+!testRun: #CashierTest #test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 22:46:03'!
+ERROR!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 22:46:09'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 22:46:11'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 22:46:13'!
+ERROR!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 22:46:13'!
+ERROR!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:46:53' prior: 50778052!
+test01CashierCannotCheckoutAnEmptyCart
+	|cashier salesBook| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	salesBook := OrderedCollection  new.
+	self 
+		should: [ cashier checkout: (self createEmptyCart)  registeringOn: salesBook withCreditCard: self createValidCreditCard ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:47:02' prior: 50778084!
+test02CashierCannotCheckoutWithAnExpiredCreditCard
+	|cashier salesBook| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	salesBook := OrderedCollection  new.
+	
+	self 
+		should: [ cashier checkout: self createCart registeringOn: salesBook withCreditCard:(self createExpiredCreditCard)]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutWithAnExpiredCreditCardErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:47:05' prior: 50778142!
+test03AfterCheckoutSalesBookContainsThisPurchase
+	|cashier salesBook purchase| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	salesBook := OrderedCollection  new.
+	purchase := cashier checkout: self createCart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	self assert: salesBook includes: purchase.
+	self assert: 1 equals: salesBook size .
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:47:07' prior: 50779062!
+test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:25*peso equals: (purchase amount).
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:47:14' prior: 50779001!
+test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:42.5*peso equals: (purchase amount).
+
+
+	! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 22:47:16'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 22:47:16'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 22:47:16'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 22:47:16'!
+PASSED!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 22:47:16'!
+PASSED!
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 22:47:16'!
+PASSED!
+
+!testRun: #CashierTest #test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 22:47:16'!
+PASSED!
+
+TestCase subclass: #CreditCardTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CreditCardTest category: #TusLibros stamp: 'FA 11/6/2019 22:49:31'!
+TestCase subclass: #CreditCardTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CreditCardTest methodsFor: 'no messages' stamp: 'FA 11/6/2019 22:55:03'!
+test01CannotCreateACreditCardWithMoreThan16Numbers
+	! !
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FA 11/6/2019 22:59:43'!
+test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber
+	
+	self 
+		should: [ CreditCard of: 'Pepito' withNumber:'12345678123456789'  expiring: (GregorianMonthOfYear current) ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = CreditCard cannotCreateAnEmptyCartErrorMessage..
+			 ]
+
+! !
+
+!methodRemoval: CreditCardTest #test01CannotCreateACreditCardWithMoreThan16Numbers stamp: 'FA 11/6/2019 22:59:51'!
+test01CannotCreateACreditCardWithMoreThan16Numbers
+	!
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 22:59:53'!
+FAILURE!
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 22:59:53'!
+FAILURE!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FA 11/6/2019 23:00:17' prior: 50779327!
+test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber
+	
+	self 
+		should: [ CreditCard of: 'Pepito' withNumber:'12345678123456789'  expiring: (GregorianMonthOfYear current) ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = CreditCard cannotCreateACreditCardThatDoesNotHave16DigitInItsNumber.
+			 ]
+
+! !
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FA 11/6/2019 23:00:27' prior: 50779355!
+test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber
+	
+	self 
+		should: [ CreditCard of: 'Pepito' withNumber:'12345678123456789'  expiring: (GregorianMonthOfYear current) ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = CreditCard cannotCreateACreditCardThatDoesNotHave16DigitInItsNumberErrorDescription.
+			 ]
+
+! !
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:00:31'!
+FAILURE!
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:00:31'!
+FAILURE!
+!CreditCard methodsFor: 'initialization' stamp: 'FA 11/6/2019 23:02:05' prior: 50777795!
+initializeFor: anOwnerName withNumber: aCreditCardNumber expiring: aGregorianMonthOfYear
+	self error: self class cannotCreateACreditCardThatDoesNotHave16DigitInItsNumberErrorDescription.
+	ownerName := anOwnerName.
+	creditCardNumber := aCreditCardNumber.
+	gregorianMonthOfYear := aGregorianMonthOfYear.! !
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:02:09'!
+ERROR!
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:02:09'!
+ERROR!
+
+----STARTUP---- (6 November 2019 23:14:17) as /Users/personal/Desktop/cuis tdd guru/macos64/CuisUniversity-3938.image!
+
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 20:19:04'!
+test03AfterCheckoutSalesBookContainsThisPurchase
+	|cashier salesBook purchase| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	purchase := cashier checkout: self createCart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	self assert: salesBook includes: purchase.
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 20:19:59' prior: 50779418!
+test03AfterCheckoutSalesBookContainsThisPurchase
+	|cashier salesBook purchase| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	purchase := cashier checkout: self createCart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	self assert: salesBook includes: purchase.
+	self assert: 1 equals: salesBook size .
+
+
+	! !
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 20:27:16' prior: 50777870!
+checkout: aCart registeringOn: aSalesBook withCreditCard: aCreditCard  
+	aCreditCard isExpired ifTrue:[self error: self class cannotCheckoutWithAnExpiredCreditCardErrorMessage .].
+	aCart isEmpty ifTrue:[ self error: self class cannotCheckoutAnEmptyCartErrorMessage.].
+	aSalesBook add:'venta'.
+	^'venta'.
+	
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 20:30:03'!
+test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	self assert: salesBook includes: purchase.
+	self assert: 1 equals: salesBook size .
+
+
+	! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/6/2019 20:30:37'!
+anotherItemSellByTheStore
+	
+	^ 'validBook2'! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/6/2019 20:31:14' prior: 50777981!
+defaultCatalog
+	
+	^ Array with: self itemSellByTheStore with: self anotherItemSellByTheStore .! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 20:32:33' prior: 50779457!
+test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:2 of:self anotherItemSellByTheStore.
+	
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	self assert: salesBook includes: purchase.
+	self assert: 1 equals: salesBook size .
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 20:36:15' prior: 50779483!
+test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:2 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	! !
+
+!classDefinition: #Ticket category: #TusLibros stamp: 'FA 11/6/2019 23:14:22'!
+Object subclass: #Ticket
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 20:41:41' prior: 50779445!
+checkout: aCart registeringOn: aSalesBook withCreditCard: aCreditCard  
+	| ticket |
+	aCreditCard isExpired ifTrue:[self error: self class cannotCheckoutWithAnExpiredCreditCardErrorMessage .].
+	aCart isEmpty ifTrue:[ self error: self class cannotCheckoutAnEmptyCartErrorMessage.].
+	ticket := Ticket for:60*peso withCart:aCart paidWith:aCreditCard.
+	aSalesBook add: ticket .
+	^ticket.
+	
+	! !
+!Ticket class methodsFor: 'instance creation' stamp: 'FA 11/6/2019 20:42:52'!
+for: aSimpleMeasure withCart: aCart paidWith: aCreditCard 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeFor: aSimpleMeasure withCart: aCart paidWith: aCreditCard ! !
+!Ticket class methodsFor: 'instance creation' stamp: 'FA 11/6/2019 20:43:35' prior: 50779537!
+for: aPrice withCart: aCart paidWith: aCreditCard 
+	
+	^self new initializeFor: aPrice withCart: aCart paidWith: aCreditCard ! !
+
+!classDefinition: #Ticket category: #TusLibros stamp: 'FA 11/6/2019 23:14:22'!
+Object subclass: #Ticket
+	instanceVariableNames: 'price'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Ticket category: #TusLibros stamp: 'FA 11/6/2019 23:14:22'!
+Object subclass: #Ticket
+	instanceVariableNames: 'price cart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Ticket category: #TusLibros stamp: 'FA 11/6/2019 23:14:22'!
+Object subclass: #Ticket
+	instanceVariableNames: 'price cart creditCard'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Ticket methodsFor: 'initialization' stamp: 'FA 11/6/2019 20:44:00'!
+initializeFor: aPrice withCart: aCart paidWith: aCreditCard 
+	self shouldBeImplemented.
+	price := aPrice.
+	cart := aCart.
+	creditCard := aCreditCard.! !
+!Ticket methodsFor: 'initialization' stamp: 'FA 11/6/2019 20:44:11' prior: 50779575!
+initializeFor: aPrice withCart: aCart paidWith: aCreditCard 
+	price := aPrice.
+	cart := aCart.
+	creditCard := aCreditCard.! !
+!Ticket methodsFor: 'accessing' stamp: 'FA 11/6/2019 20:44:32'!
+amount
+	self shouldBeImplemented.! !
+!Ticket methodsFor: 'accessing' stamp: 'FA 11/6/2019 20:45:09' prior: 50779589!
+amount
+	^ price.! !
+
+!classDefinition: #Ticket category: #TusLibros stamp: 'FA 11/6/2019 23:14:22'!
+Object subclass: #Ticket
+	instanceVariableNames: 'amount cart creditCard'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Ticket category: #TusLibros stamp: 'FA 11/6/2019 23:14:22'!
+Object subclass: #Ticket
+	instanceVariableNames: 'amount cart creditCard'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Ticket methodsFor: 'initialization' stamp: 'FA 11/6/2019 20:45:51' prior: 50779583!
+initializeFor: anAmount withCart: aCart paidWith: aCreditCard 
+	amount := anAmount.
+	cart := aCart.
+	creditCard := aCreditCard.! !
+!Ticket class methodsFor: 'instance creation' stamp: 'FA 11/6/2019 20:46:03' prior: 50779548!
+for: anAmount withCart: aCart paidWith: aCreditCard 
+	
+	^self new initializeFor: anAmount withCart: aCart paidWith: aCreditCard ! !
+!Ticket methodsFor: 'accessing' stamp: 'FA 11/6/2019 20:46:32' prior: 50779593!
+amount
+	^ amount.! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 20:47:10'!
+test04AfterCheckoutTheTicketAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:2 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	! !
+
+!methodRemoval: CashierTest #test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 23:14:22'!
+test04AfterCheckoutTheSaleAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:2 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 21:04:45'!
+test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	self assert: 20*peso equals:  cashier priceOf: cart.
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 21:05:02' prior: 50779662!
+test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	self assert: 20*peso equals:  (cashier priceOf: cart).
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 21:06:28' prior: 50779673!
+test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	self assert: 25*peso equals:  (cashier priceOf: cart).
+
+
+	! !
+!Cashier class methodsFor: 'instance creation' stamp: 'FA 11/6/2019 21:06:39'!
+createWithCatalog: anArray 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeCreateWithCatalog: anArray ! !
+!Cashier class methodsFor: 'instance creation' stamp: 'FA 11/6/2019 21:07:07' prior: 50779695!
+createWithCatalog: aCatalog 
+	^self new initializeCreateWithCatalog: aCatalog ! !
+
+!classDefinition: #Cashier category: #TusLibros stamp: 'FA 11/6/2019 23:14:22'!
+Object subclass: #Cashier
+	instanceVariableNames: 'catalog'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Cashier methodsFor: 'initialization' stamp: 'FA 11/6/2019 21:07:22'!
+initializeCreateWithCatalog: aCatalog 
+	self shouldBeImplemented.
+	catalog := aCatalog.! !
+!Cashier methodsFor: 'initialization' stamp: 'FA 11/6/2019 21:07:27' prior: 50779716!
+initializeCreateWithCatalog: aCatalog 
+	catalog := aCatalog.! !
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 21:07:56'!
+priceOf: aCart 
+	self shouldBeImplemented.! !
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 21:08:15' prior: 50779726!
+priceOf: aCart 
+	^25*peso.! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 21:10:08'!
+test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	self assert: 25*peso equals:  (cashier priceOf: cart).
+
+
+	! !
+
+!methodRemoval: CashierTest #test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue stamp: 'FA 11/6/2019 23:14:23'!
+test05TheCalculatedPriceByCashierIsEqualToTheSumOfPricesOfEveryProductInTheCartAccordingCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	self assert: 25*peso equals:  (cashier priceOf: cart).
+
+
+	!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 21:14:10'!
+test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThatProductsAccordingToCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	self assert: 42.5*peso equals:  (cashier priceOf: cart).
+
+
+	! !
+!Cart methodsFor: 'nil' stamp: 'FA 11/6/2019 21:16:51'!
+items
+	^items.! !
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 21:22:17' prior: 50779730!
+priceOf: aCart 
+	^(aCart items) inject:0*peso  into:[:totalPrice :item | totalPrice + catalog at:item].! !
+!CashierTest methodsFor: 'support' stamp: 'FA 11/6/2019 21:24:32' prior: 50779477!
+defaultCatalog
+	
+	^ Dictionary newFromPairs: {self itemSellByTheStore . 25*peso . self anotherItemSellByTheStore . 17.5*peso}.! !
+!CartTest methodsFor: 'support' stamp: 'FA 11/6/2019 22:35:13' prior: 50777452!
+defaultCatalog
+	
+	^  Dictionary newFromPairs: {self itemSellByTheStore . 25*peso}.! !
+!Cart methodsFor: 'testing' stamp: 'FA 11/6/2019 22:36:21' prior: 50777509!
+includes: anItem
+
+	^items includes: anItem ! !
+!Cart methodsFor: 'assertions' stamp: 'FA 11/6/2019 22:38:12' prior: 50777486!
+assertIsValidItem: anItem
+
+	catalog at: anItem ifAbsent:[ self error: self invalidItemErrorMessage ].! !
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 22:38:54' prior: 50779774!
+priceOf: aCart 
+	^(aCart items) inject:0*peso  into:[:totalPrice :item | totalPrice + (catalog at:item)].! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:41:14'!
+test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:2 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	! !
+
+!methodRemoval: CashierTest #test04AfterCheckoutTheTicketAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart stamp: 'FA 11/6/2019 23:14:23'!
+test04AfterCheckoutTheTicketAmountIsEqualToTheSumOfPricesOfEveryProductInTheCart
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:2 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:42:01'!
+test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThatThatProductsAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:42:53'!
+test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	! !
+
+!methodRemoval: CashierTest #test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThatThatProductsAccordingToCatalogue stamp: 'FA 11/6/2019 23:14:23'!
+test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThatThatProductsAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:60*peso equals: (purchase amount).
+
+
+	!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:43:38' prior: 50779860!
+test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:42.5*peso equals: (purchase amount).
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:43:51'!
+test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	self assert: 42.5*peso equals:  (cashier priceOf: cart).
+
+
+	! !
+
+!methodRemoval: CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThatProductsAccordingToCatalogue stamp: 'FA 11/6/2019 23:14:23'!
+test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThatProductsAccordingToCatalogue
+	|cashier cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	self assert: 42.5*peso equals:  (cashier priceOf: cart).
+
+
+	!
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:44:22' prior: 50779809!
+test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:25*peso equals: (purchase amount).
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:44:41' prior: 50779943!
+test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier new.
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:25*peso equals: (purchase amount).
+
+
+	! !
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 22:44:46' prior: 50779522!
+checkout: aCart registeringOn: aSalesBook withCreditCard: aCreditCard  
+	| ticket |
+	aCreditCard isExpired ifTrue:[self error: self class cannotCheckoutWithAnExpiredCreditCardErrorMessage .].
+	aCart isEmpty ifTrue:[ self error: self class cannotCheckoutAnEmptyCartErrorMessage.].
+	ticket := Ticket for:25*peso withCart:aCart paidWith:aCreditCard.
+	aSalesBook add: ticket .
+	^ticket.
+	
+	! !
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 22:46:01' prior: 50779973!
+checkout: aCart registeringOn: aSalesBook withCreditCard: aCreditCard  
+	| ticket |
+	aCreditCard isExpired ifTrue:[self error: self class cannotCheckoutWithAnExpiredCreditCardErrorMessage .].
+	aCart isEmpty ifTrue:[ self error: self class cannotCheckoutAnEmptyCartErrorMessage.].
+	ticket := Ticket for:(self priceOf: aCart) withCart:aCart paidWith:aCreditCard.
+	aSalesBook add: ticket .
+	^ticket.
+	
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:46:53' prior: 50778052!
+test01CashierCannotCheckoutAnEmptyCart
+	|cashier salesBook| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	salesBook := OrderedCollection  new.
+	self 
+		should: [ cashier checkout: (self createEmptyCart)  registeringOn: salesBook withCreditCard: self createValidCreditCard ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutAnEmptyCartErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:47:02' prior: 50778084!
+test02CashierCannotCheckoutWithAnExpiredCreditCard
+	|cashier salesBook| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	salesBook := OrderedCollection  new.
+	
+	self 
+		should: [ cashier checkout: self createCart registeringOn: salesBook withCreditCard:(self createExpiredCreditCard)]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Cashier cannotCheckoutWithAnExpiredCreditCardErrorMessage.
+			self assert: salesBook isEmpty.
+			 ]
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:47:05' prior: 50779431!
+test03AfterCheckoutSalesBookContainsThisPurchase
+	|cashier salesBook purchase| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	salesBook := OrderedCollection  new.
+	purchase := cashier checkout: self createCart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	self assert: salesBook includes: purchase.
+	self assert: 1 equals: salesBook size .
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:47:07' prior: 50779958!
+test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:25*peso equals: (purchase amount).
+
+
+	! !
+!CashierTest methodsFor: 'tests' stamp: 'FA 11/6/2019 22:47:14' prior: 50779897!
+test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue
+	|cashier salesBook purchase cart| 
+	
+	cashier := Cashier createWithCatalog:self defaultCatalog .
+	salesBook := OrderedCollection  new.
+	cart := self createCart.
+	cart add:1 of:self anotherItemSellByTheStore.
+	
+	purchase := cashier checkout: cart registeringOn: salesBook withCreditCard:(self createValidCreditCard).
+	
+	self assert:42.5*peso equals: (purchase amount).
+
+
+	! !
+
+!classDefinition: #CreditCardTest category: #TusLibros stamp: 'FA 11/6/2019 23:14:23'!
+TestCase subclass: #CreditCardTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CreditCardTest category: #TusLibros stamp: 'FA 11/6/2019 23:14:23'!
+TestCase subclass: #CreditCardTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CreditCardTest methodsFor: 'no messages' stamp: 'FA 11/6/2019 22:55:03'!
+test01CannotCreateACreditCardWithMoreThan16Numbers
+	! !
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FA 11/6/2019 22:59:43'!
+test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber
+	
+	self 
+		should: [ CreditCard of: 'Pepito' withNumber:'12345678123456789'  expiring: (GregorianMonthOfYear current) ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = CreditCard cannotCreateAnEmptyCartErrorMessage..
+			 ]
+
+! !
+
+!methodRemoval: CreditCardTest #test01CannotCreateACreditCardWithMoreThan16Numbers stamp: 'FA 11/6/2019 23:14:23'!
+test01CannotCreateACreditCardWithMoreThan16Numbers
+	!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FA 11/6/2019 23:00:17' prior: 50780109!
+test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber
+	
+	self 
+		should: [ CreditCard of: 'Pepito' withNumber:'12345678123456789'  expiring: (GregorianMonthOfYear current) ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = CreditCard cannotCreateACreditCardThatDoesNotHave16DigitInItsNumber.
+			 ]
+
+! !
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FA 11/6/2019 23:00:27' prior: 50780129!
+test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber
+	
+	self 
+		should: [ CreditCard of: 'Pepito' withNumber:'12345678123456789'  expiring: (GregorianMonthOfYear current) ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = CreditCard cannotCreateACreditCardThatDoesNotHave16DigitInItsNumberErrorDescription.
+			 ]
+
+! !
+!CreditCard methodsFor: 'initialization' stamp: 'FA 11/6/2019 23:02:05' prior: 50777795!
+initializeFor: anOwnerName withNumber: aCreditCardNumber expiring: aGregorianMonthOfYear
+	self error: self class cannotCreateACreditCardThatDoesNotHave16DigitInItsNumberErrorDescription.
+	ownerName := anOwnerName.
+	creditCardNumber := aCreditCardNumber.
+	gregorianMonthOfYear := aGregorianMonthOfYear.! !
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 23:15:02'!
+ERROR!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 23:15:02'!
+ERROR!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 23:15:02'!
+ERROR!
+
+!testRun: #CashierTest #test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 23:15:02'!
+ERROR!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 23:15:02'!
+PASSED!
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 23:15:02'!
+PASSED!
+
+!testRun: #CashierTest #test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 23:15:02'!
+ERROR!
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:15:15'!
+ERROR!
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:15:15'!
+ERROR!
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:16:00'!
+ERROR!
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:16:00'!
+ERROR!
+!CreditCard class methodsFor: 'error description' stamp: 'FA 11/6/2019 23:16:13'!
+cannotCreateACreditCardThatDoesNotHave16DigitInItsNumberErrorDescription
+	self shouldBeImplemented.! !
+!CreditCard class methodsFor: 'error description' stamp: 'FA 11/6/2019 23:17:09' prior: 50780220!
+cannotCreateACreditCardThatDoesNotHave16DigitInItsNumberErrorDescription
+	^'Cannot create a credit card that does not have16 digit in its number error description'.! !
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:17:12'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:17:15'!
+PASSED!
+
+----SNAPSHOT----(6 November 2019 23:17:31) CuisUniversity-3938.image priorSource: 14286651!
+!CreditCardTest methodsFor: 'testing' stamp: 'FA 11/6/2019 23:21:03'!
+test02ACreditCardWithAnExpiredDateBeforeCurrentDateIsExpired
+	
+	| creditCard |
+	creditCard := CreditCard of: 'Pepito' withNumber:'1234567812345678'  expiring: (GregorianMonthOfYear yearNumber: 1900 monthNumber:1 ) .
+	self assert: creditCard isExpired.
+
+! !
+
+!testRun: #CreditCardTest #test02ACreditCardWithAnExpiredDateBeforeCurrentDateIsExpired stamp: 'FA 11/6/2019 23:21:10'!
+ERROR!
+
+!testRun: #CreditCardTest #test02ACreditCardWithAnExpiredDateBeforeCurrentDateIsExpired stamp: 'FA 11/6/2019 23:21:10'!
+ERROR!
+!CreditCard methodsFor: 'initialization' stamp: 'FA 11/6/2019 23:21:49' prior: 50780159!
+initializeFor: anOwnerName withNumber: aCreditCardNumber expiring: aGregorianMonthOfYear
+	aCreditCardNumber size = 16 ifFalse: [self error: self class cannotCreateACreditCardThatDoesNotHave16DigitInItsNumberErrorDescription.].
+	ownerName := anOwnerName.
+	creditCardNumber := aCreditCardNumber.
+	gregorianMonthOfYear := aGregorianMonthOfYear.! !
+
+!testRun: #CreditCardTest #test02ACreditCardWithAnExpiredDateBeforeCurrentDateIsExpired stamp: 'FA 11/6/2019 23:21:52'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:21:54'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ACreditCardWithAnExpiredDateBeforeCurrentDateIsExpired stamp: 'FA 11/6/2019 23:21:54'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ACreditCardWithAnExpiredDateBeforeCurrentDateIsExpired stamp: 'FA 11/6/2019 23:21:59'!
+PASSED!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 23:22:04'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 23:22:04'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 23:22:04'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 23:22:04'!
+PASSED!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 23:22:04'!
+PASSED!
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 23:22:04'!
+PASSED!
+
+!testRun: #CashierTest #test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 23:22:04'!
+PASSED!
+!CreditCardTest methodsFor: 'testing' stamp: 'FA 11/6/2019 23:23:22'!
+test03CannotCreateACreditCardThatHaveAnEmptyName
+	
+	self 
+		should: [ CreditCard of: '' withNumber:'1234567812345678'  expiring: (GregorianMonthOfYear current) ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = CreditCard cannotCreateACreditCardThatHaveAnEmptyNameErrorDescription.
+			 ]
+
+! !
+
+!testRun: #CreditCardTest #test03CannotCreateACreditCardThatHaveAnEmptyName stamp: 'FA 11/6/2019 23:23:25'!
+FAILURE!
+
+!testRun: #CreditCardTest #test03CannotCreateACreditCardThatHaveAnEmptyName stamp: 'FA 11/6/2019 23:23:25'!
+FAILURE!
+!CreditCard methodsFor: 'initialization' stamp: 'FA 11/6/2019 23:24:10' prior: 50780265!
+initializeFor: anOwnerName withNumber: aCreditCardNumber expiring: aGregorianMonthOfYear
+	aCreditCardNumber size = 16 ifFalse: [self error: self class cannotCreateACreditCardThatDoesNotHave16DigitInItsNumberErrorDescription.].
+	anOwnerName isEmpty ifTrue: [self error: self class cannotCreateACreditCardThatHaveAnEmptyNameErrorDescription.].
+	ownerName := anOwnerName.
+	creditCardNumber := aCreditCardNumber.
+	gregorianMonthOfYear := aGregorianMonthOfYear.! !
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:24:14'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ACreditCardWithAnExpiredDateBeforeCurrentDateIsExpired stamp: 'FA 11/6/2019 23:24:14'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CannotCreateACreditCardThatHaveAnEmptyName stamp: 'FA 11/6/2019 23:24:14'!
+ERROR!
+
+!testRun: #CreditCardTest #test03CannotCreateACreditCardThatHaveAnEmptyName stamp: 'FA 11/6/2019 23:24:14'!
+ERROR!
+!CreditCard class methodsFor: 'error description' stamp: 'FA 11/6/2019 23:24:25'!
+cannotCreateACreditCardThatHaveAnEmptyNameErrorDescription
+	self shouldBeImplemented.! !
+!CreditCard class methodsFor: 'error description' stamp: 'FA 11/6/2019 23:25:04' prior: 50780382!
+cannotCreateACreditCardThatHaveAnEmptyNameErrorDescription
+	^ 'cannot create a credit card that have an empty name'.! !
+
+!testRun: #CreditCardTest #test03CannotCreateACreditCardThatHaveAnEmptyName stamp: 'FA 11/6/2019 23:25:06'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:25:09'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ACreditCardWithAnExpiredDateBeforeCurrentDateIsExpired stamp: 'FA 11/6/2019 23:25:09'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CannotCreateACreditCardThatHaveAnEmptyName stamp: 'FA 11/6/2019 23:25:09'!
+PASSED!
+
+!classDefinition: #MerchantProcessor category: #TusLibros stamp: 'FA 11/6/2019 23:27:20'!
+Object subclass: #MerchantProcessor
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Cashier methodsFor: 'actions' stamp: 'FA 11/6/2019 23:27:11' prior: 50779988!
+checkout: aCart registeringOn: aSalesBook withCreditCard: aCreditCard  
+	| ticket priceOfCart |
+	aCreditCard isExpired ifTrue:[self error: self class cannotCheckoutWithAnExpiredCreditCardErrorMessage .].
+	aCart isEmpty ifTrue:[ self error: self class cannotCheckoutAnEmptyCartErrorMessage.].
+	priceOfCart := self priceOf: aCart.
+	(MerchantProcessor new) debit:priceOfCart withCard:aCreditCard.
+	ticket := Ticket for:priceOfCart withCart:aCart paidWith:aCreditCard.
+	aSalesBook add: ticket .
+	^ticket.
+	
+	! !
+!MerchantProcessor methodsFor: 'no messages' stamp: 'FA 11/6/2019 23:27:46'!
+debit: aPrice withCreditCard:aCreditCard! !
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:27:49'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ACreditCardWithAnExpiredDateBeforeCurrentDateIsExpired stamp: 'FA 11/6/2019 23:27:49'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CannotCreateACreditCardThatHaveAnEmptyName stamp: 'FA 11/6/2019 23:27:49'!
+PASSED!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 23:27:51'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 23:27:51'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 23:27:51'!
+ERROR!
+
+!testRun: #CashierTest #test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 23:27:51'!
+ERROR!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 23:27:51'!
+PASSED!
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 23:27:51'!
+PASSED!
+
+!testRun: #CashierTest #test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 23:27:51'!
+ERROR!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 23:27:59'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 23:28:01'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 23:28:03'!
+ERROR!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 23:28:03'!
+ERROR!
+!MerchantProcessor methodsFor: 'as yet unclassified' stamp: 'FA 11/6/2019 23:28:32'!
+debit: aPrice withCard:aCreditCard! !
+
+!methodRemoval: MerchantProcessor #debit:withCreditCard: stamp: 'FA 11/6/2019 23:28:37'!
+debit: aPrice withCreditCard:aCreditCard!
+
+!testRun: #CashierTest #test01CashierCannotCheckoutAnEmptyCart stamp: 'FA 11/6/2019 23:28:41'!
+PASSED!
+
+!testRun: #CashierTest #test02CashierCannotCheckoutWithAnExpiredCreditCard stamp: 'FA 11/6/2019 23:28:41'!
+PASSED!
+
+!testRun: #CashierTest #test03AfterCheckoutSalesBookContainsThisPurchase stamp: 'FA 11/6/2019 23:28:41'!
+PASSED!
+
+!testRun: #CashierTest #test04AfterCheckoutACartWithOneProductTheTicketAmountIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 23:28:41'!
+PASSED!
+
+!testRun: #CashierTest #test05TheCalculatedPriceByCashierForACartWithOneProductIsEqualToThePriceOfThatProductAccordingToCatalogue stamp: 'FA 11/6/2019 23:28:41'!
+PASSED!
+
+!testRun: #CashierTest #test06TheCalculatedPriceByCashierForACartWithTwoProductIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 23:28:41'!
+PASSED!
+
+!testRun: #CashierTest #test07AfterCheckoutACartWithTwoProductsTheTicketAmountIsEqualToThePriceOfTheSumOfThoseProductsAccordingToCatalogue stamp: 'FA 11/6/2019 23:28:41'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CannotCreateACreditCardThatDoesNotHave16DigitInItsNumber stamp: 'FA 11/6/2019 23:28:43'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ACreditCardWithAnExpiredDateBeforeCurrentDateIsExpired stamp: 'FA 11/6/2019 23:28:43'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CannotCreateACreditCardThatHaveAnEmptyName stamp: 'FA 11/6/2019 23:28:43'!
+PASSED!
+
+!testRun: #CartTest #test01NewCartsAreCreatedEmpty stamp: 'FA 11/6/2019 23:28:46'!
+PASSED!
+
+!testRun: #CartTest #test02CanNotAddItemsThatDoNotBelongToStore stamp: 'FA 11/6/2019 23:28:46'!
+PASSED!
+
+!testRun: #CartTest #test03AfterAddingAnItemTheCartIsNotEmptyAnymore stamp: 'FA 11/6/2019 23:28:46'!
+PASSED!
+
+!testRun: #CartTest #test04CanNotAddNonPositiveNumberOfItems stamp: 'FA 11/6/2019 23:28:46'!
+PASSED!
+
+!testRun: #CartTest #test05CanNotAddMoreThanOneItemNotSellByTheStore stamp: 'FA 11/6/2019 23:28:46'!
+PASSED!
+
+!testRun: #CartTest #test06CartRemembersAddedItems stamp: 'FA 11/6/2019 23:28:46'!
+PASSED!
+
+!testRun: #CartTest #test07CartDoesNotHoldNotAddedItems stamp: 'FA 11/6/2019 23:28:46'!
+PASSED!
+
+!testRun: #CartTest #test08CartRemembersTheNumberOfAddedItems stamp: 'FA 11/6/2019 23:28:46'!
+PASSED!
+
+----SNAPSHOT----(6 November 2019 23:29:06) CuisUniversity-3938.image priorSource: 14354957!
