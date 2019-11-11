@@ -1,4 +1,4 @@
-!classDefinition: #CartTest category: #TusLibros stamp: 'LR 11/11/2019 17:07:55'!
+!classDefinition: #CartTest category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
 TestCase subclass: #CartTest
 	instanceVariableNames: 'testObjectsFactory'
 	classVariableNames: ''
@@ -98,7 +98,7 @@ setUp
 	testObjectsFactory := StoreTestObjectsFactory new.! !
 
 
-!classDefinition: #CashierTest category: #TusLibros stamp: 'LR 11/11/2019 17:07:55'!
+!classDefinition: #CashierTest category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
 TestCase subclass: #CashierTest
 	instanceVariableNames: 'testObjectsFactory debitBehavior'
 	classVariableNames: ''
@@ -246,7 +246,110 @@ debit: anAmount from: aCreditCard
 	^debitBehavior value: anAmount value: aCreditCard ! !
 
 
-!classDefinition: #Cart category: #TusLibros stamp: 'LR 11/11/2019 17:07:55'!
+!classDefinition: #InnerFaceTest category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
+TestCase subclass: #InnerFaceTest
+	instanceVariableNames: 'testObjectsFactory'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!InnerFaceTest methodsFor: 'tests' stamp: 'LR 11/11/2019 18:00:28'!
+test01CannotCreateACartWithInvalidCredentials
+
+	| clientID innerFace password |
+	innerFace := InnerFace new.
+	
+	clientID := 'an invalid ID'.
+	password := 'an invalid password'.
+	
+	self 
+		should: [ innerFace createCartFor: clientID withPassword: password. ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = InnerFace invalidCredentialsErrorMessage. ]! !
+
+!InnerFaceTest methodsFor: 'tests' stamp: 'LR 11/11/2019 19:25:44'!
+test02CreatingTwoCartsWithTwoValidUsersReturnsDifferentCartIDs
+
+	| innerFace cartID1 cartID2 |
+	
+	innerFace := testObjectsFactory createInnerFace.
+	
+	cartID1 := innerFace createCartFor: testObjectsFactory client1ID withPassword: testObjectsFactory password1.
+	cartID2 := innerFace createCartFor: testObjectsFactory client2ID withPassword: testObjectsFactory password2.
+
+	self assert: (cartID1 ~= cartID2).! !
+
+!InnerFaceTest methodsFor: 'tests' stamp: 'LR 11/11/2019 19:26:02'!
+test03CreatingTwoCartsWithOneValidUsersReturnsDifferentCartIDs
+
+	| innerFace cartID1 cartID2 |
+	
+	innerFace := testObjectsFactory createInnerFace.
+	
+	cartID1 := innerFace createCartFor: testObjectsFactory client1ID withPassword: testObjectsFactory password1.
+	cartID2 := innerFace createCartFor: testObjectsFactory client1ID withPassword: testObjectsFactory password1.
+
+	self assert: (cartID1 ~= cartID2).! !
+
+!InnerFaceTest methodsFor: 'tests' stamp: 'LR 11/11/2019 19:26:09'!
+test04ListingANewCartReturnsAnEmptyDictionary
+
+	| innerFace cartID1 |
+	
+	innerFace := testObjectsFactory createInnerFace.
+	
+	cartID1 := innerFace createCartFor: testObjectsFactory client1ID withPassword: testObjectsFactory password1.
+	
+	self assert: Dictionary new equals: (innerFace listCart: cartID1).! !
+
+!InnerFaceTest methodsFor: 'tests' stamp: 'LR 11/11/2019 19:30:04'!
+test05ListingACartWithOneBookAddedReturnsADictionaryWithTheISBNOfThatBookAndAnAmmountOfOne
+
+	| innerFace cartID1 |
+	
+	innerFace := testObjectsFactory createInnerFace.
+	
+	cartID1 := innerFace createCartFor: testObjectsFactory client1ID withPassword: testObjectsFactory password1.
+	
+	innerFace add: 1 of: testObjectsFactory itemSellByTheStore to: cartID1.
+	
+	self assert: (Dictionary newFromPairs: {'validBook' . 1 }) equals: (innerFace listCart: cartID1).! !
+
+!InnerFaceTest methodsFor: 'tests' stamp: 'LR 11/14/2019 17:29:19'!
+test06CannotAddBookToANonExistentCart
+
+	| innerFace |
+	
+	innerFace := testObjectsFactory createInnerFace.
+	
+	self 
+		should: [ innerFace add: 1 of: testObjectsFactory itemSellByTheStore to: '123123'. ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = InnerFace nonExistentCartErrorMessage. ]! !
+
+!InnerFaceTest methodsFor: 'tests' stamp: 'LR 11/14/2019 17:35:28'!
+test07ListingPurchasesOfAClientWithoutAnyPurchaseReturnsAnEmptyDictionaryAndZeroAsTotalAmount
+
+	| innerFace |
+	
+	innerFace := testObjectsFactory createInnerFace.
+	
+	self 
+		should: [ innerFace add: 1 of: testObjectsFactory itemSellByTheStore to: '123123'. ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = InnerFace nonExistentCartErrorMessage. ]! !
+
+
+!InnerFaceTest methodsFor: 'setup' stamp: 'LR 11/11/2019 19:24:41'!
+setUp 
+
+	testObjectsFactory := StoreTestObjectsFactory new.! !
+
+
+!classDefinition: #Cart category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
 Object subclass: #Cart
 	instanceVariableNames: 'catalog items'
 	classVariableNames: ''
@@ -305,6 +408,12 @@ total
 	^ items sum: [ :anItem | catalog at: anItem ]! !
 
 
+!Cart methodsFor: 'accessing' stamp: 'LR 11/11/2019 18:59:49'!
+items
+
+	^ items copy.! !
+
+
 !Cart methodsFor: 'adding' stamp: 'HernanWilkinson 6/17/2013 17:44'!
 add: anItem
 
@@ -320,7 +429,7 @@ add: aQuantity of: anItem
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'Cart class' category: #TusLibros stamp: 'LR 11/11/2019 17:07:56'!
+!classDefinition: 'Cart class' category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
 Cart class
 	instanceVariableNames: ''!
 
@@ -330,7 +439,7 @@ acceptingItemsOf: aCatalog
 	^self new initializeAcceptingItemsOf: aCatalog ! !
 
 
-!classDefinition: #Cashier category: #TusLibros stamp: 'LR 11/11/2019 17:07:56'!
+!classDefinition: #Cashier category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
 Object subclass: #Cashier
 	instanceVariableNames: 'cart salesBook merchantProcessor creditCard total'
 	classVariableNames: ''
@@ -381,7 +490,7 @@ initializeToCheckout: aCart charging: aCreditCard throught: aMerchantProcessor r
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'Cashier class' category: #TusLibros stamp: 'LR 11/11/2019 17:07:56'!
+!classDefinition: 'Cashier class' category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
 Cashier class
 	instanceVariableNames: ''!
 
@@ -421,7 +530,7 @@ creditCardHasNoCreditErrorMessage
 	^'Credit card has no credit'! !
 
 
-!classDefinition: #CreditCard category: #TusLibros stamp: 'LR 11/11/2019 17:07:56'!
+!classDefinition: #CreditCard category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
 Object subclass: #CreditCard
 	instanceVariableNames: 'expiration'
 	classVariableNames: ''
@@ -441,7 +550,7 @@ initializeExpiringOn: aMonth
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'CreditCard class' category: #TusLibros stamp: 'LR 11/11/2019 17:07:56'!
+!classDefinition: 'CreditCard class' category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
 CreditCard class
 	instanceVariableNames: ''!
 
@@ -451,7 +560,88 @@ expiringOn: aMonth
 	^self new initializeExpiringOn: aMonth! !
 
 
-!classDefinition: #Sale category: #TusLibros stamp: 'LR 11/11/2019 17:07:56'!
+!classDefinition: #InnerFace category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
+Object subclass: #InnerFace
+	instanceVariableNames: 'usersToPassword cartIDsToCart lastCartID catalog'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!InnerFace methodsFor: 'actions' stamp: 'LR 11/14/2019 17:30:57'!
+add: aQuantity of: anItem to: aCartID
+
+	cartIDsToCart at: aCartID ifAbsent: [ self error: self class nonExistentCartErrorMessage ].
+	(cartIDsToCart at: aCartID) add: aQuantity of: anItem.! !
+
+!InnerFace methodsFor: 'actions' stamp: 'LR 11/11/2019 19:14:41'!
+createCartFor: aClientId withPassword: aPassword
+
+	| realPassword |
+	realPassword := usersToPassword at: aClientId ifAbsent: [ self error: self class invalidCredentialsErrorMessage ].
+	(realPassword = aPassword) ifFalse: [ self error: self class invalidCredentialsErrorMessage ].
+	
+	lastCartID := lastCartID + 1.
+	
+	cartIDsToCart at: lastCartID put: (Cart acceptingItemsOf: catalog).
+	
+	^ lastCartID.
+
+	
+	! !
+
+
+!InnerFace methodsFor: 'initialization' stamp: 'LR 11/11/2019 19:14:56'!
+initialize
+
+	usersToPassword := Dictionary new.
+	catalog := Dictionary new.
+	cartIDsToCart := Dictionary new.
+	lastCartID := 0.! !
+
+!InnerFace methodsFor: 'initialization' stamp: 'LR 11/11/2019 19:29:36'!
+initializeWithUsers: aUsersToPasswordDictionary andCatalog: aCatalog 
+
+	self initialize.
+	usersToPassword := aUsersToPasswordDictionary.
+	catalog := aCatalog.! !
+
+
+!InnerFace methodsFor: 'accessing' stamp: 'LR 11/11/2019 19:11:24'!
+listCart: aCartID 
+	
+	| cartSummary |
+	cartSummary := Dictionary new.
+	
+	(cartIDsToCart at: aCartID) items do: [ :anISBN |
+		cartSummary at: anISBN put: (cartSummary at: anISBN ifAbsentPut: 0) + 1.
+	].
+	
+	^cartSummary.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'InnerFace class' category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
+InnerFace class
+	instanceVariableNames: ''!
+
+!InnerFace class methodsFor: 'error descriptions' stamp: 'LR 11/11/2019 18:01:50'!
+invalidCredentialsErrorMessage
+	
+	^ 'Invalid credentials'! !
+
+!InnerFace class methodsFor: 'error descriptions' stamp: 'LR 11/14/2019 17:29:43'!
+nonExistentCartErrorMessage
+	
+	^ 'Non existent cart'! !
+
+
+!InnerFace class methodsFor: 'instance creation' stamp: 'LR 11/11/2019 19:17:03'!
+createWithUsers: aUsersToPasswordDictionary andCatalog: aCatalog 
+
+	^self new initializeWithUsers: aUsersToPasswordDictionary andCatalog: aCatalog.! !
+
+
+!classDefinition: #Sale category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
 Object subclass: #Sale
 	instanceVariableNames: 'total'
 	classVariableNames: ''
@@ -471,7 +661,7 @@ initializeTotal: aTotal
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'Sale class' category: #TusLibros stamp: 'LR 11/11/2019 17:07:56'!
+!classDefinition: 'Sale class' category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
 Sale class
 	instanceVariableNames: ''!
 
@@ -482,7 +672,7 @@ of: aTotal
 	^self new initializeTotal: aTotal ! !
 
 
-!classDefinition: #StoreTestObjectsFactory category: #TusLibros stamp: 'LR 11/11/2019 17:07:56'!
+!classDefinition: #StoreTestObjectsFactory category: #TusLibros stamp: 'LR 11/18/2019 10:13:14'!
 Object subclass: #StoreTestObjectsFactory
 	instanceVariableNames: 'today'
 	classVariableNames: ''
@@ -503,6 +693,40 @@ itemSellByTheStore
 itemSellByTheStorePrice
 	
 	^10! !
+
+
+!StoreTestObjectsFactory methodsFor: 'innerface' stamp: 'LR 11/11/2019 19:22:08'!
+client1ID
+	
+	^ 'valid client ID 1'! !
+
+!StoreTestObjectsFactory methodsFor: 'innerface' stamp: 'LR 11/11/2019 19:22:12'!
+client2ID
+	
+	^ 'valid client ID 2'! !
+
+!StoreTestObjectsFactory methodsFor: 'innerface' stamp: 'LR 11/11/2019 19:28:02'!
+createInnerFace
+	
+	^InnerFace createWithUsers: self defaultUsers andCatalog: self defaultCatalog.! !
+
+!StoreTestObjectsFactory methodsFor: 'innerface' stamp: 'LR 11/11/2019 19:28:32'!
+defaultUsers
+	
+	^ Dictionary new
+		at: self client1ID put: self password1;
+		at: self client2ID put: self password2;
+		yourself! !
+
+!StoreTestObjectsFactory methodsFor: 'innerface' stamp: 'LR 11/11/2019 19:22:39'!
+password1
+	
+	^ 'valid client password 1'! !
+
+!StoreTestObjectsFactory methodsFor: 'innerface' stamp: 'LR 11/11/2019 19:22:41'!
+password2
+	
+	^ 'valid client password 2'! !
 
 
 !StoreTestObjectsFactory methodsFor: 'cart' stamp: 'HernanWilkinson 6/17/2013 18:08'!
