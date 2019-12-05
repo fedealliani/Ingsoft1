@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Substrings Finder</title>
+
+	<!-- Fonts to support Material Design -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+	<!-- Icons to support Material Design -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+	<div id="root"></div>
+
+	<script src="./lib/react.development.js" crossorigin="anonymous"></script>
+	<script src="./lib/react-dom.development.js" crossorigin="anonymous"></script>
+	<script src="./lib/material-ui.development.js" crossorigin="anonymous"></script>
+	<script src="./lib/babel.min.js" crossorigin="anonymous"></script>
+	<script src="./src/refreshbrowser.js" crossorigin="anonymous"></script>
+
+	<!-- Libraries fallback -->
+	<script>window.React || document.write('<script src="https://unpkg.com/react@16.11.0/umd/react.development.js">\x3C/script>')</script>
+	<script>window.ReactDOM || document.write('<script src="https://unpkg.com/react-dom@16.11.0/umd/react-dom.development.js">\x3C/script>')</script>
+	<script>window.MaterialUI || document.write('<script src="https://unpkg.com/@material-ui/core@4.6.1/umd/material-ui.development.js">\x3C/script>')</script>
+	<script>window.Babel || document.write('<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js">\x3C/script>')</script>
+	<!-- end fallback -->
+
+	<script type="text/babel" type="module">
+  const WS_PORT = 8080;  const {
+  	AppBar,
+  	Button,
+  	colors,
+  	Container,
+  	createMuiTheme,
+  	CssBaseline,
+  	Icon,
+  	IconButton,
+  	InputAdornment,
+  	InputLabel,
+  	FormControl,
+  	Link,
+  	List,
+  	ListItem,
+  	ListItemIcon,
+  	ListItemText,
+  	makeStyles,
+  	OutlinedInput,
+  	TextField,
+  	ThemeProvider,
+  	Toolbar,
+  	Typography,
+  	CircularProgress,
+  	GridList,
+  	GridListTile,
+  	GridListTileBar,
+  	Snackbar,
+  	SnackbarContent,
+  	Card,
+  	CardContent,
+  	CardActions
+  } = MaterialUI;
+  const theme = createMuiTheme({
+  	palette: {
+  		primary: {
+  			main: '#556cd6',
+  		},
+  		secondary: {
+  			main: '#19857b',
+  		},
+  		error: {
+  			main: colors.red.A400,
+  		},
+  		background: {
+  			default: '#fff',
+  			paper: '#f5f5f5',
+  		},
+  	},
+  });
+  const useStyles = makeStyles(theme => ({
+  	root: {
+  		margin: theme.spacing(6, 0, 3),
+  	},
+  	lightBulb: {
+  		verticalAlign: 'middle',
+  		// marginRight: theme.spacing(1),
+  	},
+  	rootToolBar: {
+  		flexGrow: 1,
+  	},
+  	menuButton: {
+  		marginRight: theme.spacing(2),
+  	},
+  	textField: {
+  		marginTop: theme.spacing(2),
+  		marginBottom: theme.spacing(2),
+  	},
+  	title: {
+  	},
+  	navbarButton: {
+  		color: 'white',
+  		textTransform: 'uppercase'
+  	},
+  	rootList: {
+  		width: '100%',
+  		backgroundColor: theme.palette.background.paper,
+  		position: 'relative',
+  		overflow: 'auto',
+  		maxHeight: 300,
+  	},
+  	textFieldDetails: {
+  		margin: theme.spacing(2),
+  	}
+  }));
+
+  const getLocalAsJson = (path) => {
+  	return fetch(`http://localhost:${WS_PORT}/${path}`, {
+  		method: "GET",
+  		dataType: "JSON",
+  		headers: {
+  			"Access-Control-Request-Headers": "*"
+  		}
+  	})
+  }
+
+  const Navbar = ({ title, router, clientId, cartId }) => {
+  	const classes = useStyles();
+  
+  	let menuButton = (
+  		<IconButton
+  			edge="start"
+  			className={classes.menuButton}
+  			color="inherit"
+  			onClick={() => router.navigate("/", {
+  				substrings: [],
+  				selectedSubstring: "",
+  			})}
+  		>
+  			<Icon>home</Icon>
+  		</IconButton>
+  	)
+  
+  	const createCartButton = (
+  		<Link
+  			href="#" 
+  			variant="h6"
+  			className={classes.navbarButton}
+  			onClick={() => {
+  				router.navigate('/createCart')
+  			}}
+  		>
+  			Crear carrito
+  		</Link>
+  	);
+  
+  	const viewCartButton = (
+  		<Link
+  			href="#" 
+  			variant="h6"
+  			className={classes.navbarButton}
+  			onClick={() => {
+  				router.navigate('/listCart')
+  			}}
+  			style={{ marginLeft: '2rem' }}
+  		>
+  			Ver carrito actual
+  		</Link>
+  	);
+  
+  	return (
+  		<div className={classes.rootToolBar}>
+  			<AppBar position="static">
+  				<Toolbar>
+  					{menuButton}
+  					<Typography variant="h6" className={classes.title}>
+  						{title}
+  					</Typography>
+  					{
+  						clientId && (
+  							<Typography variant="h6" style={{ marginLeft: '8px' }}>
+  								| Cliente actual: {clientId}
+  							</Typography>
+  						)
+  					}
+  					<div
+  						style={{ display: 'flex', flex: 1 }}
+  					/>
+  					{createCartButton}
+  					{cartId && viewCartButton}
+  				</Toolbar>
+  			</AppBar>
+  		</div>
+  	)
+  }
+  function StringInputView(props) {
+  	const { router } = props
+  	const classes = useStyles();
+  	const [values, setValues] = React.useState({
+  		text: '',
+  	});
+  	const handleChange = prop => event => {
+  		setValues({ ...values, [prop]: event.target.value });
+  	};
+  	const handleSend = text => {
+  		getLocalAsJson(`substrings?sentence=${text}`)
+  			.then(function (response) {
+  				return response.json()
+  			})
+  			.then(function (json) {
+  				router.navigate("/list", { substrings: json })
+  			})
+  			.catch(function (error) {
+  				console.log('Looks like there was a problem: \n', error);
+  			});
+  	}
+  
+  	return (
+  		<div>
+  			<Typography component="h1" gutterBottom>
+  				Ingrese un texto donde buscar subcadenas
+            </Typography>
+  			<FormControl fullWidth className={classes.textField} variant="outlined">
+  				<InputLabel htmlFor="outlined-adornment-amount">String</InputLabel>
+  				<OutlinedInput
+  					id="outlined-adornment-amount"
+  					value={values.text}
+  					onChange={handleChange('text')}
+  					startAdornment={<InputAdornment position="start">></InputAdornment>}
+  					labelWidth={60}
+  					multiline
+  					rows="7"
+  				/>
+  			</FormControl>
+  
+  			<Button
+  				color="inherit"
+  				onClick={() => handleSend(values.text)}>
+  				Enviar
+            </Button>
+  		</div>
+  	)
+  }
+  function SubstringsView(props) {
+  	const { router, substrings } = props
+  	const classes = useStyles();
+  
+  	return (
+  		<div>
+  			<Typography component="h1" gutterBottom>
+  				Encontramos los siguientes substrings:
+  					</Typography>
+  			<List component="nav" className={classes.rootList} aria-label="substrings">
+  				{
+  					substrings.map((substring, ix) => {
+  						return (
+  							<ListItem
+  								button
+  								key={ix}
+  								onClick={() => router.navigate('/details', { selectedSubstring: substring })}>
+  								<ListItemText primary={substring} />
+  							</ListItem>
+  						)
+  					})
+  				}
+  			</List>
+  		</div>
+  	)
+  }
+  // Fetch Hook
+  const useFetchDetails = (substring) => {
+  	const [details, setDetails] = React.useState([])
+  	const [loading, setLoading] = React.useState(false)
+  	const [error, setError] = React.useState(null)
+  
+  	React.useEffect(() => {
+  		setLoading(true)
+  		setError(null)
+  
+  		let details = {}
+  
+  		getLocalAsJson(`firstletter?word=${substring}`)
+  			.then(function (response) {
+  				return response.json()
+  			})
+  			.then(function (json) {
+  				details["firstLetter"] = json
+  
+  				setLoading(false)
+  				if (details) {
+  					setDetails(details)
+  				} else {
+  					setDetails([])
+  				}
+  			})
+  			.then(function () {
+  				setLoading(true)
+  				setError(null)
+  
+  				return getLocalAsJson(`touppercase?word=${substring}`)
+  			})
+  			.then(function (response) {
+  				return response.json()
+  			})
+  			.then(function (json) {
+  				details["uppercase"] = json
+  
+  				setLoading(false)
+  				if (details) {
+  					setDetails(details)
+  				} else {
+  					setDetails([])
+  				}
+  			})
+  			.then(function () {
+  				setLoading(true)
+  				setError(null)
+  
+  				return getLocalAsJson(`vowels?word=${substring}`)
+  			})
+  			.then(function (response) {
+  				return response.json()
+  			})
+  			.then(function (json) {
+  				details["vowels"] = json
+  
+  				setLoading(false)
+  				if (details) {
+  					setDetails(details)
+  				} else {
+  					setDetails([])
+  				}
+  			})
+  			.catch(err => {
+  				setError(err)
+  				setLoading(false)
+  			})
+  	}, [substring])
+  
+  	return { details, loading, error }
+  }
+  
+  // Component
+  function SubstringDetailsView(props) {
+  	const { router, selectedSubstring } = props
+  	const classes = useStyles();
+  
+  	const { details, loading, error } = useFetchDetails(selectedSubstring)
+  
+  	if (loading) return <div>Loading...</div>
+  	if (error) return <div>{error}</div>
+  
+  	return (
+  		<div>
+  			<Typography variant="h4" component="h4" gutterBottom>
+  				Detalles de <b>{selectedSubstring}</b>
+  			</Typography>
+  
+  			<TextField
+  				id="outlined-read-only-input"
+  				label="Primera letra"
+  				defaultValue={details["firstLetter"]}
+  				className={classes.textFieldDetails}
+  				margin="normal"
+  				InputProps={{
+  					readOnly: true,
+  				}}
+  				variant="outlined"
+  			/>
+  			<TextField
+  				id="outlined-read-only-input"
+  				label="En mayúsculas"
+  				defaultValue={details["uppercase"]}
+  				className={classes.textFieldDetails}
+  				margin="normal"
+  				InputProps={{
+  					readOnly: true,
+  				}}
+  				variant="outlined"
+  			/>
+  			<TextField
+  				id="outlined-read-only-input"
+  				label="Vocales"
+  				defaultValue={details["vowels"]}
+  				className={classes.textFieldDetails}
+  				margin="normal"
+  				InputProps={{
+  					readOnly: true,
+  				}}
+  				variant="outlined"
+  			/>
+  		</div>
+  	)
+  }
+  const initialValues = {
+  	clientId: '',
+  	password: ''
+  };
+  
+  const CreateCartView = ({ router }) => {
+  	const classes = useStyles();
+  
+  	const [values, setValues] = React.useState(initialValues);
+  
+  	const resetValues = () => setValues(initialValues)
+  
+  	const handleChange = prop => event => {
+  		setValues({ ...values, [prop]: event.target.value });
+  	};
+  
+  	const { clientId, password } = values;
+  
+  	const handleSend = () => {	
+  		getLocalAsJson(`createCart?clientId=${clientId}&password=${password}`)
+  			.then(res => res.json())
+  			.then(({ code, msg }) => {
+  				if (code === 1) {
+  					throw(msg);
+  				}
+  
+  				router.navigate("/", { clientId, cartId: msg })
+  			})
+  			.catch((error) => {
+  				alert(error);
+  
+  				resetValues();
+  			});
+  	}
+  
+  	return (
+  		<div>
+  			<Typography align="center" variant="h3" gutterBottom>
+  				Crear carrito
+  			</Typography>
+  			<Typography align="center" component="h1" gutterBottom>
+  				Ingrese su usuario y contraseña para crear un carrito
+  			</Typography>
+  			<div
+  				style={{
+  					display: 'flex',
+  					flexDirection: 'column',
+  					maxWidth: '300px',
+  					margin: 'auto',
+  
+  				}}
+  			>
+  				<TextField
+  					id="standard"
+  					label="Username"
+  					className={classes.textField}
+  					margin="normal"
+  					onChange={handleChange('clientId')}
+  					value={clientId}
+  				/>
+  				<TextField
+  					id="standard-password-input"
+  					label="Password"
+  					className={classes.textField}
+  					type="password"
+  					margin="normal"
+  					onChange={handleChange('password')}
+  					value={password}
+  				/>
+  
+  				<Button
+  					style={{ maxWidth: '120px', alignSelf: 'flex-end' }}
+  					variant="contained"
+  					color="primary"
+  					onClick={handleSend}
+  				>
+  					Crear
+  				</Button>
+  			</div>
+  		</div>
+  	);
+  };
+  const fetchCart = (cartId) => getLocalAsJson(`listCart?cartId=${cartId}`);
+  const checkoutCart = (cartId) => getLocalAsJson(`checkOutCart?cartId=${cartId}`);
+  
+  const ListCartView = ({ router, catalog, cartId, cartCounts, onBookAdd, onBookRemove }) => {
+  	const [fetchingCart, setFetchingCart] = React.useState(true);
+  	const [showBookAddedMessage, setShowBookAddedMessage] = React.useState(false);
+  	const [cart, setCart] = React.useState([]);
+  
+  	React.useEffect(() => {
+  		fetchCart(cartId)
+  			.then(res => res.json())
+  			.then(({ code, msg }) => {
+  				if (code === 1) {
+  					throw(msg);
+  				}
+  
+  				setCart(msg);
+  				setFetchingCart(false);
+  			})
+  			.catch((error) => {
+  				alert(error);
+  				setFetchingCart(false);
+  			})
+  	}, []);
+  
+  	const handleOnAddPress = (isbn, count = 1) => () => {
+  		getLocalAsJson(`addToCart?cartId=${cartId}&bookIsbn=${isbn}&bookQuantity=${count}`)
+  			.then(res => res.json())
+  			.then(({ code, msg }) => {
+  				if (code === 1) {
+  					throw(msg);
+  				}
+  
+  				setShowBookAddedMessage(true)
+  
+  				count === 1 ? onBookAdd(isbn) : onBookRemove(isbn);
+  			})
+  			.catch((error) => {
+  				alert(error);
+  			});
+  	};
+  
+  	return (
+  		<div>
+  			<div>
+  				<Typography align="center" variant="h3" gutterBottom>
+  					Carrito de compras
+  				</Typography>
+  				{
+  					fetchingCart
+  						? <LoadingView />
+  						: (
+  							catalog
+  								.filter(({ isbn }) => Object.keys(cart).includes(isbn) && cartCounts[isbn] > 0)
+  								.map(({ isbn, title, image, price }) => (
+  									<CatalogBookView
+  										key={isbn}
+  										isbn={isbn}
+  										title={title}
+  										price={price}
+  										showAddAndRemoveButtons={cartId != null}
+  										onAddPress={handleOnAddPress(isbn)}
+  										onRemovePress={handleOnAddPress(isbn, -1)}
+  										cartCount={cartCounts[isbn]}
+  									/>
+  								))
+  						)
+  				}
+  			</div>
+  			<Button
+  				variant="contained"
+  				color="primary"
+  				onClick={() => {
+  					checkoutCart(cartId)
+  						.then(res => res.json())
+  						.then(({ code, msg }) => {
+  							if (code === 1) {
+  								throw(msg);
+  							}
+  			
+  							router.navigate("/success");
+  						})
+  						.catch((error) => {
+  							alert(error);
+  						});
+  				}}
+  			>
+  				Checkout
+  			</Button>
+  			<Snackbar
+  				anchorOrigin={{
+  					vertical: 'bottom',
+  					horizontal: 'right',
+  				}}
+  				autoHideDuration={1000}
+  				open={showBookAddedMessage}
+  				ContentProps={{
+  					'aria-describedby': 'message-id',
+  				}}
+  				message={<span id="message-id">Carrito modificado</span>}
+  				onClose={() => setShowBookAddedMessage(false)}
+  			/>
+  		</div>
+  	);
+  };  const fetchCatalog = () => getLocalAsJson('catalog');
+  
+  
+  const CatalogView = ({ cartCounts, router, cartId, onBookAdd, onBookRemove, onCatalogChanged }) => {
+  	const [fetchingCatalog, setFetchingCatalog] = React.useState(true);
+  	const [showBookAddedMessage, setShowBookAddedMessage] = React.useState(false);
+  	const [catalog, setCatalog] = React.useState([]);
+  
+  	React.useEffect(() => {
+  		fetchCatalog()
+  			.then(res => res.json())
+  			.then((res) => {
+  				setCatalog(res);
+  
+  				onCatalogChanged(res);
+  				setFetchingCatalog(false);
+  			})
+  			.catch((error) => {
+  				alert(error);
+  				setFetchingCatalog(false);
+  			})
+  	}, []);
+  
+  	const handleOnAddPress = (isbn, count = 1) => () => {
+  		getLocalAsJson(`addToCart?cartId=${cartId}&bookIsbn=${isbn}&bookQuantity=${count}`)
+  			.then(res => res.json())
+  			.then(({ code, msg }) => {
+  				if (code === 1) {
+  					throw(msg);
+  				}
+  
+  				setShowBookAddedMessage(true)
+  
+  				count === 1 ? onBookAdd(isbn) : onBookRemove(isbn);
+  			})
+  			.catch((error) => {
+  				alert(error);
+  			});
+  	};
+  
+  	return (
+  		<div>
+  			<div>
+  				<Typography align="center" variant="h3" gutterBottom>
+  					Catálogo de libros
+  				</Typography>
+  				{
+  					cartId == null &&
+  					<Typography align="center" component="h1" gutterBottom>
+  						Para comprar libros, por favor, cree un carrito
+  					</Typography>
+  				}
+  				{
+  					fetchingCatalog
+  						? <LoadingView />
+  						: (
+  							catalog.map(({ isbn, title, image, price }) => (
+  								<CatalogBookView
+  									key={isbn}
+  									isbn={isbn}
+  									title={title}
+  									price={price}
+  									showAddAndRemoveButtons={cartId != null}
+  									onAddPress={handleOnAddPress(isbn)}
+  									onRemovePress={handleOnAddPress(isbn, -1)}
+  									cartCount={cartCounts[isbn]}
+  								/>
+  							))
+  						)
+  				}
+  			</div>
+  			<Snackbar
+  				anchorOrigin={{
+  					vertical: 'bottom',
+  					horizontal: 'right',
+  				}}
+  				autoHideDuration={1000}
+  				open={showBookAddedMessage}
+  				ContentProps={{
+  					'aria-describedby': 'message-id',
+  				}}
+  				message={<span id="message-id">Carrito modificado</span>}
+  				onClose={() => setShowBookAddedMessage(false)}
+  			/>
+  		</div>
+  	);
+  };  
+  const SuccessView = ({ router }) => {
+  	return (
+  		<div>
+  			<Typography align="center" variant="h3" gutterBottom>
+  				Compra realizada!
+  			</Typography>
+  			<div
+  				style={{
+  					display: 'flex',
+  					flexDirection: 'column',
+  					alignItems: 'center',
+  					margin: 'auto',
+  
+  				}}
+  			>
+  				<Icon>check_circle</Icon>
+  			</div>
+  		</div>
+  	);
+  };
+  const CatalogBookView = ({
+  	showAddAndRemoveButtons,
+  	isbn,
+  	title,
+  	price,
+  	onAddPress,
+  	onRemovePress,
+  	cartCount
+  }) => (
+  	<Card style={{ margin: '10px' }}>
+  		<CardContent>
+  			<Typography variant="h4" component="h2">{title}</Typography>
+  			<Typography color="textSecondary">ISBN: {isbn}</Typography>
+  			<Typography variant="body2" component="p">Price: {price}</Typography>
+  		</CardContent>
+  		{
+  			showAddAndRemoveButtons && (
+  				<CardActions>
+  					<IconButton
+  						style={{ marginLeft: '2px' }}
+  						edge="start"
+  						color="inherit"
+  						onClick={onAddPress}
+  					>
+  						<Icon>add</Icon>
+  					</IconButton>
+  					<IconButton
+  						style={{ marginLeft: '2px' }}
+  						edge="start"
+  						color="inherit"
+  						onClick={onRemovePress}
+  					>
+  						<Icon>remove</Icon>
+  					</IconButton>
+  					<div
+  						style={{ display: 'flex', flex: 1 }}
+  					/>
+  					{
+  						cartCount && cartCount > 0
+  							? (
+  								<Typography align="center" variant="subtitle1" style={{ marginRight: '8px' }}>
+  									{cartCount} en el carrito
+  								</Typography>
+  							) : null
+  					}
+  				</CardActions>
+  			)
+  		}
+  		
+  	</Card>
+  );
+  const LoadingView = () => (
+  	<div
+  		style={{
+  			display: 'flex',
+  			flexDirection: 'column',
+  		}}
+  	>
+  		<Typography variant="h6" align="center" gutterBottom>Cargando...</Typography>
+  		<CircularProgress style={{ alignSelf: 'center' }} />
+  	</div>
+  );
+  const App = ({}) => {
+  
+  	const [path, setPath] = React.useState('/');
+  	const [state, setState] = React.useState({
+  		clientId: null,
+  		cartId: null,
+  		cartCounts: {}
+  	});
+  
+  	const [catalog, setCatalog] = React.useState([]);
+  
+  	const title = "TusLibros 2.0"
+  	let content = "404"
+  
+  	const router = {
+  		current: () => path,
+  		navigate: (toPath, withState) => {
+  			setPath(toPath);
+  			setState({ ...state, ...withState });
+  		}
+  	}
+  
+  	const { clientId, cartId, cartCounts } = state;
+  
+  	const updateCatalog = React.useCallback(
+  		(newCatalog) => {
+  			setCatalog(newCatalog);
+  		},
+  		[catalog, setCatalog]
+  	);
+  	
+  	const updateCartCount = React.useCallback(
+  		(isbn, count) => {
+  			setState({
+  				...state,
+  				cartCounts: {
+  					...cartCounts,
+  					[isbn]: count
+  				}
+  			});
+  		},
+  		[state, setState]
+  	);
+  
+  	if (path === "/") {
+  		content = (
+  			<CatalogView
+  				router={router}
+  				cartId={cartId}
+  				cartCounts={cartCounts}
+  				onBookAdd={(isbn) => {
+  					const currentCount = cartCounts[isbn] || 0;
+  					updateCartCount(isbn, currentCount + 1);
+  				}}
+  				onBookRemove={(isbn) => {
+  					const currentCount = cartCounts[isbn] || 0;
+  					updateCartCount(isbn, currentCount - 1);
+  				}}
+  				onCatalogChanged={updateCatalog}
+  			/>
+  		)
+  	} else if (path === '/createCart') {
+  		content = (<CreateCartView router={router} />);
+  	} else if (path === '/listCart') {
+  		content = (
+  			<ListCartView
+  				router={router}
+  				cartId={cartId}
+  				cartCounts={cartCounts}
+  				onBookAdd={(isbn) => {
+  					const currentCount = cartCounts[isbn] || 0;
+  					updateCartCount(isbn, currentCount + 1);
+  				}}
+  				onBookRemove={(isbn) => {
+  					const currentCount = cartCounts[isbn] || 0;
+  					updateCartCount(isbn, currentCount - 1);
+  				}}
+  				catalog={catalog}
+  			/>
+  		);
+  	} else if (path === '/success') {
+  		content = (<SuccessView router={router} />);
+  	}
+  
+  	return (
+  		<div>
+  			<Navbar
+  				title={title}
+  				router={router}
+  				clientId={clientId}
+  				cartId={cartId}
+  			/>
+  			<Container maxWidth="sm">
+  				<div style={{ marginTop: 24 }}>
+  					{content}
+  				</div>
+  			</Container>
+  		</div>
+  	);
+  }
+
+		///////////////////////////////////////////////////////////////////////////
+		// Initial render
+		//
+		ReactDOM.render(
+			<ThemeProvider theme={theme}>
+				<CssBaseline />
+				<App />
+			</ThemeProvider>,
+			document.getElementById('root')
+		)
+	</script>
+
+	<!-- <button onclick="window.location.reload(true)">reload</button> -->
+</body>
+
+</html>
